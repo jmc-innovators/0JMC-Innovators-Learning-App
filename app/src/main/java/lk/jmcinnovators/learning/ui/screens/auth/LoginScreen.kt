@@ -5,17 +5,21 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.CircleShape
+import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Button
 import androidx.compose.material3.ButtonDefaults
 import androidx.compose.material3.CircularProgressIndicator
 import androidx.compose.material3.MaterialTheme
+import androidx.compose.material3.Surface
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
@@ -25,6 +29,8 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Brush
+import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.platform.testTag
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.res.stringResource
 import androidx.compose.ui.text.font.FontWeight
@@ -46,6 +52,7 @@ fun LoginScreen(
     val viewModel: AuthViewModel = viewModel(factory = factory)
     val uiState by viewModel.uiState.collectAsState()
     val isOnline by rememberIsOnline()
+    val context = LocalContext.current
 
     LaunchedEffect(uiState) {
         val state = uiState
@@ -62,14 +69,18 @@ fun LoginScreen(
             )
     ) {
         Column(
-            Modifier.fillMaxSize().padding(32.dp),
+            Modifier
+                .fillMaxSize()
+                .padding(32.dp),
             horizontalAlignment = Alignment.CenterHorizontally,
             verticalArrangement = Arrangement.Center
         ) {
             Image(
                 painter = painterResource(R.drawable.jmc_logo),
                 contentDescription = stringResource(R.string.cd_logo),
-                modifier = Modifier.size(96.dp).clip(CircleShape)
+                modifier = Modifier
+                    .size(96.dp)
+                    .clip(CircleShape)
             )
             Spacer(Modifier.height(16.dp))
             Text(
@@ -86,25 +97,51 @@ fun LoginScreen(
             Spacer(Modifier.height(40.dp))
 
             when (val state = uiState) {
-                is LoginUiState.Loading -> CircularProgressIndicator()
-                is LoginUiState.Error -> {
-                    Text(
-                        state.message,
-                        color = MaterialTheme.colorScheme.error,
-                        textAlign = TextAlign.Center,
-                        modifier = Modifier.padding(bottom = 12.dp)
+                is LoginUiState.Loading -> {
+                    GoogleSignInButton(
+                        enabled = false,
+                        loading = true,
+                        onClick = {}
                     )
-                    GoogleSignInButton(enabled = isOnline, onClick = viewModel::signInWithGoogle)
                 }
-                else -> GoogleSignInButton(enabled = isOnline, onClick = viewModel::signInWithGoogle)
+                is LoginUiState.Error -> {
+                    Surface(
+                        shape = RoundedCornerShape(12.dp),
+                        color = MaterialTheme.colorScheme.errorContainer.copy(alpha = 0.8f),
+                        modifier = Modifier
+                            .fillMaxWidth()
+                            .padding(bottom = 16.dp)
+                    ) {
+                        Text(
+                            text = state.message,
+                            color = MaterialTheme.colorScheme.onErrorContainer,
+                            textAlign = TextAlign.Center,
+                            style = MaterialTheme.typography.bodyMedium,
+                            modifier = Modifier.padding(horizontal = 16.dp, vertical = 10.dp)
+                        )
+                    }
+                    GoogleSignInButton(
+                        enabled = isOnline,
+                        loading = false,
+                        onClick = { viewModel.signInWithGoogle(context) }
+                    )
+                }
+                else -> {
+                    GoogleSignInButton(
+                        enabled = isOnline,
+                        loading = false,
+                        onClick = { viewModel.signInWithGoogle(context) }
+                    )
+                }
             }
 
             if (!isOnline) {
                 Spacer(Modifier.height(12.dp))
                 Text(
-                    "You're offline — connect to sign in.",
+                    "You're offline — please connect to the internet to sign in.",
                     color = JmcPalette.DarkText2,
-                    style = MaterialTheme.typography.labelLarge
+                    style = MaterialTheme.typography.labelLarge,
+                    textAlign = TextAlign.Center
                 )
             }
 
@@ -120,16 +157,55 @@ fun LoginScreen(
 }
 
 @Composable
-private fun GoogleSignInButton(enabled: Boolean, onClick: () -> Unit) {
+private fun GoogleSignInButton(
+    enabled: Boolean,
+    loading: Boolean = false,
+    onClick: () -> Unit
+) {
     Button(
         onClick = onClick,
-        enabled = enabled,
-        modifier = Modifier.fillMaxWidth().height(52.dp),
+        enabled = enabled && !loading,
+        shape = RoundedCornerShape(26.dp),
+        modifier = Modifier
+            .fillMaxWidth()
+            .height(54.dp)
+            .testTag("google_sign_in_button"),
         colors = ButtonDefaults.buttonColors(
             containerColor = androidx.compose.ui.graphics.Color.White,
-            contentColor = androidx.compose.ui.graphics.Color(0xFF1F1F1F)
-        )
+            contentColor = androidx.compose.ui.graphics.Color(0xFF1F1F1F),
+            disabledContainerColor = androidx.compose.ui.graphics.Color(0xFFE0E0E0),
+            disabledContentColor = androidx.compose.ui.graphics.Color(0xFF757575)
+        ),
+        elevation = ButtonDefaults.buttonElevation(defaultElevation = 2.dp, pressedElevation = 4.dp)
     ) {
-        Text("Continue with Google", fontWeight = FontWeight.SemiBold)
+        if (loading) {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center
+            ) {
+                CircularProgressIndicator(
+                    modifier = Modifier.size(20.dp),
+                    strokeWidth = 2.dp,
+                    color = androidx.compose.ui.graphics.Color(0xFF1F1F1F)
+                )
+                Spacer(Modifier.width(12.dp))
+                Text(
+                    "Connecting to Google...",
+                    fontWeight = FontWeight.SemiBold,
+                    color = androidx.compose.ui.graphics.Color(0xFF1F1F1F)
+                )
+            }
+        } else {
+            Row(
+                verticalAlignment = Alignment.CenterVertically,
+                horizontalArrangement = Arrangement.Center
+            ) {
+                Text(
+                    "Continue with Google",
+                    fontWeight = FontWeight.SemiBold,
+                    color = androidx.compose.ui.graphics.Color(0xFF1F1F1F)
+                )
+            }
+        }
     }
 }

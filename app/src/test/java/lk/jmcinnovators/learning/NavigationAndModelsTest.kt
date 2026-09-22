@@ -5,9 +5,13 @@ import lk.jmcinnovators.learning.data.model.Note
 import lk.jmcinnovators.learning.data.model.Quiz
 import lk.jmcinnovators.learning.data.model.QuizQuestion
 import lk.jmcinnovators.learning.data.model.SchoolClass
+import lk.jmcinnovators.learning.data.model.UserProfile
+import lk.jmcinnovators.learning.data.repository.AuthResult
 import lk.jmcinnovators.learning.navigation.BOTTOM_NAV_ROUTES
 import lk.jmcinnovators.learning.navigation.Routes
+import lk.jmcinnovators.learning.viewmodel.LoginUiState
 import org.junit.Assert.assertEquals
+import org.junit.Assert.assertFalse
 import org.junit.Assert.assertTrue
 import org.junit.Test
 import kotlin.math.PI
@@ -36,6 +40,58 @@ class NavigationAndModelsTest {
         assertTrue(BOTTOM_NAV_ROUTES.contains(Routes.TOOLS))
         assertTrue(BOTTOM_NAV_ROUTES.contains(Routes.NOTES))
         assertTrue(BOTTOM_NAV_ROUTES.contains(Routes.PROFILE))
+    }
+
+    @Test
+    fun `verifies login ui state and auth result models`() {
+        val idleState: LoginUiState = LoginUiState.Idle
+        val loadingState: LoginUiState = LoginUiState.Loading
+        val errorState: LoginUiState = LoginUiState.Error("No Google account found")
+        val signedInWithoutProfile: LoginUiState = LoginUiState.SignedIn(hasProfile = false)
+        val signedInWithProfile: LoginUiState = LoginUiState.SignedIn(hasProfile = true)
+
+        assertTrue(idleState is LoginUiState.Idle)
+        assertTrue(loadingState is LoginUiState.Loading)
+        assertTrue(errorState is LoginUiState.Error)
+        assertEquals("No Google account found", (errorState as LoginUiState.Error).message)
+        assertFalse((signedInWithoutProfile as LoginUiState.SignedIn).hasProfile)
+        assertTrue((signedInWithProfile as LoginUiState.SignedIn).hasProfile)
+
+        val cancelledResult: AuthResult = AuthResult.Cancelled
+        val errorResult: AuthResult = AuthResult.Error("Network error")
+        assertTrue(cancelledResult is AuthResult.Cancelled)
+        assertEquals("Network error", (errorResult as AuthResult.Error).message)
+    }
+
+    @Test
+    fun `verifies user profile initialization and completion checks`() {
+        // When user logs in with Google, initial profile is populated with Google details
+        val initialProfile = UserProfile(
+            uid = "google_user_123",
+            fullName = "Student Name",
+            email = "student@example.com",
+            photoUrl = "https://lh3.googleusercontent.com/a/photo.jpg",
+            createdAtMillis = 1700000000000L
+        )
+
+        assertEquals("google_user_123", initialProfile.uid)
+        assertEquals("Student Name", initialProfile.fullName)
+        assertEquals("student@example.com", initialProfile.email)
+        assertEquals("student", initialProfile.role)
+        assertTrue(initialProfile.grade.isBlank())
+
+        // Incomplete profile (blank grade) requires ProfileSetup screen
+        val hasCompletedProfile = initialProfile.fullName.isNotBlank() && initialProfile.grade.isNotBlank()
+        assertFalse(hasCompletedProfile)
+
+        // After completed profile setup with grade
+        val completedProfile = initialProfile.copy(
+            grade = "Grade 11",
+            school = "JMC College International",
+            language = "en"
+        )
+        assertTrue(completedProfile.fullName.isNotBlank() && completedProfile.grade.isNotBlank())
+        assertEquals("Grade 11", completedProfile.grade)
     }
 
     @Test

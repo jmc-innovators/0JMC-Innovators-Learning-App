@@ -59,7 +59,13 @@ The application retains its dedicated dual-project architecture to isolate publi
 
 ## 4. Features Implemented & Verified
 
-### 1. Home Learning Dashboard
+### 1. Home Learning Dashboard & Authentication
+- **Modern Credential Manager Integration:**
+  - Standardized Google Sign-In via Android Credential Manager and Google Identity Services (`GetGoogleIdOption`, `GetSignInWithGoogleOption`).
+  - Implemented automatic fallback upon `NoCredentialException` or `GetCredentialNoCredentialsException`: if no previously authorized account is present on the device, the app dynamically retries with `filterByAuthorizedAccounts = false`, presenting the native Android Google account chooser dialog rather than failing with "No credentials available".
+  - Resolves Activity context from Compose `LocalContext.current` to ensure bottom sheet dialogs can attach without context window errors.
+  - Automatically exchanges Google ID tokens with Firebase Auth (`signInWithCredential`).
+  - Reads or initializes `users/{uid}` profile documents in Firestore, preserving user full names, emails, avatars, and registration timestamps.
 - Personalized student greeting with dynamic day/night contextual headers.
 - Interactive streak counter and weekly study statistics.
 - Quick navigation cards to recent classes, assignments, and tools.
