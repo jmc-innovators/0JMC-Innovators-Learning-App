@@ -41,7 +41,8 @@ import lk.jmcinnovators.learning.ui.screens.notifications.NotificationsScreen
 import lk.jmcinnovators.learning.ui.screens.onboarding.OnboardingScreen
 import lk.jmcinnovators.learning.ui.screens.profile.ProfileScreen
 import lk.jmcinnovators.learning.ui.screens.tools.DictionaryScreen
-import lk.jmcinnovators.learning.ui.screens.tools.PendingToolScreen
+import lk.jmcinnovators.learning.ui.screens.tools.MathsLabScreen
+import lk.jmcinnovators.learning.ui.screens.tools.ScienceWorldScreen
 import lk.jmcinnovators.learning.ui.screens.tools.ToolsScreen
 import lk.jmcinnovators.learning.viewmodel.SessionViewModel
 import lk.jmcinnovators.learning.viewmodel.StartDestination
@@ -152,10 +153,10 @@ fun JmcNavGraph(sessionViewModel: SessionViewModel, factory: ViewModelFactory) {
                     DictionaryScreen(onBack = { navController.popBackStack() })
                 }
                 composable(Routes.MATHS_LAB) {
-                    PendingToolScreen("Maths Lab", onBack = { navController.popBackStack() })
+                    MathsLabScreen(onBack = { navController.popBackStack() })
                 }
                 composable(Routes.SCIENCE_WORLD) {
-                    PendingToolScreen("Science World", onBack = { navController.popBackStack() })
+                    ScienceWorldScreen(onBack = { navController.popBackStack() })
                 }
                 composable(Routes.NOTES) {
                     NotesScreen(factory = factory, onOpenNote = { id -> navController.navigate(Routes.noteEditor(id)) })

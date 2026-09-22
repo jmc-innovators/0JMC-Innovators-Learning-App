@@ -24,28 +24,36 @@ object ClassroomFirebaseRefs {
     @Synchronized
     fun ensureInitialized(context: Context) {
         if (initialized) return
-        val existing = FirebaseApp.getApps(context).firstOrNull { it.name == SECONDARY_APP_NAME }
-        if (existing == null) {
-            val json = JSONObject(
-                context.resources.openRawResource(R.raw.jmc_class_services)
-                    .bufferedReader().use { it.readText() }
-            )
-            val client = json.getJSONArray("client").getJSONObject(0)
-            val projectInfo = json.getJSONObject("project_info")
-            val options = FirebaseOptions.Builder()
-                .setApplicationId(client.getJSONObject("client_info").getString("mobilesdk_app_id"))
-                .setApiKey(client.getJSONArray("api_key").getJSONObject(0).getString("current_key"))
-                .setProjectId(projectInfo.getString("project_id"))
-                .setStorageBucket(projectInfo.getString("storage_bucket"))
-                .build()
-            FirebaseApp.initializeApp(context, options, SECONDARY_APP_NAME)
+        try {
+            val existing = FirebaseApp.getApps(context).firstOrNull { it.name == SECONDARY_APP_NAME }
+            if (existing == null) {
+                val json = JSONObject(
+                    context.resources.openRawResource(R.raw.jmc_class_services)
+                        .bufferedReader().use { it.readText() }
+                )
+                val client = json.getJSONArray("client").getJSONObject(0)
+                val projectInfo = json.getJSONObject("project_info")
+                val options = FirebaseOptions.Builder()
+                    .setApplicationId(client.getJSONObject("client_info").getString("mobilesdk_app_id"))
+                    .setApiKey(client.getJSONArray("api_key").getJSONObject(0).getString("current_key"))
+                    .setProjectId(projectInfo.getString("project_id"))
+                    .setStorageBucket(projectInfo.getString("storage_bucket"))
+                    .build()
+                FirebaseApp.initializeApp(context, options, SECONDARY_APP_NAME)
+            }
+            initialized = true
+        } catch (e: Exception) {
+            android.util.Log.w("ClassroomFirebaseRefs", "Could not init jmc-class app: ${e.message}")
         }
-        initialized = true
     }
 
-    fun app(context: Context) = run {
+    fun app(context: Context): FirebaseApp = run {
         ensureInitialized(context)
-        FirebaseApp.getInstance(SECONDARY_APP_NAME)
+        try {
+            FirebaseApp.getInstance(SECONDARY_APP_NAME)
+        } catch (e: Exception) {
+            FirebaseApp.getInstance()
+        }
     }
 
     fun auth(context: Context) = Firebase.auth(app(context))

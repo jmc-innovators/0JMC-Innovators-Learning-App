@@ -15,6 +15,8 @@ import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.CircularProgressIndicator
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.ExposedDropdownMenuBox
 import androidx.compose.material3.ExposedDropdownMenuDefaults
 import androidx.compose.material3.MenuAnchorType
@@ -51,6 +53,7 @@ private val grades = listOf("Grade 6", "Grade 7", "Grade 8", "Grade 9", "Grade 1
 private val languages = listOf("en" to "English", "si" to "සිංහල (Sinhala)", "ta" to "தமிழ் (Tamil)")
 
 /** Mirrors legacy-web/profile.html's role/grade/language form so the same users/{uid} shape results. */
+@OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun ProfileSetupScreen(
     factory: ViewModelFactory,
@@ -118,11 +121,11 @@ fun ProfileSetupScreen(
                         trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = gradeMenuExpanded) },
                         modifier = Modifier.fillMaxWidth().menuAnchor(MenuAnchorType.PrimaryNotEditable)
                     )
-                            androidx.compose.material3.ExposedDropdownMenu(
+                    ExposedDropdownMenu(
                         expanded = gradeMenuExpanded, onDismissRequest = { gradeMenuExpanded = false }
                     ) {
                         grades.forEach { g ->
-                            androidx.compose.material3.DropdownMenuItem(
+                            DropdownMenuItem(
                                 text = { Text(g) },
                                 onClick = { grade = g; gradeMenuExpanded = false }
                             )
@@ -139,11 +142,11 @@ fun ProfileSetupScreen(
                     trailingIcon = { ExposedDropdownMenuDefaults.TrailingIcon(expanded = langMenuExpanded) },
                     modifier = Modifier.fillMaxWidth().menuAnchor(MenuAnchorType.PrimaryNotEditable)
                 )
-                androidx.compose.material3.ExposedDropdownMenu(
+                ExposedDropdownMenu(
                     expanded = langMenuExpanded, onDismissRequest = { langMenuExpanded = false }
                 ) {
                     languages.forEach { (code, label) ->
-                        androidx.compose.material3.DropdownMenuItem(
+                        DropdownMenuItem(
                             text = { Text(label) },
                             onClick = { language = code; langMenuExpanded = false }
                         )

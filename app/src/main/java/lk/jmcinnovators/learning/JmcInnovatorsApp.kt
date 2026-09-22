@@ -15,11 +15,15 @@ class JmcInnovatorsApp : Application() {
 
     override fun onCreate() {
         super.onCreate()
-        FirebaseApp.initializeApp(this)
+        try {
+            FirebaseApp.initializeApp(this)
 
-        // Offline persistence: cached reads/writes survive a dropped connection (see req. 23).
-        Firebase.firestore.firestoreSettings = firestoreSettings {
-            setLocalCacheSettings(persistentCacheSettings {})
+            // Offline persistence: cached reads/writes survive a dropped connection (see req. 23).
+            Firebase.firestore.firestoreSettings = firestoreSettings {
+                setLocalCacheSettings(persistentCacheSettings {})
+            }
+        } catch (e: Exception) {
+            android.util.Log.e("JmcInnovatorsApp", "Firebase initialization failed: ${e.message}", e)
         }
 
         createNotificationChannels()

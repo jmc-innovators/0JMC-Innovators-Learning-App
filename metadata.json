@@ -1,0 +1,6 @@
+{
+  "name": "JMC Innovators",
+  "description": "JMC Innovators Learning Platform for Grade 6-11 students",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

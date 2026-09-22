@@ -29,6 +29,12 @@ android {
     }
 
     signingConfigs {
+        create("debugConfig") {
+            storeFile = file("${rootDir}/debug.keystore")
+            storePassword = "android"
+            keyAlias = "androiddebugkey"
+            keyPassword = "android"
+        }
         if (keystoreProps.isNotEmpty()) {
             create("release") {
                 storeFile = rootProject.file(keystoreProps.getProperty("storeFile"))
@@ -48,6 +54,7 @@ android {
         }
         debug {
             isDebuggable = true
+            signingConfig = signingConfigs.getByName("debugConfig")
         }
     }
 
@@ -107,13 +114,17 @@ dependencies {
     implementation("com.google.android.libraries.identity.googleid:googleid:1.1.1")
 
     // Firebase (versions are managed by the BoM)
-    implementation(platform("com.google.firebase:firebase-bom:34.19.0"))
+    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
     implementation("com.google.firebase:firebase-analytics")
     implementation("com.google.firebase:firebase-auth")
+    implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore")
+    implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-storage")
+    implementation("com.google.firebase:firebase-storage-ktx")
     implementation("com.google.firebase:firebase-messaging")
     implementation("com.google.firebase:firebase-functions")
+    implementation("com.google.firebase:firebase-common-ktx")
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
@@ -130,4 +141,69 @@ dependencies {
     androidTestImplementation(platform("androidx.compose:compose-bom:2024.12.01"))
     androidTestImplementation("androidx.compose.ui:ui-test-junit4")
     androidTestImplementation("androidx.test.ext:junit:1.2.1")
+}
+
+val ensureFirebaseConfigs by tasks.registering {
+    doLast {
+        val gs = file("google-services.json")
+        if (!gs.exists()) {
+            val template = rootProject.file("firebase/google-services.json.example")
+            if (template.exists()) {
+                val clean = template.readText().replace(Regex("\"// NOTE\":.*?\n"), "")
+                gs.writeText(clean)
+            } else {
+                gs.writeText("""
+                {
+                  "project_info": { "project_number": "129216148625", "project_id": "jmc-home2", "storage_bucket": "jmc-home2.firebasestorage.app" },
+                  "client": [ {
+                    "client_info": { "mobilesdk_app_id": "1:129216148625:android:c3947477bfaef553", "android_client_info": { "package_name": "lk.jmcinnovators.learning" } },
+                    "oauth_client": [ { "client_id": "129216148625-k3gkmcol114rntrmgettubri6jo9pphe.apps.googleusercontent.com", "client_type": 3 } ],
+                    "api_key": [ { "current_key": "AIzaSyBqv-Ohj2QjgODRgnuOlIyXhgS82WJ_Ohs" } ],
+                    "services": { "appinvite_service": {} }
+                  } ],
+                  "configuration_version": "1"
+                }
+                """.trimIndent())
+            }
+        }
+        val rawDir = file("src/main/res/raw")
+        rawDir.mkdirs()
+        val classJson = file("src/main/res/raw/jmc_class_services.json")
+        if (!classJson.exists()) {
+            val classTemplate = rootProject.file("firebase/jmc-class-services.json.example")
+            if (classTemplate.exists()) {
+                val clean = classTemplate.readText().replace(Regex("\"// NOTE\":.*?\n"), "")
+                classJson.writeText(clean)
+            } else {
+                classJson.writeText("""
+                {
+                  "project_info": { "project_number": "264700474615", "project_id": "jmc-class", "storage_bucket": "jmc-class.firebasestorage.app" },
+                  "client": [ {
+                    "client_info": { "mobilesdk_app_id": "1:264700474615:android:701719833c85d135", "android_client_info": { "package_name": "lk.jmcinnovators.learning" } },
+                    "api_key": [ { "current_key": "AIzaSyBLYuM8ycUK4AYkCJaqdxZpxvLnA-Lx374" } ]
+                  } ],
+                  "configuration_version": "1"
+                }
+                """.trimIndent())
+            }
+        }
+    }
+}
+
+tasks.matching { it.name.startsWith("process") && it.name.endsWith("GoogleServices") }.configureEach {
+    dependsOn(ensureFirebaseConfigs)
+}
+tasks.matching { it.name.startsWith("generate") && it.name.endsWith("Resources") }.configureEach {
+    dependsOn(ensureFirebaseConfigs)
+}
+
+val copyFinalApk by tasks.registering(Copy::class) {
+    val src = layout.buildDirectory.file("outputs/apk/debug/app-debug.apk")
+    from(src)
+    into(rootProject.file("release"))
+    rename { "JMC-Innovators-Learning-App.apk" }
+}
+
+tasks.matching { it.name == "assembleDebug" }.configureEach {
+    finalizedBy(copyFinalApk)
 }
