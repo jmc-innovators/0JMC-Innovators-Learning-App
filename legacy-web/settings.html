@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Settings | JMC Innovators</title>
+<meta name="description" content="Manage your JMC Innovators account, appearance, privacy and notifications.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/app-shell.css">
+<style>
+  .font-size-row{display:flex; align-items:center; gap:14px;}
+  .font-size-row button{width:34px; height:34px; border-radius:9px; border:1px solid var(--border); background:var(--panel-2); color:var(--text-0); font-weight:800;}
+  .font-size-label{min-width:64px; text-align:center; font-weight:700; font-size:12.6px; color:var(--text-2);}
+  .theme-options{display:flex; gap:10px;}
+  .theme-opt{flex:1; padding:14px; border-radius:var(--r-md); border:1.5px solid var(--border); background:var(--panel-2); text-align:center; cursor:pointer; transition:.2s var(--ease);}
+  .theme-opt.selected{border-color:var(--blue-2); box-shadow:0 0 0 3px rgba(99,102,241,.15);}
+  .theme-opt .t-icon{font-size:20px; margin-bottom:6px;}
+  .theme-opt .t-name{font-size:12px; font-weight:700;}
+  .danger-zone{border:1px solid rgba(239,68,68,.3); border-radius:var(--r-lg); padding:18px; background:rgba(239,68,68,.04);}
+  .about-links a{display:block; padding:11px 4px; border-bottom:1px solid var(--border-soft); font-size:13px; font-weight:600;}
+  .about-links a:last-child{border-bottom:none;}
+  .device-row{display:flex; align-items:center; gap:12px; padding:12px 0; border-bottom:1px solid var(--border-soft);}
+  .device-row:last-child{border-bottom:none;}
+  html[data-font="large"] .shell-content{font-size:107%;}
+  html[data-font="small"] .shell-content{font-size:93%;}
+</style>
+</head>
+<body class="app-body">
+
+<div id="appShellRoot"></div>
+
+<script type="module" src="/js/settings.page.js"></script>
+<script src="/js/register-sw.js"></script>
+</body>
+</html>

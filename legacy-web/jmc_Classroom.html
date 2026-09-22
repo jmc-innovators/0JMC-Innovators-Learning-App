@@ -1,0 +1,2792 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JMC Classroom · JMC Innovators Learning Platform</title>
+<meta name="description" content="JMC Classroom is a free, all-in-one classroom platform for Grade 6–11 — lessons, assignments, quizzes, attendance and messaging in one place for schools, teachers and students.">
+<meta name="keywords" content="JMC Classroom, JMC Innovators, online classroom, Sri Lanka school platform, Grade 6-11, teacher dashboard, student portal, attendance, assignments, quiz platform">
+<meta name="author" content="JMC Innovators">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://jmcinnovators.netlify.app/jmc_Classroom.html">
+<meta name="theme-color" content="#05070f">
+<meta name="google-site-verification" content="DU6Tcu0cx9FlD60qQvvVI_5roJnoTEPf9nkOXPp9x-M" />
+
+<!-- Open Graph / Facebook / WhatsApp / LinkedIn preview -->
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://jmcinnovators.netlify.app/jmc_Classroom.html">
+<meta property="og:site_name" content="JMC Innovators Learning Platform">
+<meta property="og:title" content="JMC Classroom · JMC Innovators Learning Platform">
+<meta property="og:description" content="A free, all-in-one classroom platform for Grade 6–11 — lessons, assignments, quizzes, attendance and messaging in one place.">
+<meta property="og:image" content="https://jmcinnovators.netlify.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter/X card preview -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="JMC Classroom · JMC Innovators Learning Platform">
+<meta name="twitter:description" content="A free, all-in-one classroom platform for Grade 6–11 — lessons, assignments, quizzes, attendance and messaging in one place.">
+<meta name="twitter:image" content="https://jmcinnovators.netlify.app/og-image.png">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Structured data for richer Google search results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "EducationalOrganization",
+  "name": "JMC Classroom",
+  "url": "https://jmcinnovators.netlify.app/jmc_Classroom.html",
+  "logo": "https://jmcinnovators.netlify.app/android-chrome-512x512.png",
+  "description": "JMC Classroom is a free, all-in-one classroom platform for Grade 6–11 — lessons, assignments, quizzes, attendance and messaging in one place."
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=DM+Sans:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#0d1117;--bg2:#161b22;--bg3:#1c2230;--bg4:#21262d;
+  --border:rgba(255,255,255,0.07);--border2:rgba(255,255,255,0.13);
+  --text:#e6edf3;--text2:#8b949e;--text3:#6e7681;
+  --blue:#4a90e8;--blue2:#1f6feb;--blue-bg:rgba(74,144,232,0.10);
+  --green:#3fb950;--green-bg:rgba(63,185,80,0.10);
+  --purple:#a371f7;--purple-bg:rgba(163,113,247,0.10);
+  --amber:#e3b341;--amber-bg:rgba(227,179,65,0.10);
+  --red:#f85149;--red-bg:rgba(248,81,73,0.10);
+  --teal:#39d3bb;--teal-bg:rgba(57,211,187,0.10);
+  --r:10px;--rl:14px;
+  --ease:cubic-bezier(.22,.9,.32,1);
+  --shadow-sm:0 1px 2px rgba(0,0,0,.24);
+  --shadow-md:0 6px 20px rgba(0,0,0,.28);
+  --shadow-lg:0 16px 40px rgba(0,0,0,.38);
+  --focus-ring:0 0 0 3px rgba(74,144,232,.22);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;-webkit-font-smoothing:antialiased}
+.jf{font-family:'Plus Jakarta Sans',sans-serif}
+::-webkit-scrollbar{width:8px;height:8px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--bg4);border-radius:8px;border:2px solid transparent;background-clip:padding-box}
+::-webkit-scrollbar-thumb:hover{background:var(--border2);border:2px solid transparent;background-clip:padding-box}
+input,select,textarea{font-family:'DM Sans',sans-serif;background:var(--bg3);border:1px solid var(--border2);border-radius:var(--r);padding:10px 12px;color:var(--text);font-size:13px;width:100%;outline:none;transition:border-color .18s var(--ease),box-shadow .18s var(--ease)}
+input:focus,select:focus,textarea:focus{border-color:var(--blue);box-shadow:var(--focus-ring)}
+select option{background:var(--bg3)}
+textarea{resize:vertical;min-height:75px;line-height:1.55}
+input::placeholder,textarea::placeholder{color:var(--text3)}
+button{font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer;border:none;border-radius:var(--r);font-size:13px;font-weight:600;padding:9px 16px;transition:transform .15s var(--ease),filter .15s var(--ease),background .15s var(--ease),box-shadow .15s var(--ease);letter-spacing:.1px}
+button:active{transform:scale(.97)}
+.bp{background:linear-gradient(135deg,var(--blue2),#3b7de8);color:#fff;box-shadow:0 1px 0 rgba(255,255,255,.06) inset,0 2px 8px rgba(31,111,235,.28)}.bp:hover{filter:brightness(1.12);transform:translateY(-1px);box-shadow:0 1px 0 rgba(255,255,255,.08) inset,0 6px 18px rgba(31,111,235,.42)}
+.bg{background:var(--green);color:#fff;box-shadow:0 2px 8px rgba(63,185,80,.25)}.bg:hover{filter:brightness(1.08)}
+.bs2{background:var(--bg4);color:var(--text);border:1px solid var(--border2)}.bs2:hover{background:var(--bg3);border-color:rgba(255,255,255,.2)}
+.bdng{background:var(--red-bg);color:var(--red);border:1px solid rgba(248,81,73,.25)}.bdng:hover{filter:brightness(1.15)}
+.bgh{background:transparent;color:var(--text2);border:1px solid var(--border)}.bgh:hover{background:var(--bg4);color:var(--text);border-color:var(--border2)}
+.bsm{padding:6px 11px!important;font-size:12px!important;border-radius:8px!important}
+.frow{display:flex;gap:8px;flex-wrap:wrap;margin-top:12px}
+.lbl{display:block;font-size:10px;font-weight:700;color:var(--text3);margin-bottom:4px;margin-top:10px;text-transform:uppercase;letter-spacing:.6px}
+.errtxt{font-size:12px;color:var(--red);margin-top:4px;display:flex;align-items:center;gap:4px}
+.bdg{display:inline-flex;align-items:center;gap:3px;font-size:11px;font-weight:600;padding:2px 8px;border-radius:20px}
+.cblue{background:var(--blue-bg);color:var(--blue)}
+.cgreen{background:var(--green-bg);color:var(--green)}
+.cpurple{background:var(--purple-bg);color:var(--purple)}
+.camber{background:var(--amber-bg);color:var(--amber)}
+.cred{background:var(--red-bg);color:var(--red)}
+.cteal{background:var(--teal-bg);color:var(--teal)}
+.cgray{background:rgba(255,255,255,.05);color:var(--text2)}
+.card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:16px;box-shadow:var(--shadow-sm)}
+/* APP SHELL */
+.app{display:flex;height:100vh;overflow:hidden}
+.sbar{width:224px;background:var(--bg2);border-right:1px solid var(--border);flex-shrink:0;display:flex;flex-direction:column;padding:12px 0;position:relative;z-index:10;overflow-y:auto}
+.main-area{flex:1;display:flex;flex-direction:column;overflow:hidden}
+.topbar{background:var(--bg2);border-bottom:1px solid var(--border);padding:0 20px;height:52px;display:flex;align-items:center;gap:10px;flex-shrink:0}
+.topbar-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:var(--text);flex:1}
+.topbar-signout{display:flex;align-items:center;gap:6px;background:var(--bg3);border:1px solid var(--border2);color:var(--text2);border-radius:var(--r);padding:6px 12px;font-size:12px;font-weight:600;cursor:pointer;transition:all .15s var(--ease);flex-shrink:0}
+.topbar-signout:hover{background:var(--red-bg);border-color:rgba(248,81,73,.35);color:var(--red)}
+.imp-banner{background:linear-gradient(90deg,#7c3aed,#1f6feb);color:#fff;font-size:12.5px;font-weight:500;padding:9px 18px;display:flex;align-items:center;gap:8px;flex-wrap:wrap;flex-shrink:0;box-shadow:0 2px 10px rgba(124,58,237,.25)}
+.imp-role{background:rgba(255,255,255,.18);padding:2px 8px;border-radius:20px;font-size:10.5px;font-weight:700;letter-spacing:.3px}
+.imp-return{margin-left:auto;background:rgba(255,255,255,.95);color:#4c1d95;border:none;border-radius:8px;padding:5px 12px;font-size:11.5px;font-weight:700;cursor:pointer;transition:transform .15s,box-shadow .15s}
+.imp-return:hover{transform:translateY(-1px);box-shadow:0 4px 12px rgba(0,0,0,.2)}
+.content-scroll{flex:1;overflow-y:auto;padding:20px}
+.content-inner{max-width:900px}
+/* SIDEBAR */
+.sb-logo{padding:0 12px 12px;border-bottom:1px solid var(--border);margin-bottom:8px;display:flex;align-items:center;gap:9px}
+.sb-ni{display:flex;align-items:center;gap:9px;padding:8px 12px;font-size:13px;font-weight:500;color:var(--text2);cursor:pointer;border-radius:9px;margin:1px 6px;transition:background .16s var(--ease),color .16s var(--ease);position:relative}
+.sb-ni:hover{background:var(--bg3);color:var(--text)}
+.sb-ni.active{background:var(--blue-bg);color:var(--blue);font-weight:700}
+.sb-ni.active::before{content:'';position:absolute;left:-6px;top:50%;transform:translateY(-50%);width:3px;height:16px;border-radius:3px;background:var(--blue2)}
+.sb-ni-ico{font-size:16px;width:20px;text-align:center;flex-shrink:0}
+.sb-sep{height:1px;background:var(--border);margin:6px 12px}
+.sb-lbl{font-size:10px;font-weight:700;color:var(--text3);padding:4px 18px 2px;text-transform:uppercase;letter-spacing:.8px}
+.sb-foot{margin-top:auto;padding:10px 12px 0;border-top:1px solid var(--border)}
+.user-chip{display:flex;align-items:center;gap:8px;padding:7px;border-radius:var(--r);cursor:pointer;transition:background .15s}
+.user-chip:hover{background:var(--bg3)}
+.av{border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:700;flex-shrink:0;font-family:'Plus Jakarta Sans',sans-serif}
+/* NOTIF BADGE */
+.nbadge{position:absolute;top:5px;right:8px;background:var(--red);color:#fff;font-size:9px;font-weight:700;min-width:16px;height:16px;border-radius:8px;display:flex;align-items:center;justify-content:center;padding:0 3px}
+/* STATS */
+.stat-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(110px,1fr));gap:8px;margin-bottom:16px}
+.stat-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:14px;text-align:center;cursor:pointer;transition:border-color .18s var(--ease),transform .18s var(--ease),box-shadow .18s var(--ease)}
+.stat-card:hover{border-color:rgba(74,144,232,.35);transform:translateY(-3px);box-shadow:0 10px 24px rgba(0,0,0,.28),var(--shadow-md)}
+.stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:700;margin-top:2px}
+.stat-lbl{font-size:10px;color:var(--text2);text-transform:uppercase;letter-spacing:.4px;font-weight:600}
+/* TABS */
+.tabs{display:flex;gap:2px;background:var(--bg3);border-radius:10px;padding:3px;margin-bottom:16px;overflow-x:auto;flex-shrink:0}
+.tabn{padding:6px 13px;font-size:12px;font-weight:600;color:var(--text2);cursor:pointer;border-radius:8px;white-space:nowrap;transition:background .16s var(--ease),color .16s var(--ease),box-shadow .16s var(--ease);font-family:'Plus Jakarta Sans',sans-serif}
+.tabn:hover{color:var(--text)}
+.tabn.on{background:var(--bg2);color:var(--text);box-shadow:0 1px 4px rgba(0,0,0,.3)}
+/* POSTS */
+.post-card{background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:14px;margin-bottom:8px}
+.post-card:hover{border-color:var(--border2)}
+.post-body-txt{font-size:13px;color:var(--text2);line-height:1.65}
+/* WORK */
+.work-item{display:flex;align-items:center;gap:10px;padding:11px 13px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);margin-bottom:7px}
+.work-item:hover{border-color:var(--border2)}
+.work-ico{width:34px;height:34px;border-radius:9px;display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:15px}
+/* STUDENT ROW */
+.st-row{display:flex;align-items:center;gap:9px;padding:9px 13px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);margin-bottom:6px}
+/* QUIZ */
+.qopt{width:100%;text-align:left;padding:11px 13px;background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);font-size:13px;cursor:pointer;color:var(--text);margin-bottom:6px;font-family:'DM Sans',sans-serif;transition:background .16s var(--ease),border-color .16s var(--ease),transform .1s var(--ease)}
+.qopt:active:not(:disabled){transform:scale(.99)}
+.qopt:hover:not(:disabled){background:var(--bg4);border-color:var(--border2)}
+.qopt.ok{background:var(--green-bg);border-color:rgba(63,185,80,.3);color:var(--green)}
+.qopt.no{background:var(--red-bg);border-color:rgba(248,81,73,.3);color:var(--red)}
+/* CLASS CARD */
+.cls-card{border:1px solid var(--border);border-radius:var(--rl);overflow:hidden;cursor:pointer;background:var(--bg2);transition:border-color .2s var(--ease),transform .2s var(--ease),box-shadow .2s var(--ease);margin-bottom:8px}
+.cls-card:hover{border-color:var(--border2);transform:translateY(-2px);box-shadow:var(--shadow-md)}
+.cls-banner{height:70px;position:relative;display:flex;align-items:flex-end;padding:9px 13px}
+.cls-banner::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,.28)}
+.cls-bc{position:relative;z-index:1}
+.cls-banner-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:700;color:#fff}
+.cls-banner-sub{font-size:11px;color:rgba(255,255,255,.68);margin-top:1px}
+.cls-footer{padding:9px 13px;display:flex;align-items:center;justify-content:space-between}
+/* CODE BOX */
+.code-box{background:var(--blue-bg);border:1px solid rgba(74,144,232,.2);border-radius:var(--rl);padding:11px 14px;display:flex;align-items:center;justify-content:space-between;margin-bottom:14px}
+.code-val{font-size:22px;font-weight:700;color:var(--blue);letter-spacing:5px;font-family:'Plus Jakarta Sans',sans-serif}
+/* INFO BOX */
+.info-box{background:var(--blue-bg);border:1px solid rgba(74,144,232,.18);border-radius:var(--r);padding:9px 13px;font-size:12px;color:var(--blue);margin-bottom:10px;line-height:1.6}
+.sep{height:1px;background:var(--border);margin:14px 0}
+/* EMPTY */
+.empty{text-align:center;padding:32px;color:var(--text3)}
+.empty-ico{font-size:36px;margin-bottom:8px;opacity:.3}
+/* WELCOME BANNER */
+.wb{border-radius:var(--rl);padding:18px 20px;margin-bottom:16px;display:flex;align-items:center;gap:14px}
+/* SUBJ PILLS */
+.spill{padding:5px 12px;border-radius:20px;font-size:11px;font-weight:600;cursor:pointer;border:1px solid var(--border);color:var(--text2);background:var(--bg3);transition:all .15s;font-family:'Plus Jakarta Sans',sans-serif}
+.spill:hover{border-color:var(--border2);color:var(--text)}
+.spill.on{background:var(--blue2);color:#fff;border-color:var(--blue2)}
+/* TABLE */
+.trk-table{width:100%;border-collapse:collapse;font-size:12px}
+.trk-table th{text-align:left;padding:8px 12px;font-size:10px;font-weight:700;color:var(--text3);text-transform:uppercase;letter-spacing:.5px;border-bottom:1px solid var(--border);background:var(--bg3);position:sticky;top:0}
+.trk-table td{padding:9px 12px;color:var(--text);border-bottom:1px solid var(--border);vertical-align:middle}
+.trk-table tr:hover td{background:rgba(255,255,255,.02)}
+/* MARK PILL */
+.mk{display:inline-block;font-size:11px;font-weight:700;padding:2px 8px;border-radius:20px;font-family:'Plus Jakarta Sans',sans-serif;cursor:pointer}
+.mk-hi{background:var(--green-bg);color:var(--green)}
+.mk-md{background:var(--amber-bg);color:var(--amber)}
+.mk-lo{background:var(--red-bg);color:var(--red)}
+.mk-ns{background:var(--bg4);color:var(--text3)}
+.att-btn{width:32px;height:32px;border-radius:9px;border:1px solid var(--border2);background:var(--bg3);color:var(--text3);font-size:14px;font-weight:700;cursor:pointer;transition:all .15s var(--ease)}
+.att-btn:hover{border-color:var(--border2);filter:brightness(1.15)}
+.att-btn.on-green{background:var(--green-bg);color:var(--green);border-color:rgba(46,160,67,.4)}
+.att-btn.on-amber{background:var(--amber-bg);color:var(--amber);border-color:rgba(158,106,3,.4)}
+.att-btn.on-red{background:var(--red-bg);color:var(--red);border-color:rgba(218,54,51,.4)}
+/* MATERIAL */
+.mat-card{display:flex;align-items:center;gap:10px;padding:10px 13px;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);margin-bottom:7px}
+.mat-card:hover{border-color:var(--border2)}
+/* MODAL */
+.modal-ov{display:none;position:fixed;inset:0;background:rgba(0,0,0,.65);z-index:900;align-items:center;justify-content:center;padding:16px}
+.modal-ov.show{display:flex}
+.modal-box{background:var(--bg2);border:1px solid var(--border2);border-radius:var(--rl);padding:20px;width:100%;max-width:480px;max-height:92vh;overflow-y:auto;box-shadow:var(--shadow-lg)}
+.modal-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.modal-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:15px;font-weight:700;color:var(--text)}
+/* LANDING */
+.land-wrap{min-height:100vh;background:radial-gradient(circle at 50% -10%,rgba(74,144,232,.14),transparent 55%),radial-gradient(circle at 85% 90%,rgba(124,58,237,.10),transparent 50%),radial-gradient(circle at 5% 85%,rgba(10,122,108,.08),transparent 45%),var(--bg);display:flex;align-items:center;justify-content:center;padding:18px}
+.land-card{background:var(--bg2);border:1px solid var(--border2);border-radius:20px;padding:34px 28px;width:100%;max-width:370px;text-align:center;box-shadow:var(--shadow-lg),0 0 60px rgba(31,111,235,.06)}
+.land-btn{display:flex;align-items:center;gap:9px;padding:12px 14px;border-radius:var(--rl);border:1px solid var(--border);background:var(--bg3);color:var(--text);cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;font-size:13px;transition:border-color .18s var(--ease),background .18s var(--ease),transform .18s var(--ease);text-align:left;margin-bottom:7px;width:100%}
+.land-btn:hover{border-color:var(--border2);background:var(--bg4);transform:translateX(2px)}
+.land-btn:active{transform:scale(.98)}
+.land-btn-ico{width:34px;height:34px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:16px;flex-shrink:0}
+/* OTP */
+.otp-wrap{display:flex;gap:8px;justify-content:center;margin:14px 0}
+.otp-inp{width:44px;height:52px;text-align:center;font-size:22px;font-weight:700;font-family:'Plus Jakarta Sans',sans-serif;background:var(--bg3);border:2px solid var(--border2);border-radius:10px;color:var(--text);outline:none;padding:0;transition:border-color .2s}
+.otp-inp:focus{border-color:var(--blue)}
+.otp-inp.filled{border-color:var(--green)}
+/* MESSAGING */
+.msg-bubble{max-width:76%;padding:10px 13px;border-radius:14px;font-size:13px;line-height:1.6}
+.msg-bubble.mine{background:var(--blue2);color:#fff;border-radius:14px 4px 14px 14px;align-self:flex-end}
+.msg-bubble.theirs{background:var(--bg3);color:var(--text);border:1px solid var(--border);border-radius:4px 14px 14px 14px;align-self:flex-start}
+.msg-ts{font-size:10px;margin-top:3px;opacity:.6;text-align:right}
+.msg-ts.theirs{text-align:left}
+.msg-contact{display:flex;align-items:center;gap:9px;padding:10px 13px;border-radius:var(--rl);background:var(--bg2);border:1px solid var(--border);margin-bottom:6px;cursor:pointer;transition:all .15s}
+.msg-contact:hover,.msg-contact.active{border-color:var(--blue);background:var(--blue-bg)}
+/* WORKSPACE */
+.ws-bar{display:flex;gap:3px;padding:7px 10px;background:var(--bg4);border:1px solid var(--border2);border-bottom:none;border-radius:var(--rl) var(--rl) 0 0;flex-wrap:wrap}
+.ws-btn{background:none;border:1px solid transparent;color:var(--text2);padding:3px 7px;border-radius:6px;font-size:12px;cursor:pointer;font-family:'Plus Jakarta Sans',sans-serif;font-weight:600}
+.ws-btn:hover{background:var(--bg3);color:var(--text)}
+.ws-editor{background:var(--bg3);border:1px solid var(--border2);border-radius:0 0 var(--rl) var(--rl);min-height:180px;padding:14px;color:var(--text);font-size:14px;line-height:1.8;outline:none;font-family:'DM Sans',sans-serif;width:100%}
+.ws-editor:focus{border-color:var(--blue)}
+.ws-editor:empty::before{content:attr(data-ph);color:var(--text3);pointer-events:none}
+/* TOAST */
+.toast-wrap{position:fixed;bottom:20px;right:20px;z-index:9999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+.toast{background:var(--bg2);border:1px solid var(--border2);border-radius:10px;padding:10px 16px;font-size:13px;color:var(--text);display:flex;align-items:center;gap:8px;pointer-events:none;animation:toastIn .25s ease;max-width:300px}
+@keyframes toastIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+.toast.success{border-color:rgba(63,185,80,.3);background:var(--green-bg);color:var(--green)}
+.toast.error{border-color:rgba(248,81,73,.3);background:var(--red-bg);color:var(--red)}
+/* ACTIVITY */
+.act-row{display:flex;gap:9px;padding:8px 0;border-bottom:1px solid var(--border)}
+.act-row:last-child{border-bottom:none}
+.act-dot{width:7px;height:7px;border-radius:50%;flex-shrink:0;margin-top:5px}
+/* SUBMISSION */
+.sub-card{background:var(--bg3);border:1px solid var(--border);border-radius:var(--rl);padding:12px;margin-bottom:8px}
+.sub-card:hover{border-color:var(--border2)}
+/* SECTION PAGES */
+.sp{display:none}.sp.on{display:block}
+/* TAB PANELS */
+.tp{display:none}.tp.on{display:block}
+@keyframes fadeUp{from{opacity:0;transform:translateY(6px)}to{opacity:1;transform:translateY(0)}}
+.fade-in{animation:fadeUp .2s ease}
+
+/* ═══════════ PREMIUM HERO LANDING (landing page only — no other screen uses these classes) ═══════════ */
+@keyframes heroFloat{0%,100%{transform:translateY(0) translateX(0)}33%{transform:translateY(-18px) translateX(10px)}66%{transform:translateY(10px) translateX(-8px)}}
+@keyframes heroFloatSlow{0%,100%{transform:translateY(0)}50%{transform:translateY(-14px)}}
+@keyframes heroPulse{0%,100%{opacity:.55}50%{opacity:1}}
+@keyframes heroGrad{0%{background-position:0% 50%}50%{background-position:100% 50%}100%{background-position:0% 50%}}
+.hero-wrap{min-height:100vh;position:relative;overflow:hidden;display:flex;align-items:center;justify-content:center;padding:40px 24px;background:
+  radial-gradient(circle at 15% 20%,rgba(31,111,235,.16),transparent 42%),
+  radial-gradient(circle at 85% 15%,rgba(124,58,237,.14),transparent 45%),
+  radial-gradient(circle at 75% 85%,rgba(10,122,108,.12),transparent 45%),
+  radial-gradient(circle at 10% 90%,rgba(158,106,3,.08),transparent 40%),
+  var(--bg)}
+.hero-blob{position:absolute;border-radius:50%;filter:blur(60px);pointer-events:none;z-index:0}
+.hero-blob-1{width:340px;height:340px;top:-80px;left:-60px;background:radial-gradient(circle,rgba(31,111,235,.35),transparent 70%);animation:heroFloat 14s ease-in-out infinite}
+.hero-blob-2{width:280px;height:280px;bottom:-60px;right:-40px;background:radial-gradient(circle,rgba(124,58,237,.30),transparent 70%);animation:heroFloat 18s ease-in-out infinite reverse}
+.hero-blob-3{width:220px;height:220px;bottom:20%;left:8%;background:radial-gradient(circle,rgba(10,122,108,.22),transparent 70%);animation:heroFloatSlow 12s ease-in-out infinite}
+.hero-grid-overlay{position:absolute;inset:0;z-index:0;opacity:.4;background-image:linear-gradient(rgba(255,255,255,.025) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.025) 1px,transparent 1px);background-size:42px 42px;mask-image:radial-gradient(circle at 50% 30%,black,transparent 75%)}
+.hero-inner{position:relative;z-index:1;max-width:1080px;width:100%;display:grid;grid-template-columns:1.15fr 1fr;gap:56px;align-items:center}
+.hero-left{color:var(--text)}
+.hero-badge{display:inline-flex;align-items:center;gap:7px;background:rgba(31,111,235,.12);border:1px solid rgba(74,144,232,.28);color:#7db4f5;font-size:11.5px;font-weight:700;letter-spacing:.3px;padding:6px 13px;border-radius:99px;margin-bottom:20px}
+.hero-badge-dot{width:6px;height:6px;border-radius:50%;background:#3ecf8e;animation:heroPulse 2s ease-in-out infinite;box-shadow:0 0 8px #3ecf8e}
+.hero-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:clamp(32px,4.2vw,52px);line-height:1.08;letter-spacing:-1px;margin-bottom:18px}
+.hero-title-grad{background:linear-gradient(100deg,#5b9cf3,#a48bf5 45%,#3ecf8e 90%);background-size:200% auto;-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent;animation:heroGrad 8s ease infinite}
+.hero-sub{font-size:15.5px;color:var(--text2);line-height:1.65;max-width:460px;margin-bottom:30px}
+.hero-features{display:flex;flex-wrap:wrap;gap:10px;margin-bottom:34px}
+.hero-feature{display:flex;align-items:center;gap:8px;background:var(--bg2);border:1px solid var(--border2);border-radius:var(--rl);padding:9px 14px;font-size:12.5px;font-weight:600;color:var(--text2);transition:transform .2s var(--ease),border-color .2s var(--ease),box-shadow .2s var(--ease)}
+.hero-feature:hover{transform:translateY(-3px);border-color:rgba(74,144,232,.4);box-shadow:0 8px 20px rgba(0,0,0,.25);color:var(--text)}
+.hero-stats{display:flex;gap:28px;flex-wrap:wrap}
+.hero-stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-size:24px;font-weight:800;background:linear-gradient(120deg,#5b9cf3,#a48bf5);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.hero-stat-lbl{font-size:11px;color:var(--text3);font-weight:600;margin-top:2px}
+.hero-right{position:relative}
+.hero-card-glow{position:absolute;inset:-2px;border-radius:22px;background:linear-gradient(135deg,rgba(31,111,235,.5),rgba(124,58,237,.5),rgba(10,122,108,.4));filter:blur(18px);opacity:.35;z-index:0}
+.hero-card{position:relative;z-index:1;background:rgba(22,27,34,.92);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);border:1px solid var(--border2);border-radius:20px;padding:30px 26px;box-shadow:0 25px 70px rgba(0,0,0,.45)}
+@media(max-width:900px){
+  .hero-inner{grid-template-columns:1fr;gap:36px;text-align:center}
+  .hero-left{order:1}
+  .hero-features,.hero-stats{justify-content:center}
+  .hero-sub{margin-left:auto;margin-right:auto}
+  .hero-right{max-width:400px;margin:0 auto;width:100%}
+}
+@media(max-width:480px){
+  .hero-wrap{padding:28px 16px}
+  .hero-card{padding:24px 20px}
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .app{flex-direction:column;height:auto}
+  .sbar{width:100%;height:auto;flex-direction:row;border-right:none;border-bottom:1px solid var(--border);padding:8px;overflow-x:auto}
+  .sbar .sb-lbl,.sbar .sb-sep,.sbar .sb-foot{display:none}
+  .sbar .sb-logo{padding:0 8px 0 0;border:none;margin:0}
+  .sb-ni{flex-direction:column;gap:2px;font-size:10px;padding:6px 8px;margin:0 2px;min-width:56px;text-align:center}
+  .sb-ni-ico{font-size:18px;width:auto}
+  .main-area{height:auto}
+  .content-scroll{height:auto;overflow:visible}
+  .app{height:auto;min-height:100vh}
+  .topbar-signout-lbl{display:none}
+  .topbar-signout{padding:6px 10px}
+}</style>
+<style>
+.jmc-home-fab{position:fixed;top:16px;left:16px;z-index:999999;display:inline-flex;align-items:center;gap:7px;padding:9px 16px 9px 12px;border-radius:999px;background:rgba(9,12,22,0.82);backdrop-filter:blur(14px) saturate(160%);-webkit-backdrop-filter:blur(14px) saturate(160%);border:1px solid rgba(148,163,196,0.25);color:#f3f5fb;font-family:Arial,Helvetica,sans-serif;font-weight:700;font-size:12.5px;text-decoration:none;box-shadow:0 10px 26px -10px rgba(0,0,0,0.6);transition:transform .25s cubic-bezier(.22,1,.36,1), border-color .25s ease, box-shadow .25s ease;}
+.jmc-home-fab:hover{transform:translateY(-2px);border-color:rgba(242,167,27,0.6);box-shadow:0 14px 32px -10px rgba(242,167,27,0.35);}
+.jmc-home-fab:active{transform:translateY(0) scale(.95);}
+.jmc-home-fab svg{width:14px;height:14px;flex-shrink:0;}
+@media (max-width:640px){.jmc-home-fab{top:auto;bottom:14px;left:14px;padding:8px 13px 8px 10px;font-size:11.5px;}}
+</style>
+</head>
+<body>
+<a href="index.html" class="jmc-home-fab" title="Back to Home"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 11.5L12 4l9 7.5"/><path d="M5 10v9a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1v-9"/></svg><span>Home</span></a>
+
+<div id="app-root"></div>
+<div class="toast-wrap" id="toast-wrap"></div>
+
+<!-- Firebase (compat build — keeps everything global so the app's existing
+     inline onclick="..." handlers keep working with zero restructuring) -->
+<script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/12.15.0/firebase-firestore-compat.js"></script>
+
+<script>
+// ═══════════════════════════════════════════════
+//  JMC CLASSROOM — Full Working App
+//  Database: Cloud Firestore (Operator/School/Supervisor/Teacher account
+//  layer migrated — see MIGRATION NOTES below). Classes and everything
+//  nested inside them are still on localStorage pending the next phase.
+//  Messaging: student ↔ teacher direct messages
+//  Workspace: student work submission + teacher review
+// ═══════════════════════════════════════════════
+
+// ── Firebase ───────────────────────────────────
+// This apiKey/appId are meant to be public in client-side web apps — they
+// are not secrets. Real access control happens in Firestore Security Rules
+// (see firestore.rules), not by hiding this object.
+const firebaseConfig = {
+  apiKey: "AIzaSyBLYuM8ycUK4AYkCJaqdxZpxvLnA-Lx374",
+  authDomain: "jmc-class.firebaseapp.com",
+  projectId: "jmc-class",
+  storageBucket: "jmc-class.firebasestorage.app",
+  messagingSenderId: "264700474615",
+  appId: "1:264700474615:web:701719833c85d135a78ff2"
+};
+let FB_APP = null, FB_AUTH = null, FB_DB = null, FB_READY = false;
+function initFirebase() {
+  try {
+    FB_APP = firebase.initializeApp(firebaseConfig);
+    FB_AUTH = firebase.auth();
+    FB_DB = firebase.firestore();
+    FB_READY = true;
+  } catch (e) {
+    console.error('Firebase init failed', e);
+    FB_READY = false;
+  }
+}
+const GOOGLE_PROVIDER = () => { const p = new firebase.auth.GoogleAuthProvider(); p.setCustomParameters({ prompt: 'select_account' }); return p; };
+
+const OP_KEY = 'jmc2027';
+const OP_EMAIL = 'operator@jmc.internal';
+const REG_FORM_URL = 'https://docs.google.com/forms/d/e/1FAIpQLSfR0zDqpybVW84ljOkKt2Sh2_pa-oLH2HmO3fKK0eKhj_V7kw/viewform?usp=publish-editor';
+const ALL_SUBJS = ['Science','Maths','English','Sinhala','Tamil','History','ICT'];
+const SUBJ_C = {Science:'cgreen',Maths:'cblue',English:'cpurple',Sinhala:'camber',Tamil:'camber',History:'cred',ICT:'cteal'};
+const BCOLS = ['#1f6feb','#238636','#9e6a03','#da3633','#8957e5','#0a7a6c','#6e40c9','#1a7f74'];
+const ATT_I = {link:'🔗',pdf:'📄',doc:'📝',img:'🖼',video:'🎬',form:'📋',notes:'📄',slides:'🖼',audio:'🎵',other:'📎'};
+
+// ── State ──────────────────────────────────────
+let APP = {
+  screen: 'land',  // current top-level screen
+  user: null,      // { role: 'operator'|'school'|'supervisor'|'teacher'|'student', ...data }
+  curClsId: null,
+  curTcTab: 0,
+  curStSubj: 'All',
+  msgContactId: null,
+  quizState: {},
+  courseContainer: null,
+};
+
+// ── Live in-memory cache ─────────────────────────
+// Mirrors the org/auth layer (schools, supervisors, teachers), now read from
+// Cloud Firestore instead of localStorage. render() reads from here
+// synchronously; loadOrgIntoState() refreshes it after every write.
+let STATE = { schools:{}, supervisors:{}, teachers:{} };
+let LISTENERS = {};
+function fbClearListeners() {
+  Object.values(LISTENERS).forEach(unsub => { try { unsub(); } catch {} });
+  LISTENERS = {};
+}
+function fbClearImpersonationListeners() { fbClearListeners(); }
+
+// ── Database (classes/posts/work/materials/attendance/marks/quiz/messages/
+// submissions — NOT migrated yet. This phase only moves the account layer
+// above to Firestore. The next phase moves this block.) ──────────────
+function dbLoad() {
+  try { return JSON.parse(localStorage.getItem('jmc7') || '{}'); }
+  catch { return {}; }
+}
+function dbSave(d) { try { localStorage.setItem('jmc7', JSON.stringify(d)); } catch {} }
+function db() {
+  const d = dbLoad();
+  if (!d.classes) d.classes = {};
+  if (!d.messages) d.messages = {};
+  if (!d.submissions) d.submissions = {};
+  if (!d.schools) d.schools = {};
+  if (!d.supervisors) d.supervisors = {};
+  if (!d.teachers) d.teachers = {};
+  return d;
+}
+function dbSet(fn) { const d = db(); fn(d); dbSave(d); return d; }
+
+// ── Local helpers ──────────────────────────────────
+function uid() { return 'id_' + Date.now().toString(36) + '_' + Math.random().toString(36).slice(2, 9); }
+function fileToDataURL(file) {
+  return new Promise((resolve, reject) => {
+    const r = new FileReader();
+    r.onload = () => resolve(r.result);
+    r.onerror = () => reject(new Error('FILE_READ_FAILED'));
+    r.readAsDataURL(file);
+  });
+}
+function saveSession(role, id) { try { localStorage.setItem('jmc_session', JSON.stringify({ role, id })); } catch {} }
+function clearSession() { try { localStorage.removeItem('jmc_session'); } catch {} }
+
+// ── Firestore helpers ──────────────────────────
+function fsDoc(col, id) { return FB_DB.collection(col).doc(id); }
+function setFromSnap(key, snap) {
+  STATE[key] = {};
+  snap.forEach(doc => STATE[key][doc.id] = { id: doc.id, ...doc.data() });
+}
+
+// Loads whatever slice of the org tree the current signed-in role can see.
+// Deliberately a plain read-and-cache (not a live onSnapshot listener) —
+// schools/supervisors/teachers change rarely, so refreshing after each
+// write is simpler and cheaper here. Real-time listeners are reserved for
+// where they actually matter: chat, announcements, notifications,
+// attendance, class updates (coming in later phases).
+async function loadOrgIntoState() {
+  if (!FB_READY || !APP.user) return;
+  const role = APP.user.role;
+  try {
+    if (role === 'operator') {
+      const [sc, sv, tc] = await Promise.all([
+        FB_DB.collection('schools').get(),
+        FB_DB.collection('supervisors').get(),
+        FB_DB.collection('teachers').get(),
+      ]);
+      setFromSnap('schools', sc); setFromSnap('supervisors', sv); setFromSnap('teachers', tc);
+    } else if (role === 'school') {
+      const [sv, tc] = await Promise.all([
+        FB_DB.collection('supervisors').where('schoolId','==',APP.user.id).get(),
+        FB_DB.collection('teachers').where('schoolId','==',APP.user.id).get(),
+      ]);
+      setFromSnap('supervisors', sv); setFromSnap('teachers', tc);
+    } else if (role === 'supervisor') {
+      const tc = await FB_DB.collection('teachers').where('supervisorId','==',APP.user.id).get();
+      setFromSnap('teachers', tc);
+    }
+  } catch (e) { console.error('loadOrgIntoState', e); }
+}
+
+// ── Google sign-in ──────────────────────────────
+// All five roles use the same button; role is never chosen up front by the
+// person — it's resolved from Firestore after they sign in.
+async function googleSignInFlow() {
+  const cred = await FB_AUTH.signInWithPopup(GOOGLE_PROVIDER());
+  const profile = await bootstrapUserProfile(cred.user);
+  return loadAppUserFromProfile(profile);
+}
+
+// Reads (or creates, on first sign-in) users/{uid}. The role is never
+// chosen by the client — it's looked up once from invites/{email} (written
+// by whoever created the account: Operator/School/Supervisor) and then
+// locked into users/{uid}. Firestore rules only let a user write a role on
+// their own document that matches invites/{email}, so nobody can grant
+// themselves access by editing client-side code.
+async function bootstrapUserProfile(fbUser) {
+  const uref = fsDoc('users', fbUser.uid);
+  const existing = await uref.get();
+  if (existing.exists && existing.data().role) {
+    uref.set({ displayName: fbUser.displayName||'', photoURL: fbUser.photoURL||'', updatedAt: firebase.firestore.FieldValue.serverTimestamp() }, { merge:true }).catch(()=>{});
+    return { uid: fbUser.uid, ...existing.data() };
+  }
+  const email = (fbUser.email || '').toLowerCase();
+  const inviteSnap = await fsDoc('invites', email).get();
+  const invite = inviteSnap.exists ? inviteSnap.data() : { role: 'student' };
+  const profile = {
+    email,
+    displayName: fbUser.displayName || '',
+    photoURL: fbUser.photoURL || '',
+    role: invite.role,
+    roleRefId: invite.roleRefId || null,
+    schoolId: invite.schoolId || null,
+    createdAt: firebase.firestore.FieldValue.serverTimestamp(),
+    updatedAt: firebase.firestore.FieldValue.serverTimestamp(),
+  };
+  await uref.set(profile, { merge:true });
+  return { uid: fbUser.uid, ...profile };
+}
+
+// Builds the same APP.user shape the rest of the app already expects, by
+// pulling the matching org document now that the role is known.
+async function loadAppUserFromProfile(profile) {
+  if (profile.role === 'operator') {
+    return { role:'operator', id:'operator', name:'Operator', uid:profile.uid, email:profile.email };
+  }
+  if (profile.role === 'school') {
+    const doc = await fsDoc('schools', profile.roleRefId).get();
+    if (!doc.exists) throw new Error('SCHOOL_NOT_FOUND');
+    return { role:'school', id:doc.id, ...doc.data(), uid:profile.uid, email:profile.email };
+  }
+  if (profile.role === 'supervisor') {
+    const doc = await fsDoc('supervisors', profile.roleRefId).get();
+    if (!doc.exists) throw new Error('SUPERVISOR_NOT_FOUND');
+    return { role:'supervisor', id:doc.id, ...doc.data(), uid:profile.uid, email:profile.email };
+  }
+  if (profile.role === 'teacher') {
+    const doc = await fsDoc('teachers', profile.roleRefId).get();
+    if (!doc.exists) throw new Error('TEACHER_NOT_FOUND');
+    return { role:'teacher', id:doc.id, ...doc.data(), uid:profile.uid, email:profile.email };
+  }
+  // Student identity still runs on the existing join-a-classroom flow for
+  // now — it migrates together with classes/classMembers in the next phase.
+  return { role:'student', id:profile.uid, name:profile.displayName, uid:profile.uid, email:profile.email };
+}
+
+// ── Operator ───────────────────────────
+// Bootstrap note: there's no in-app way to create the *first* Operator —
+// that's intentional. Seed it once via the Firebase Console: add a document
+// at invites/{your-gmail-address} with a field role = "operator". After
+// that, sign in on the app itself with that Google account.
+
+// ── Schools (Operator adds/removes; sign in with Google) ──
+async function fbSubscribeSchools() { await loadOrgIntoState(); render(); }
+async function fbSubscribeSchoolDoc(schoolId) { await loadOrgIntoState(); render(); }
+async function fbCreateSchool(fields, logoFile) {
+  const schoolId = uid();
+  const accessCode = gCode();
+  const adminEmail = (fields.adminEmail || '').trim().toLowerCase();
+  if (!adminEmail) throw new Error('EMAIL_REQUIRED');
+  let logoUrl = '';
+  if (logoFile) { try { logoUrl = await fileToDataURL(logoFile); } catch {} }
+  try {
+    await fsDoc('invites', adminEmail).set({ role:'school', roleRefId: schoolId, schoolId });
+  } catch (e) {
+    if (e.code === 'permission-denied') throw new Error('EMAIL_TAKEN');
+    throw e;
+  }
+  await fsDoc('schools', schoolId).set({ ...fields, adminEmail, logoUrl, accessCode, status:'active', createdAt: firebase.firestore.FieldValue.serverTimestamp() });
+  await loadOrgIntoState();
+  return { schoolId, accessCode, adminEmail };
+}
+async function fbDeleteSchool(schoolId) {
+  const [svSnap, tcSnap, schoolDoc] = await Promise.all([
+    FB_DB.collection('supervisors').where('schoolId','==',schoolId).get(),
+    FB_DB.collection('teachers').where('schoolId','==',schoolId).get(),
+    fsDoc('schools', schoolId).get(),
+  ]);
+  const batch = FB_DB.batch();
+  tcSnap.forEach(d => { batch.delete(d.ref); if (d.data().email) batch.delete(fsDoc('invites', d.data().email)); });
+  svSnap.forEach(d => { batch.delete(d.ref); if (d.data().email) batch.delete(fsDoc('invites', d.data().email)); });
+  if (schoolDoc.exists && schoolDoc.data().adminEmail) batch.delete(fsDoc('invites', schoolDoc.data().adminEmail));
+  batch.delete(fsDoc('schools', schoolId));
+  await batch.commit();
+  await loadOrgIntoState();
+}
+
+// ── Supervisors (School adds/removes; sign in with Google) ──
+async function fbSubscribeAllSupervisors() { await loadOrgIntoState(); render(); }
+async function fbSubscribeSupervisorsForSchool(schoolId) { await loadOrgIntoState(); render(); }
+async function fbSubscribeSupervisorDoc(svId) { await loadOrgIntoState(); render(); }
+async function fbCreateSupervisor(schoolId, name, email) {
+  email = (email || '').trim().toLowerCase();
+  if (!email) throw new Error('EMAIL_REQUIRED');
+  const svId = uid();
+  try {
+    await fsDoc('invites', email).set({ role:'supervisor', roleRefId: svId, schoolId });
+  } catch (e) {
+    if (e.code === 'permission-denied') throw new Error('EMAIL_TAKEN');
+    throw e;
+  }
+  await fsDoc('supervisors', svId).set({ name, email, schoolId, createdAt: firebase.firestore.FieldValue.serverTimestamp() });
+  await loadOrgIntoState();
+  return svId;
+}
+async function fbDeleteSupervisor(svId) {
+  const svDoc = await fsDoc('supervisors', svId).get();
+  const schoolId = svDoc.exists ? svDoc.data().schoolId : null;
+  const tcSnap = schoolId ? await FB_DB.collection('teachers').where('schoolId','==',schoolId).get() : null;
+  const batch = FB_DB.batch();
+  if (tcSnap) tcSnap.forEach(d => { if (d.data().supervisorId === svId) { batch.delete(d.ref); if (d.data().email) batch.delete(fsDoc('invites', d.data().email)); } });
+  if (svDoc.exists && svDoc.data().email) batch.delete(fsDoc('invites', svDoc.data().email));
+  batch.delete(fsDoc('supervisors', svId));
+  await batch.commit();
+  await loadOrgIntoState();
+}
+
+// ── Teachers (Supervisor adds/removes; sign in with Google) ──
+async function fbSubscribeTeachersForSupervisor(supervisorId, isImpersonation) { await loadOrgIntoState(); render(); }
+async function fbSubscribeTeacherDoc(tcId) { await loadOrgIntoState(); render(); }
+async function fbCreateTeacher(supervisorId, schoolId, name, email, subjects) {
+  email = (email || '').trim().toLowerCase();
+  if (!email) throw new Error('EMAIL_REQUIRED');
+  const tcId = uid();
+  try {
+    await fsDoc('invites', email).set({ role:'teacher', roleRefId: tcId, schoolId, supervisorId });
+  } catch (e) {
+    if (e.code === 'permission-denied') throw new Error('EMAIL_TAKEN');
+    throw e;
+  }
+  await fsDoc('teachers', tcId).set({ name, email, subjects: subjects||[], supervisorId, schoolId, createdAt: firebase.firestore.FieldValue.serverTimestamp() });
+  await loadOrgIntoState();
+  return tcId;
+}
+async function fbDeleteTeacher(tcId) {
+  const tcDoc = await fsDoc('teachers', tcId).get();
+  const batch = FB_DB.batch();
+  if (tcDoc.exists && tcDoc.data().email) batch.delete(fsDoc('invites', tcDoc.data().email));
+  batch.delete(fsDoc('teachers', tcId));
+  await batch.commit();
+  await loadOrgIntoState();
+}
+
+async function fbSignOut() { fbClearListeners(); clearSession(); if (FB_AUTH) await FB_AUTH.signOut(); }
+
+async function appSignOut(goScreen) {
+  APP.screen = goScreen; APP.user = null; APP._impersonating = null;
+  APP._tcPage='home'; APP._svPage='dash'; APP._opPage='dash'; APP._stPage='classroom'; APP._schoolPage='dash';
+  APP.msgContactId=null; APP.quizState={};
+  render();
+  await fbSignOut();
+}
+
+// ── Helpers ────────────────────────────────────
+function ini(n) { return (n||'?').trim().split(' ').map(w=>w[0]).join('').toUpperCase().slice(0,2); }
+function avc(n) {
+  const p=[['var(--blue)','var(--blue-bg)'],['var(--green)','var(--green-bg)'],['var(--amber)','var(--amber-bg)'],['var(--purple)','var(--purple-bg)'],['var(--red)','var(--red-bg)'],['var(--teal)','var(--teal-bg)']];
+  return p[(n||'?').charCodeAt(0) % p.length];
+}
+function fdt() { return new Date().toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'}); }
+function fts() { return new Date().toLocaleTimeString('en-GB',{hour:'2-digit',minute:'2-digit'}); }
+function gCode() { const c='ABCDEFGHJKLMNPQRSTUVWXYZ23456789'; return Array.from({length:6},()=>c[Math.floor(Math.random()*c.length)]).join(''); }
+function mkCls(v,mx) { if(v===undefined||v===''||v===null) return 'mk-ns'; const p=parseFloat(v)/parseFloat(mx)*100; return p>=70?'mk-hi':p>=40?'mk-md':'mk-lo'; }
+function escH(s) { return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;'); }
+function toast(msg, type='') {
+  const w = document.getElementById('toast-wrap');
+  const el = document.createElement('div');
+  el.className = 'toast ' + type;
+  el.textContent = msg;
+  w.appendChild(el);
+  setTimeout(() => el.remove(), 3200);
+}
+function unreadMsgCount(role) {
+  // Count messages where the last message is from the other party (unread indicator)
+  const d = db();
+  if (!APP.user) return 0;
+  let count = 0;
+  Object.entries(d.messages || {}).forEach(([key, msgs]) => {
+    if (!msgs || !msgs.length) return;
+    const last = msgs[msgs.length - 1];
+    if (role === 'teacher') {
+      // Teacher sees unread if last message is from student and teacher hasn't read
+      if (last.from === 'student' && !last.readByTeacher) count++;
+    } else if (role === 'student') {
+      if (last.from === 'teacher' && !last.readByStudent) count++;
+    }
+  });
+  return count;
+}
+
+// ── JMC SVG LOGO ─────────────────────────────
+const GOOGLE_G_ICON = `<svg width="18" height="18" viewBox="0 0 18 18" style="flex-shrink:0"><path fill="#4285F4" d="M17.64 9.2c0-.64-.06-1.25-.16-1.84H9v3.48h4.84a4.14 4.14 0 0 1-1.8 2.72v2.26h2.91c1.7-1.57 2.69-3.88 2.69-6.62z"/><path fill="#34A853" d="M9 18c2.43 0 4.47-.8 5.96-2.18l-2.91-2.26c-.81.54-1.85.86-3.05.86-2.34 0-4.33-1.58-5.04-3.71H.96v2.33A9 9 0 0 0 9 18z"/><path fill="#FBBC05" d="M3.96 10.71A5.4 5.4 0 0 1 3.68 9c0-.59.1-1.17.28-1.71V4.96H.96A9 9 0 0 0 0 9c0 1.45.35 2.83.96 4.04l3-2.33z"/><path fill="#EA4335" d="M9 3.58c1.32 0 2.51.45 3.44 1.35l2.58-2.58C13.46.89 11.43 0 9 0A9 9 0 0 0 .96 4.96l3 2.33C4.67 5.16 6.66 3.58 9 3.58z"/></svg>`;
+function jmcLogo(sz=32, g1='#1f6feb', g2='#7c3aed', uid='lg') {
+  return `<svg viewBox="0 0 72 72" fill="none" xmlns="http://www.w3.org/2000/svg" style="width:${sz}px;height:${sz}px">
+  <rect width="72" height="72" rx="18" fill="url(#${uid})"/>
+  <path d="M36 22 C28 22 20 25 18 30 L18 50 C20 45 28 43 36 43 C44 43 52 45 54 50 L54 30 C52 25 44 22 36 22Z" fill="rgba(255,255,255,0.13)"/>
+  <path d="M36 22 L36 43M18 30 C20 25 28 22 36 22M54 30 C52 25 44 22 36 22M18 30 L18 50 C20 45 28 43 36 43M54 30 L54 50 C52 45 44 43 36 43" stroke="white" stroke-width="2.2" stroke-linecap="round"/>
+  <text x="36" y="62" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-weight="800" font-size="11" fill="white" letter-spacing="2">JMC</text>
+  <defs><linearGradient id="${uid}" x1="0" y1="0" x2="72" y2="72" gradientUnits="userSpaceOnUse"><stop offset="0%" stop-color="${g1}"/><stop offset="100%" stop-color="${g2}"/></linearGradient></defs>
+</svg>`;
+}
+
+// ── RENDER ENGINE ─────────────────────────────
+function render() {
+  document.getElementById('app-root').innerHTML = buildApp();
+  attachAll();
+}
+
+function buildApp() {
+  const s = APP.screen;
+  if (s === 'boot')       return renderBootLoading();
+  if (s === 'land')       return renderLanding();
+  if (s === 'op-login')   return renderOpLogin();
+  if (s === 'school-login') return renderSchoolLogin();
+  if (s === 'sv-login')   return renderSvLogin();
+  if (s === 'tc-login')   return renderTcLogin();
+  if (s === 'st-hub')     return renderStHub();
+  if (s === 'st-join')    return renderStJoin();
+  if (s === 'operator')   return renderOperator();
+  if (s === 'school')     return renderSchool();
+  if (s === 'supervisor') return renderSupervisor();
+  if (s === 'teacher')    return renderTeacher();
+  if (s === 'student')    return renderStudent();
+  if (s === 'courses')    return renderCourses();
+  return '<div style="padding:40px;color:var(--text2)">Unknown screen</div>';
+}
+
+function renderBootLoading() {
+  return `<div class="land-wrap"><div style="text-align:center">
+  <div style="margin:0 auto 14px">${jmcLogo(48)}</div>
+  <div style="font-size:12px;color:var(--text3)">Loading…</div>
+</div></div>`;
+}
+
+// ── LANDING ─────────────────────────────────
+function renderLanding() {
+  return `<div class="hero-wrap">
+  <div class="hero-blob hero-blob-1"></div>
+  <div class="hero-blob hero-blob-2"></div>
+  <div class="hero-blob hero-blob-3"></div>
+  <div class="hero-grid-overlay"></div>
+  <div class="hero-inner">
+
+    <div class="hero-left fade-in">
+      <div class="hero-badge"><span class="hero-badge-dot"></span> Live for Grade 6–11 · Sri Lanka</div>
+      <div class="hero-title">One classroom.<br>Every <span class="hero-title-grad">subject</span>,<br>beautifully organized.</div>
+      <div class="hero-sub">JMC Classroom brings Schools, Supervisors, Teachers and Students onto one connected platform — notes, assignments, attendance, marks, quizzes and messaging, all in one place.</div>
+      <div class="hero-features">
+        <div class="hero-feature">📚 Notes &amp; Materials</div>
+        <div class="hero-feature">📝 Assignments &amp; Quizzes</div>
+        <div class="hero-feature">✅ Attendance &amp; Marks</div>
+        <div class="hero-feature">💬 Direct Messaging</div>
+        <div class="hero-feature">🎓 Free Courses</div>
+      </div>
+      <div class="hero-stats">
+        <div><div class="hero-stat-num">5</div><div class="hero-stat-lbl">Connected roles</div></div>
+        <div><div class="hero-stat-num">100%</div><div class="hero-stat-lbl">Works offline-first</div></div>
+        <div><div class="hero-stat-num">6–11</div><div class="hero-stat-lbl">Grades supported</div></div>
+      </div>
+    </div>
+
+    <div class="hero-right fade-in">
+      <div class="hero-card-glow"></div>
+      <div class="hero-card">
+        <div style="margin:0 auto 14px;width:60px;height:60px">${jmcLogo(60,'#1f6feb','#7c3aed','lg1')}</div>
+        <div class="jf" style="font-size:19px;font-weight:700;color:var(--text);margin-bottom:4px;text-align:center">JMC Classroom</div>
+        <div style="font-size:11.5px;color:var(--text2);margin-bottom:22px;text-align:center">Sign in to continue</div>
+        <button class="land-btn" data-go="op-login"><div class="land-btn-ico" style="background:var(--purple-bg);color:var(--purple)">⚙️</div><div><div>Operator</div><div style="font-size:11px;color:var(--text3);font-weight:400">Platform control</div></div></button>
+        <button class="land-btn" data-go="school-login"><div class="land-btn-ico" style="background:var(--blue-bg);color:var(--blue)">🏫</div><div><div>School</div><div style="font-size:11px;color:var(--text3);font-weight:400">Sign in with your Access Code</div></div></button>
+        <button class="land-btn" data-go="sv-login"><div class="land-btn-ico" style="background:var(--purple-bg);color:var(--purple)">🧑‍💼</div><div><div>Supervisor</div><div style="font-size:11px;color:var(--text3);font-weight:400">Manage teachers</div></div></button>
+        <button class="land-btn" data-go="tc-login"><div class="land-btn-ico" style="background:var(--blue-bg);color:var(--blue)">📋</div><div><div>Teacher</div><div style="font-size:11px;color:var(--text3);font-weight:400">Manage classroom &amp; students</div></div></button>
+        <button class="land-btn" data-go="st-hub"><div class="land-btn-ico" style="background:var(--green-bg);color:var(--green)">🎓</div><div><div>Student</div><div style="font-size:11px;color:var(--text3);font-weight:400">Free Courses · Join a Classroom</div></div></button>
+        <div style="margin:18px 0 4px;border-top:1px solid var(--border);padding-top:16px;text-align:center">
+          <div style="font-size:12px;color:var(--text2);margin-bottom:10px">New school? Get JMC Classroom set up for your institution.</div>
+          <a href="${REG_FORM_URL}" target="_blank" rel="noopener" class="bs2" style="display:block;text-decoration:none;text-align:center">Register Your School</a>
+          <div style="font-size:10.5px;color:var(--text3);margin-top:8px;line-height:1.5">After submitting the form, come back here and use <b>School</b> to sign in once you've received your Access Code by email.</div>
+        </div>
+        <div style="margin-top:14px;font-size:11px;color:var(--text3);text-align:center">JMC Innovators © 2026</div>
+      </div>
+    </div>
+
+  </div>
+</div>`;
+}
+
+// ── OP LOGIN ─────────────────────────────────
+function googleLoginCard(id, title, sub) {
+  return `<div class="land-wrap"><div class="land-card fade-in">
+  <button class="bgh bsm" data-go="land" style="margin-bottom:16px">← Back</button>
+  <div class="jf" style="font-size:18px;font-weight:700;margin-bottom:6px">${title}</div>
+  <div style="font-size:12px;color:var(--text2);margin-bottom:20px;line-height:1.5">${sub}</div>
+  <button class="bp" style="width:100%;display:flex;align-items:center;justify-content:center;gap:10px" id="${id}-submit">${GOOGLE_G_ICON} Continue with Google</button>
+  <div id="${id}-err" class="errtxt" style="display:none">⚠ <span id="${id}-em">Something went wrong</span></div>
+</div></div>`;
+}
+function renderOpLogin() {
+  return googleLoginCard('op', 'Operator Login', 'Sign in with the Google account registered as the platform Operator.');
+}
+
+// ── SCHOOL LOGIN ──────────────────────────────
+function renderSchoolLogin() {
+  return googleLoginCard('sc', 'School Login', "Sign in with your school's registered Google account.");
+}
+
+// ── SV LOGIN ─────────────────────────────────
+function renderSvLogin() {
+  return googleLoginCard('sv', 'Supervisor Login', 'Sign in with the Google account your school registered for you.');
+}
+
+// ── TC LOGIN ─────────────────────────────────
+function renderTcLogin() {
+  return googleLoginCard('tc', 'Teacher Login', 'Sign in with the Google account your supervisor registered for you.');
+}
+
+// ── STUDENT HUB ──────────────────────────────
+function renderStHub() {
+  const nm = APP._studentName || '';
+  return `<div class="land-wrap" style="align-items:flex-start;padding-top:24px"><div style="width:100%;max-width:400px;margin:0 auto">
+  <div style="display:flex;align-items:center;gap:10px;margin-bottom:20px">
+    <button class="bgh bsm" data-go="land">← Back</button>
+    <div class="jf" style="font-size:17px;font-weight:700">Student</div>
+  </div>
+  <div style="background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:14px;margin-bottom:14px">
+    <label class="lbl" style="margin-top:0">Your name</label>
+    <input type="text" id="hub-name" placeholder="e.g. Kasun Perera" value="${escH(nm)}">
+    <div style="font-size:11px;color:var(--text3);margin-top:6px">Used to personalise your Free Courses tutor. Not required to join a classroom.</div>
+  </div>
+  <div style="display:flex;flex-direction:column;gap:10px">
+    <div class="cls-card" id="hub-courses-btn" style="cursor:pointer">
+      <div class="cls-banner" style="background:linear-gradient(135deg,#9e6a03,#238636)"><div class="cls-bc"><div class="cls-banner-title">📚 Free Courses</div><div class="cls-banner-sub">AI-powered by Claude · No code needed</div></div></div>
+    </div>
+    <div class="cls-card" id="hub-join-btn" style="cursor:pointer">
+      <div class="cls-banner" style="background:linear-gradient(135deg,#1f6feb,#7c3aed)"><div class="cls-bc"><div class="cls-banner-title">🏫 Join a Classroom</div><div class="cls-banner-sub">Enter the 6-letter code from your teacher</div></div></div>
+    </div>
+  </div>
+</div></div>`;
+}
+
+// ── ST JOIN ───────────────────────────────────
+function renderStJoin() {
+  const nm = APP._studentName || '';
+  return `<div class="land-wrap"><div class="land-card fade-in">
+  <button class="bgh bsm" data-go="st-hub" style="margin-bottom:16px">← Back</button>
+  <div class="jf" style="font-size:18px;font-weight:700;margin-bottom:16px">Join a Classroom</div>
+  <label class="lbl">Your full name</label><input type="text" id="sj-name" placeholder="e.g. Kasun Perera" value="${escH(nm)}">
+  <label class="lbl">Class code</label><input type="text" id="sj-code" placeholder="e.g. AB3X9K" style="text-transform:uppercase;letter-spacing:4px;font-size:18px;font-weight:700">
+  <div id="sj-err" class="errtxt" style="display:none">⚠ <span id="sj-em"></span></div>
+  <div class="frow"><button class="bp" style="flex:1" id="sj-submit">Join classroom</button></div>
+</div></div>`;
+}
+
+// ── OPERATOR SHELL ────────────────────────────
+function renderOperator() {
+  const d = db();
+  const svs = Object.values(STATE.supervisors||{});
+  const clss = Object.values(d.classes||{});
+  const totalSt = clss.reduce((a,c)=>a+(c.students||[]).length,0);
+  const schools = Object.values(STATE.schools||{}).sort((a,b)=>(a.name||'').localeCompare(b.name||''));
+  const pages = {
+    dash: renderOpDash(d, svs, clss, [], totalSt, schools),
+    schools: renderOpSchools(schools),
+    supervisors: renderOpSupervisors(d, svs),
+    activity: renderOpActivity(d, svs, clss),
+  };
+  const pg = APP._opPage || 'dash';
+  return shellTemplate({
+    logo: jmcLogo(32,'#1f6feb','#7c3aed','lop'),
+    title: 'JMC Classroom',
+    subtitle: 'Operator',
+    navItems: [
+      {id:'dash', icon:'🏠', label:'Dashboard'},
+      {id:'schools', icon:'🏫', label:'Schools'},
+      {id:'supervisors', icon:'🧑‍💼', label:'All Supervisors'},
+      {id:'activity', icon:'📊', label:'Activity'},
+    ],
+    activePage: pg,
+    navPrefix: 'op',
+    topTitle: {dash:'Dashboard',schools:'Schools',supervisors:'All Supervisors',activity:'Activity'}[pg]||'Dashboard',
+    content: pages[pg] || pages.dash,
+    footerAv: 'OP', footerName: 'Operator', footerSub: 'Sign out',
+    signoutGo: 'land',
+    modals: renderOpModals(),
+  });
+}
+
+function renderOpDash(d, svs, clss, insts, totalSt, schools) {
+  const acts = [];
+  svs.forEach(s => acts.push({tx:`Supervisor <b>${escH(s.name)}</b> added`,sb:s.created,cl:'var(--purple)'}));
+  clss.forEach(c => (c.students||[]).forEach(s => acts.push({tx:`${escH(s.name)} joined <b>${escH(c.name)}</b>`,sb:s.joined,cl:'var(--green)'})));
+  return `<div class="wb" style="background:linear-gradient(135deg,#7c3aed,#1f6feb)">
+  <div style="font-size:28px">⚙️</div><div><div class="jf" style="font-size:18px;font-weight:700;color:#fff">Operator Dashboard</div><div style="font-size:12px;color:rgba(255,255,255,.7);margin-top:2px">Full platform control — JMC Innovators</div></div></div>
+  <div class="stat-grid">
+    <div class="stat-card" onclick="APP._opPage='schools';render()"><div class="stat-lbl">Schools</div><div class="stat-num" style="color:var(--blue)">${schools.length}</div></div>
+    <div class="stat-card" onclick="APP._opPage='supervisors';render()"><div class="stat-lbl">Supervisors</div><div class="stat-num" style="color:var(--purple)">${svs.length}</div></div>
+    <div class="stat-card"><div class="stat-lbl">Classrooms</div><div class="stat-num" style="color:var(--teal)">${clss.length}</div></div>
+    <div class="stat-card"><div class="stat-lbl">Students</div><div class="stat-num" style="color:var(--green)">${totalSt}</div></div>
+  </div>
+  <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px">
+    <div><div class="jf" style="font-size:13px;font-weight:700;margin-bottom:8px">Recent activity</div>
+    ${acts.length ? acts.slice(-6).reverse().map(a=>`<div class="act-row"><div class="act-dot" style="background:${a.cl}"></div><div><div style="font-size:12px;line-height:1.5">${a.tx}</div><div style="font-size:11px;color:var(--text3)">${a.sb||''}</div></div></div>`).join('') : '<div style="font-size:12px;color:var(--text3)">No activity yet</div>'}</div>
+    <div><div class="jf" style="font-size:13px;font-weight:700;margin-bottom:8px">Schools</div>
+    ${schools.length ? schools.slice(0,6).map(s=>`<div class="act-row"><div class="act-dot" style="background:var(--blue)"></div><div><div style="font-size:12px">${escH(s.name)}</div><div style="font-size:11px;color:var(--text3)">${escH(s.principalName||'')||'—'} · ${escH(s.schoolType||'School')}</div></div></div>`).join('') : '<div style="font-size:12px;color:var(--text3)">No schools yet — add one from the Schools tab.</div>'}
+    </div>
+  </div>`;
+}
+
+function renderOpSchools(schools) {
+  return `<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+  <div class="jf" style="font-size:18px;font-weight:700">Schools</div>
+  <button class="bp bsm" id="btn-add-school">+ Add school</button>
+</div>
+${schools.length ? schools.map(s => `<div class="card" style="margin-bottom:10px">
+  <div style="display:flex;align-items:center;gap:11px;margin-bottom:10px">
+    ${s.logoUrl ? `<img src="${escH(s.logoUrl)}" alt="${escH(s.name||'School logo')}" style="width:40px;height:40px;border-radius:10px;object-fit:cover">` : `<div class="av" style="width:40px;height:40px;background:var(--blue-bg);color:var(--blue);font-size:13px">${ini(s.name)}</div>`}
+    <div style="flex:1">
+      <div class="jf" style="font-size:14px;font-weight:700">${escH(s.name)}</div>
+      <div style="font-size:11px;color:var(--text3)">${escH(s.principalName||'No principal set')} · ${escH(s.district||'')}${s.province?', '+escH(s.province):''}</div>
+    </div>
+    <button class="bs2 bsm" data-viewas-school="${escH(s.id)}">👁 View as</button>
+    <button class="bdng bsm" data-rm-school="${escH(s.id)}">Remove</button>
+  </div>
+  <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px;display:flex;gap:16px;flex-wrap:wrap;align-items:center">
+    <div><div style="font-size:10px;color:var(--text3);margin-bottom:1px">Signs in with</div><div class="jf" style="font-size:13px;font-weight:700;color:var(--blue)">${escH(s.adminEmail||'—')}</div></div>
+    ${s.email ? `<div><div style="font-size:10px;color:var(--text3);margin-bottom:1px">Email on file</div><div style="font-size:12px">${escH(s.email)}</div></div>` : ''}
+    ${s.phone ? `<div><div style="font-size:10px;color:var(--text3);margin-bottom:1px">Phone</div><div style="font-size:12px">${escH(s.phone)}</div></div>` : ''}
+    <button class="bs2 bsm" data-copy-school-creds='${JSON.stringify({name:s.name, code:s.adminEmail})}'>📋 Copy for email</button>
+  </div>
+</div>`).join('') : `<div class="empty"><div class="empty-ico">🏫</div><div>No schools yet. Click <b>+ Add school</b> to onboard one, or review a submission from the registration form.</div></div>`}`;
+}
+
+function renderOpSupervisors(d, svs) {
+  return `<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+  <div class="jf" style="font-size:18px;font-weight:700">All Supervisors</div>
+</div>
+<div class="info-box">Supervisors are added by their School (School dashboard → Supervisors). This is a platform-wide view for oversight — you can remove any supervisor from here.</div>
+${svs.length ? svs.map(s => {
+  const [col,bg] = avc(s.name);
+  const school = STATE.schools[s.schoolId];
+  return `<div class="card" style="margin-bottom:10px">
+  <div style="display:flex;align-items:center;gap:11px;margin-bottom:10px">
+    <div class="av" style="width:40px;height:40px;background:${bg};color:${col};font-size:13px">${ini(s.name)}</div>
+    <div style="flex:1"><div class="jf" style="font-size:14px;font-weight:700">${escH(s.name)}</div>
+    <div style="font-size:11px;color:var(--text3)">Added ${s.created}</div>
+    ${school ? `<span class="bdg cblue" style="margin-top:4px">🏫 ${escH(school.name)}</span>` : '<span class="bdg cgray" style="margin-top:4px">School removed</span>'}</div>
+    <button class="bs2 bsm" data-viewas-sv="${escH(s.id)}">👁 View as</button>
+    <button class="bdng bsm" data-rm-sv-op="${escH(s.id)}">Remove</button>
+  </div>
+  <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px">
+    <div style="font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px">Signs in with</div>
+    <div class="jf" style="font-size:13px;font-weight:700;color:var(--blue)">${escH(s.email)}</div>
+  </div>
+</div>`;}).join('') : `<div class="empty"><div class="empty-ico">🧑‍💼</div><div>No supervisors yet — schools add them from their own dashboard.</div></div>`}`;
+}
+
+function renderOpActivity(d, svs, clss) {
+  const acts = [];
+  const schools = Object.values(STATE.schools||{});
+  schools.forEach(s => acts.push({tx:`School <b>${escH(s.name)}</b> onboarded`,sb:s.createdAt,cl:'var(--blue)'}));
+  svs.forEach(s => {
+    acts.push({tx:`Supervisor <b>${escH(s.name)}</b> (${escH(s.email)}) added`,sb:s.created,cl:'var(--purple)'});
+  });
+  clss.forEach(c => {
+    (c.posts||[]).forEach(p => { const t=STATE.teachers[p.tid]; acts.push({tx:`Teacher <b>${escH(t?t.name:'—')}</b> posted in <b>${escH(c.name)}</b>`,sb:p.date,cl:'var(--teal)'}); });
+    (c.students||[]).forEach(s => acts.push({tx:`${escH(s.name)} joined <b>${escH(c.name)}</b>`,sb:s.joined,cl:'var(--green)'}));
+  });
+  return `<div class="jf" style="font-size:18px;font-weight:700;margin-bottom:14px">Platform Activity</div>
+  <div class="card">
+  ${acts.length ? acts.slice(-50).reverse().map(a=>`<div class="act-row"><div class="act-dot" style="background:${a.cl}"></div><div><div style="font-size:12px;line-height:1.5">${a.tx}</div><div style="font-size:11px;color:var(--text3)">${a.sb||''}</div></div></div>`).join('') : '<div style="font-size:12px;color:var(--text3);padding:12px">No activity yet</div>'}
+  </div>`;
+}
+
+function renderOpModals() {
+  return `<div class="modal-ov" id="m-add-school">
+  <div class="modal-box fade-in" style="max-width:480px">
+    <div class="modal-head"><div class="modal-title">Add school</div><button class="bgh bsm" id="m-add-school-close">✕</button></div>
+    <div id="addschool-form">
+      <div class="info-box">The admin signs in with Google — no password to set or share.</div>
+      <label class="lbl">School name *</label><input type="text" id="nsch-name" placeholder="e.g. Royal College">
+      <label class="lbl">Admin's Google email *</label><input type="email" id="nsch-admin-email" placeholder="the Google account that signs in as this school">
+      <label class="lbl">School logo (optional)</label><input type="file" id="nsch-logo" accept="image/*">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div><label class="lbl">Principal name</label><input type="text" id="nsch-principal" placeholder="e.g. Mrs. K. Silva"></div>
+        <div><label class="lbl">School type</label><input type="text" id="nsch-type" placeholder="e.g. National School"></div>
+      </div>
+      <label class="lbl">Address</label><input type="text" id="nsch-address" placeholder="Street, city">
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div><label class="lbl">District</label><input type="text" id="nsch-district" placeholder="e.g. Colombo"></div>
+        <div><label class="lbl">Province</label><input type="text" id="nsch-province" placeholder="e.g. Western"></div>
+      </div>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+        <div><label class="lbl">Phone</label><input type="text" id="nsch-phone" placeholder="07X XXX XXXX"></div>
+        <div><label class="lbl">Email</label><input type="email" id="nsch-email" placeholder="school@example.lk"></div>
+      </div>
+      <label class="lbl">Website (optional)</label><input type="text" id="nsch-website" placeholder="https://">
+      <div id="nsch-err" class="errtxt" style="display:none"></div>
+      <div class="frow"><button class="bp" style="flex:1" id="nsch-save">Create school</button><button class="bs2" id="nsch-cancel">Cancel</button></div>
+    </div>
+    <div id="addschool-creds" style="display:none;text-align:center">
+      <div style="font-size:28px;margin-bottom:8px">✅</div>
+      <div class="jf" style="font-size:15px;font-weight:700;color:var(--green)">School created!</div>
+      <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:var(--rl);padding:14px;margin:12px 0;text-align:left">
+        <div style="font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase;margin-bottom:8px">Tell the school</div>
+        <div style="margin-bottom:6px"><div style="font-size:10px;color:var(--text3)">School name</div><div class="jf" style="font-size:15px;font-weight:700;color:var(--blue)" id="scred-name"></div></div>
+        <div><div style="font-size:10px;color:var(--text3)">Sign in at JMC Classroom → School, using</div><div class="jf" style="font-size:15px;font-weight:700;color:var(--amber)" id="scred-code"></div></div>
+      </div>
+      <div class="frow" style="justify-content:center"><button class="bp" id="scred-copy">📋 Copy details</button><button class="bs2" id="scred-done">Done</button></div>
+    </div>
+  </div>
+</div>`;
+}
+
+// ── SCHOOL SHELL ───────────────────────────────
+function renderSchool() {
+  const d = db();
+  const s = STATE.schools[APP.user?.id] || APP.user || {};
+  const mySvs = Object.values(STATE.supervisors).filter(sv => sv.schoolId === s.id);
+  const myTcCount = Object.values(STATE.teachers).filter(tc => mySvs.some(sv=>sv.id===tc.supervisorId)).length;
+  const myStCount = Object.values(d.classes).filter(c => {
+    const tc = STATE.teachers[c.tid]; return tc && mySvs.some(sv=>sv.id===tc.supervisorId);
+  }).reduce((a,c)=>a+(c.students||[]).length,0);
+  const pg = APP._schoolPage || 'dash';
+  const pages = {
+    dash: renderSchDash(s, mySvs, myTcCount, myStCount),
+    supervisors: renderSchSupervisors(s, mySvs),
+    profile: renderSchProfile(s),
+  };
+  return shellTemplate({
+    logo: s.logoUrl ? `<img src="${escH(s.logoUrl)}" alt="${escH(s.name||'School logo')}" style="width:32px;height:32px;border-radius:9px;object-fit:cover">` : jmcLogo(32,'#1f6feb','#0a7a6c','lsc'),
+    title: s.name || 'School',
+    subtitle: 'School Account',
+    navItems: [
+      {id:'dash', icon:'🏠', label:'Dashboard'},
+      {id:'supervisors', icon:'🧑‍💼', label:'Supervisors'},
+      {id:'profile', icon:'⚙️', label:'School Profile'},
+    ],
+    activePage: pg,
+    navPrefix: 'school',
+    topTitle: {dash:'Dashboard',supervisors:'Supervisors',profile:'School Profile'}[pg]||'Dashboard',
+    content: pages[pg] || pages.dash,
+    footerAvText: ini(s.name||'S'), footerName: s.name||'School', footerSub: 'Sign out',
+    signoutGo: 'land',
+    modals: renderSchModals(),
+  });
+}
+
+function renderSchDash(s, mySvs, myTcCount, myStCount) {
+  return `<div class="wb" style="background:linear-gradient(135deg,#1f6feb,#0a7a6c)">
+  <div style="font-size:28px">🏫</div><div><div class="jf" style="font-size:18px;font-weight:700;color:#fff">${escH(s.name||'Your school')}</div><div style="font-size:12px;color:rgba(255,255,255,.7);margin-top:2px">${escH(s.schoolType||'School')} · ${escH(s.district||'')}${s.province?', '+escH(s.province):''}</div></div></div>
+  <div class="stat-grid">
+    <div class="stat-card" onclick="APP._schoolPage='supervisors';render()"><div class="stat-lbl">Supervisors</div><div class="stat-num" style="color:var(--purple)">${mySvs.length}</div></div>
+    <div class="stat-card"><div class="stat-lbl">Teachers</div><div class="stat-num" style="color:var(--blue)">${myTcCount}</div></div>
+    <div class="stat-card"><div class="stat-lbl">Students</div><div class="stat-num" style="color:var(--green)">${myStCount}</div></div>
+  </div>
+  ${!mySvs.length ? `<div class="info-box" style="cursor:pointer" onclick="APP._schoolPage='supervisors';render()">👆 Add your first Supervisor to get started — they'll add Teachers, who add Students.</div>` : ''}
+  <div class="jf" style="font-size:13px;font-weight:700;margin:16px 0 8px">Your Supervisors</div>
+  ${mySvs.length ? mySvs.map(sv=>{const [col,bg]=avc(sv.name);return `<div class="act-row"><div class="av" style="width:30px;height:30px;background:${bg};color:${col};font-size:11px">${ini(sv.name)}</div><div><div style="font-size:12px">${escH(sv.name)}</div><div style="font-size:11px;color:var(--text3)">${escH(sv.email)}</div></div></div>`;}).join('') : '<div style="font-size:12px;color:var(--text3)">None yet</div>'}`;
+}
+
+function renderSchSupervisors(s, mySvs) {
+  return `<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+  <div class="jf" style="font-size:18px;font-weight:700">Supervisors</div>
+  <button class="bp bsm" id="btn-add-schsv">+ Add supervisor</button>
+</div>
+${mySvs.length ? mySvs.map(sv=>{
+  const [col,bg] = avc(sv.name);
+  return `<div class="card" style="margin-bottom:10px">
+  <div style="display:flex;align-items:center;gap:11px;margin-bottom:10px">
+    <div class="av" style="width:40px;height:40px;background:${bg};color:${col};font-size:13px">${ini(sv.name)}</div>
+    <div style="flex:1"><div class="jf" style="font-size:14px;font-weight:700">${escH(sv.name)}</div><div style="font-size:11px;color:var(--text3)">Added ${sv.created}</div></div>
+    <button class="bdng bsm" data-rm-schsv="${escH(sv.id)}">Remove</button>
+  </div>
+  <div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--r);padding:10px 12px">
+    <div style="font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px">Signs in with</div>
+    <div class="jf" style="font-size:13px;font-weight:700;color:var(--blue)">${escH(sv.email)}</div>
+  </div>
+</div>`;}).join('') : `<div class="empty"><div class="empty-ico">🧑‍💼</div><div>No supervisors yet. Click <b>+ Add supervisor</b> — they'll be able to add Teachers under your school.</div></div>`}`;
+}
+
+function renderSchProfile(s) {
+  return `<div class="jf" style="font-size:18px;font-weight:700;margin-bottom:14px">School Profile</div>
+  <div class="card">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:14px;font-size:13px">
+      <div><div style="font-size:10px;color:var(--text3);text-transform:uppercase;margin-bottom:2px">School name</div>${escH(s.name||'—')}</div>
+      <div><div style="font-size:10px;color:var(--text3);text-transform:uppercase;margin-bottom:2px">Principal</div>${escH(s.principalName||'—')}</div>
+      <div><div style="font-size:10px;color:var(--text3);text-transform:uppercase;margin-bottom:2px">Address</div>${escH(s.address||'—')}</div>
+      <div><div style="font-size:10px;color:var(--text3);text-transform:uppercase;margin-bottom:2px">District / Province</div>${escH(s.district||'—')}${s.province?', '+escH(s.province):''}</div>
+      <div><div style="font-size:10px;color:var(--text3);text-transform:uppercase;margin-bottom:2px">Phone</div>${escH(s.phone||'—')}</div>
+      <div><div style="font-size:10px;color:var(--text3);text-transform:uppercase;margin-bottom:2px">Email</div>${escH(s.email||'—')}</div>
+      <div><div style="font-size:10px;color:var(--text3);text-transform:uppercase;margin-bottom:2px">Website</div>${escH(s.website||'—')}</div>
+      <div><div style="font-size:10px;color:var(--text3);text-transform:uppercase;margin-bottom:2px">Signs in with</div><span style="color:var(--blue);font-weight:700">${escH(s.adminEmail||'—')}</span></div>
+    </div>
+  </div>
+  <div style="font-size:11px;color:var(--text3);margin-top:10px">Need something changed? Contact the Operator — school details are edited from the Operator dashboard for now.</div>`;
+}
+
+function renderSchModals() {
+  return `<div class="modal-ov" id="m-add-schsv">
+  <div class="modal-box fade-in">
+    <div class="modal-head"><div class="modal-title">Add supervisor</div><button class="bgh bsm" id="m-add-schsv-close">✕</button></div>
+    <div id="addschsv-form">
+      <div class="info-box">The supervisor signs in with Google — no password to set or share.</div>
+      <label class="lbl">Full name</label><input type="text" id="schsv-name" placeholder="e.g. Mr. Suresh Fernando">
+      <label class="lbl">Google email</label><input type="email" id="schsv-email" placeholder="e.g. suresh.fernando@gmail.com" autocomplete="off">
+      <div id="schsv-err" class="errtxt" style="display:none"></div>
+      <div class="frow"><button class="bp" style="flex:1" id="schsv-save">Create supervisor</button><button class="bs2" id="schsv-cancel">Cancel</button></div>
+    </div>
+    <div id="addschsv-creds" style="display:none;text-align:center">
+      <div style="font-size:28px;margin-bottom:8px">✅</div>
+      <div class="jf" style="font-size:15px;font-weight:700;color:var(--green)">Supervisor created!</div>
+      <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:var(--rl);padding:14px;margin:12px 0;text-align:left">
+        <div style="font-size:10px;color:var(--text3);font-weight:700;text-transform:uppercase;margin-bottom:8px">Tell them to sign in with</div>
+        <div class="jf" style="font-size:15px;font-weight:700;color:var(--blue)" id="schsvcred-user"></div>
+      </div>
+      <div class="frow" style="justify-content:center"><button class="bp" id="schsvcred-copy">📋 Copy details</button><button class="bs2" id="schsvcred-done">Done</button></div>
+    </div>
+  </div>
+</div>`;
+}
+
+function attachSchool() {
+  document.getElementById('btn-add-schsv')?.addEventListener('click',()=>openModal('m-add-schsv'));
+  document.getElementById('m-add-schsv-close')?.addEventListener('click',()=>closeModal('m-add-schsv'));
+  document.getElementById('schsv-cancel')?.addEventListener('click',()=>closeModal('m-add-schsv'));
+  document.getElementById('schsv-save')?.addEventListener('click',async ()=>{
+    const name=document.getElementById('schsv-name').value.trim();
+    const email=document.getElementById('schsv-email').value.trim().toLowerCase();
+    const errEl=document.getElementById('schsv-err');
+    const saveBtn=document.getElementById('schsv-save');
+    errEl.style.display='none';
+    if(!name||!email||!email.includes('@')){errEl.textContent='⚠ Fill in a name and a valid email';errEl.style.display='flex';return;}
+    setBtnBusy(saveBtn, true, 'Creating…');
+    try {
+      const schoolId = APP.user.id;
+      await fbCreateSupervisor(schoolId, name, email);
+      document.getElementById('addschsv-form').style.display='none';
+      document.getElementById('addschsv-creds').style.display='block';
+      document.getElementById('schsvcred-user').textContent=email;
+    } catch(e) {
+      setBtnBusy(saveBtn, false);
+      console.error(e);
+      errEl.textContent = e.message==='EMAIL_TAKEN' ? '⚠ That email is already registered to another account' : '⚠ Could not create supervisor — check your connection';
+      errEl.style.display='flex';
+    }
+  });
+  document.getElementById('schsvcred-done')?.addEventListener('click',()=>{
+    closeModal('m-add-schsv');
+    document.getElementById('addschsv-form').style.display='block';
+    document.getElementById('addschsv-creds').style.display='none';
+    APP._schoolPage='supervisors'; render();
+  });
+  document.getElementById('schsvcred-copy')?.addEventListener('click',()=>{
+    const u=document.getElementById('schsvcred-user').textContent;
+    navigator.clipboard.writeText(`JMC Classroom — Supervisor Login\nSign in at JMC Classroom → Supervisor → Continue with Google, using ${u}`).catch(()=>{});
+    toast('Copied!','success');
+  });
+  document.querySelectorAll('[data-rm-schsv]').forEach(btn=>{
+    btn.addEventListener('click',async ()=>{
+      if(!confirm('Remove this supervisor? Their teachers will be removed too.')) return;
+      try { await fbDeleteSupervisor(btn.dataset.rmSchsv); toast('Supervisor removed','success'); }
+      catch(e){ console.error(e); toast('Could not remove supervisor','err'); }
+    });
+  });
+  document.querySelectorAll('[data-toggle-pw]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const id=btn.dataset.togglePw; const pw=btn.dataset.pw;
+      const el=document.getElementById('sv-pw-'+id);
+      if(el.textContent==='••••••••'){el.textContent=pw; btn.textContent='🙈 Hide';}
+      else {el.textContent='••••••••'; btn.textContent='👁 Show';}
+    });
+  });
+  document.querySelectorAll('[data-copy-creds]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const c=JSON.parse(btn.dataset.copyCreds);
+      navigator.clipboard.writeText(`JMC Classroom Supervisor Login\nUsername: ${c.user}\nPassword: ${c.pass}`).catch(()=>{});
+      toast('Copied!','success');
+    });
+  });
+}
+
+// ── SUPERVISOR SHELL ──────────────────────────
+function renderSupervisor() {
+  const d = db();
+  const sv = APP.user;
+  const svData = STATE.supervisors[sv.id] || sv;
+  const tcs = Object.values(STATE.teachers||{}).filter(t => t.supervisorId === sv.id);
+  const tcIds = new Set(tcs.map(t=>t.id));
+  const clss = Object.values(d.classes||{}).filter(c => tcIds.has(c.tid));
+  const school = STATE.schools[svData.schoolId];
+  const pg = APP._svPage || 'dash';
+  const pages = {
+    dash: renderSvDash(d, svData, tcs, clss, school),
+    institution: renderSvInstitution(school),
+    teachers: renderSvTeachers(d, tcs, clss),
+    classrooms: renderSvClassrooms(d, clss),
+    students: renderSvStudents(d, clss),
+    activity: renderSvActivity(d, clss),
+  };
+  const [col,bg] = avc(svData.name||'S');
+  return shellTemplate({
+    logo: jmcLogo(32,'#1f6feb','#7c3aed','lsv'),
+    title: 'JMC Classroom',
+    subtitle: 'Supervisor',
+    navItems: [
+      {id:'dash',icon:'🏠',label:'Dashboard'},
+      {id:'institution',icon:'🏫',label:'My School'},
+      {id:'teachers',icon:'👥',label:'Teachers'},
+      {id:'classrooms',icon:'🏫',label:'Classrooms'},
+      {id:'students',icon:'🎓',label:'All Students'},
+      {id:'activity',icon:'📊',label:'Activity'},
+    ],
+    activePage: pg, navPrefix: 'sv',
+    topTitle: {dash:'Dashboard',institution:'My School',teachers:'Teachers',classrooms:'Classrooms',students:'All Students',activity:'Activity'}[pg]||'Dashboard',
+    content: pages[pg]||pages.dash,
+    footerAvStyle:`width:28px;height:28px;font-size:10px;background:${bg};color:${col}`,
+    footerAvText: ini(svData.name||'S'),
+    footerName: svData.name, footerSub: 'Sign out', signoutGo: 'land',
+    modals: renderSvModals(d),
+  });
+}
+
+function renderSvDash(d, sv, tcs, clss, school) {
+  const totalSt = clss.reduce((a,c)=>a+(c.students||[]).length,0);
+  return `<div class="wb" style="background:linear-gradient(135deg,#7c3aed,#6e40c9)">
+  <div style="font-size:28px">🏫</div><div>
+  <div class="jf" style="font-size:18px;font-weight:700;color:#fff">Welcome, ${escH(sv.name||'Supervisor')}!</div>
+  <div style="font-size:12px;color:rgba(255,255,255,.7);margin-top:2px">${school ? 'School: '+escH(school.name) : 'No school linked'}</div>
+  </div></div>
+  <div class="stat-grid">
+    <div class="stat-card" onclick="APP._svPage='teachers';render()"><div class="stat-lbl">Teachers</div><div class="stat-num" style="color:var(--blue)">${tcs.length}</div></div>
+    <div class="stat-card" onclick="APP._svPage='classrooms';render()"><div class="stat-lbl">Classrooms</div><div class="stat-num" style="color:var(--purple)">${clss.length}</div></div>
+    <div class="stat-card" onclick="APP._svPage='students';render()"><div class="stat-lbl">Students</div><div class="stat-num" style="color:var(--green)">${totalSt}</div></div>
+    <div class="stat-card"><div class="stat-lbl">Posts</div><div class="stat-num" style="color:var(--amber)">${clss.reduce((a,c)=>a+(c.posts||[]).length,0)}</div></div>
+  </div>
+  ${!tcs.length ? `<div class="info-box" style="cursor:pointer" onclick="APP._svPage='teachers';render()">👆 Add your first Teacher to get started.</div>` : ''}`;
+}
+
+function renderSvInstitution(school) {
+  if (!school) return `<div class="jf" style="font-size:18px;font-weight:700;margin-bottom:14px">My School</div>
+  <div class="empty"><div class="empty-ico">🏫</div><div>No school is linked to your account. Contact your School administrator.</div></div>`;
+  return `<div class="jf" style="font-size:18px;font-weight:700;margin-bottom:14px">My School</div>
+  <div class="card">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:12px">
+      ${school.logoUrl ? `<img src="${escH(school.logoUrl)}" alt="${escH(school.name||'School logo')}" style="width:44px;height:44px;border-radius:12px;object-fit:cover">` : `<div style="width:44px;height:44px;background:var(--purple-bg);border-radius:12px;display:flex;align-items:center;justify-content:center;font-size:22px">🏫</div>`}
+      <div><div class="jf" style="font-size:17px;font-weight:700">${escH(school.name)}</div>
+      <div style="font-size:12px;color:var(--text3)">${escH(school.schoolType||'School')} · ${escH(school.district||'')}${school.province?', '+escH(school.province):''}</div></div>
+    </div>
+    <div class="sep"></div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:10px;font-size:13px">
+      ${school.principalName ? `<div><div class="lbl" style="margin-top:0">Principal</div>${escH(school.principalName)}</div>` : ''}
+      ${school.address ? `<div><div class="lbl" style="margin-top:0">Address</div>${escH(school.address)}</div>` : ''}
+      ${school.phone ? `<div><div class="lbl" style="margin-top:0">Phone</div>${escH(school.phone)}</div>` : ''}
+      ${school.email ? `<div><div class="lbl" style="margin-top:0">Email</div>${escH(school.email)}</div>` : ''}
+    </div>
+  </div>
+  <div style="font-size:11px;color:var(--text3);margin-top:10px">School details are managed by the Operator and your School account.</div>`;
+}
+
+function renderSvTeachers(d, tcs, clss) {
+  return `<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+  <div class="jf" style="font-size:18px;font-weight:700">Teachers</div>
+  <button class="bp bsm" id="btn-add-tc">+ Add teacher</button>
+</div>
+${tcs.length ? tcs.map(t => {
+  const [col,bg] = avc(t.name);
+  const cnt = clss.filter(c=>(c.teachers||[]).includes(t.id)).length;
+  return `<div class="card" style="display:flex;align-items:center;gap:11px;margin-bottom:8px">
+  <div class="av" style="width:38px;height:38px;background:${bg};color:${col};font-size:12px">${ini(t.name)}</div>
+  <div style="flex:1"><div class="jf" style="font-size:13px;font-weight:700">${escH(t.name)}</div>
+  <div style="font-size:11px;color:var(--text3)">${escH(t.email)} · ${cnt} classroom${cnt!==1?'s':''}</div>
+  <div style="margin-top:4px">${(t.subjects||[]).map(s=>`<span class="bdg ${SUBJ_C[s]||'cgray'}" style="margin-right:2px">${s}</span>`).join('')}</div></div>
+  <button class="bdng bsm" data-rm-tc="${t.id}">Remove</button>
+</div>`;}).join('') : `<div class="empty"><div class="empty-ico">👥</div><div>No teachers yet. Click <b>+ Add teacher</b>.</div></div>`}`;
+}
+
+function renderSvClassrooms(d, clss) {
+  const tcs = STATE.teachers||{};
+  return `<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px">
+  <div class="jf" style="font-size:18px;font-weight:700">Classrooms</div>
+  <button class="bp bsm" id="btn-create-cls">+ New classroom</button>
+</div>
+${clss.length ? clss.map((c,i) => {
+  const teachers = (c.teachers||[]).map(tid=>tcs[tid]).filter(Boolean);
+  return `<div class="cls-card" style="cursor:default">
+  <div class="cls-banner" style="background:${BCOLS[i%BCOLS.length]}"><div class="cls-bc">
+    <div class="cls-banner-title">${escH(c.name)}</div>
+    <div class="cls-banner-sub">${escH(c.div)} · ${(c.students||[]).length} students · Code: ${c.code}</div>
+  </div></div>
+  <div style="padding:10px 13px">
+    <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+      <div style="font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase">Teachers</div>
+      <button class="bp bsm" data-add-tc-cls="${c.id}">+ Add teacher</button>
+    </div>
+    ${teachers.length ? teachers.map(t=>`<div style="display:flex;align-items:center;gap:8px;padding:6px 0;border-bottom:1px solid var(--border)">
+      <div class="av" style="width:26px;height:26px;font-size:9px;background:${avc(t.name)[1]};color:${avc(t.name)[0]}">${ini(t.name)}</div>
+      <div style="flex:1;font-size:12px">${escH(t.name)} — <span style="color:var(--text3)">${(c.subjects||{})[t.id]||'General'}</span></div>
+      <button class="bdng bsm" data-rm-tc-cls="${c.id}__${t.id}">✕</button>
+    </div>`).join('') : '<div style="font-size:12px;color:var(--text3);padding:6px 0">No teachers assigned</div>'}
+  </div>
+</div>`;}).join('') : `<div class="empty"><div class="empty-ico">🏫</div><div>No classrooms yet. Click <b>+ New classroom</b>.</div></div>`}`;
+}
+
+function renderSvStudents(d, clss) {
+  let rows = [], n = 1;
+  clss.forEach(c => (c.students||[]).forEach(s => {
+    rows.push(`<tr><td style="color:var(--text3)">${n++}</td><td style="font-weight:600">${escH(s.name)}</td>
+    <td>${escH(c.name)}</td><td>${escH(c.div)}</td>
+    <td style="font-size:11px">${s.joined}</td>
+    <td><button class="bdng bsm" data-rm-st="${c.id}__${escH(s.name)}">Remove</button></td></tr>`);
+  }));
+  return `<div class="jf" style="font-size:18px;font-weight:700;margin-bottom:14px">All Students</div>
+  <div style="overflow-x:auto;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl)">
+    <table class="trk-table"><thead><tr><th>#</th><th>Name</th><th>Classroom</th><th>Division</th><th>Joined</th><th>Action</th></tr></thead>
+    <tbody>${rows.join('')||'<tr><td colspan="6" style="text-align:center;color:var(--text3);padding:20px">No students enrolled yet</td></tr>'}</tbody></table>
+  </div>`;
+}
+
+function renderSvActivity(d, clss) {
+  const acts = [];
+  clss.forEach(c => {
+    (c.posts||[]).forEach(p => { const t=STATE.teachers[p.tid]; acts.push({tx:`<b>${escH(t?t.name:'Teacher')}</b> posted "${escH(p.title)}" in <b>${escH(c.name)}</b>`,sb:p.date,cl:'var(--blue)'}); });
+    (c.students||[]).forEach(s => acts.push({tx:`${escH(s.name)} joined <b>${escH(c.name)}</b>`,sb:s.joined,cl:'var(--green)'}));
+  });
+  return `<div class="jf" style="font-size:18px;font-weight:700;margin-bottom:14px">Institution Activity</div>
+  <div class="card">${acts.length ? acts.slice(-40).reverse().map(a=>`<div class="act-row"><div class="act-dot" style="background:${a.cl}"></div><div><div style="font-size:12px;line-height:1.5">${a.tx}</div><div style="font-size:11px;color:var(--text3)">${a.sb||''}</div></div></div>`).join('') : '<div style="font-size:12px;color:var(--text3);padding:12px">No activity yet</div>'}</div>`;
+}
+
+function renderSvModals(d) {
+  const tcs = Object.values(STATE.teachers||{});
+  const clss = Object.values(d.classes||{});
+  const addTcClsId = APP._addTcClsId;
+  const curCls = addTcClsId ? d.classes[addTcClsId] : null;
+  const available = curCls ? tcs.filter(t=>!(curCls.teachers||[]).includes(t.id)) : [];
+  return `<div class="modal-ov" id="m-add-tc">
+  <div class="modal-box fade-in">
+    <div class="modal-head"><div class="modal-title">Add teacher</div><button class="bgh bsm" id="m-add-tc-close">✕</button></div>
+    <label class="lbl">Full name</label><input type="text" id="nt-name" placeholder="e.g. Ms. Dilrukshi Perera">
+    <label class="lbl">Google email</label><input type="email" id="nt-email" placeholder="e.g. dilrukshi.perera@gmail.com">
+    <label class="lbl">Subjects</label>
+    <div id="nt-subj-wrap" style="display:flex;flex-wrap:wrap;gap:5px;margin-top:5px">
+      ${ALL_SUBJS.map(s=>`<span class="spill" data-subj="${s}">${s}</span>`).join('')}
+    </div>
+    <div id="nt-err" class="errtxt" style="display:none"></div>
+    <div class="frow"><button class="bp" style="flex:1" id="nt-save">Add teacher</button><button class="bs2" id="nt-cancel">Cancel</button></div>
+  </div>
+</div>
+<div class="modal-ov" id="m-create-cls">
+  <div class="modal-box fade-in">
+    <div class="modal-head"><div class="modal-title">Create classroom</div><button class="bgh bsm" id="m-create-cls-close">✕</button></div>
+    <label class="lbl">Classroom name</label><input type="text" id="nc-name" placeholder="e.g. Grade 9A — 2026">
+    <label class="lbl">Division</label><input type="text" id="nc-div" placeholder="e.g. Grade 9A, Section Blue">
+    <label class="lbl">Assign teachers</label>
+    <div id="nc-tc-wrap" style="display:flex;flex-wrap:wrap;gap:5px;margin-top:5px">
+      ${tcs.map(t=>`<span class="spill" data-tc="${t.id}">${escH(t.name)}</span>`).join('')}
+    </div>
+    <div id="nc-err" class="errtxt" style="display:none"></div>
+    <div class="frow"><button class="bp" style="flex:1" id="nc-save">Create</button><button class="bs2" id="nc-cancel">Cancel</button></div>
+  </div>
+</div>
+<div class="modal-ov" id="m-add-tc-cls">
+  <div class="modal-box fade-in">
+    <div class="modal-head"><div class="modal-title">Add teacher to classroom</div><button class="bgh bsm" id="m-add-tc-cls-close">✕</button></div>
+    <div style="font-size:12px;color:var(--text2);margin-bottom:10px">Classroom: <b style="color:var(--text)">${escH(curCls?curCls.name:'')}</b></div>
+    ${available.length ? available.map(t=>`<div style="display:flex;align-items:center;gap:9px;padding:8px 0;border-bottom:1px solid var(--border)">
+      <div class="av" style="width:28px;height:28px;font-size:10px;background:${avc(t.name)[1]};color:${avc(t.name)[0]}">${ini(t.name)}</div>
+      <div style="flex:1"><div style="font-size:13px;font-weight:600">${escH(t.name)}</div><div style="font-size:11px;color:var(--text3)">${(t.subjects||[]).join(', ')||'No subjects'}</div></div>
+      <button class="bp bsm" data-add-tc-to-cls="${t.id}">Add</button>
+    </div>`).join('') : '<div style="font-size:12px;color:var(--text3);padding:8px 0">All teachers are already in this classroom.</div>'}
+    <div class="frow"><button class="bs2" style="flex:1" id="m-add-tc-cls-close2">Close</button></div>
+  </div>
+</div>`;
+}
+
+// ── TEACHER SHELL ─────────────────────────────
+function renderTeacher() {
+  const d = db();
+  const tc = STATE.teachers[APP.user.id] || APP.user;
+  const myCls = Object.values(d.classes).filter(c=>(c.teachers||[]).includes(tc.id));
+  const pg = APP._tcPage || 'home';
+  const unread = unreadMsgCount('teacher');
+  const navItems = [
+    {id:'home', icon:'🏠', label:'Home'},
+    {id:'messages', icon:'💬', label:'Messages', badge: unread},
+    {id:'sep'},
+    ...myCls.map((c,i)=>({id:'cls_'+c.id, icon:['📗','📘','📙','📕'][i%4], label:c.name, short:true})),
+  ];
+  const [col,bg] = avc(tc.name||'T');
+  return shellTemplate({
+    logo: jmcLogo(32,'#1f6feb','#7c3aed','ltc'),
+    title: 'JMC Classroom', subtitle: 'Teacher',
+    navItems, activePage: pg, navPrefix: 'tc',
+    topTitle: pg==='home'?'My Classrooms':pg==='messages'?'Messages':myCls.find(c=>'cls_'+c.id===pg)?myCls.find(c=>'cls_'+c.id===pg).name:'Classroom',
+    content: pg==='home' ? renderTcHome(tc, myCls, d) : pg==='messages' ? renderTcMessages(d, tc, myCls) : pg.startsWith('cls_') ? renderTcCls(d, tc, pg.replace('cls_','')) : renderTcHome(tc, myCls, d),
+    footerAvStyle:`width:28px;height:28px;font-size:10px;background:${bg};color:${col}`,
+    footerAvText: ini(tc.name||'T'),
+    footerName: tc.name||'Teacher', footerSub: 'Sign out', signoutGo: 'land',
+    modals: renderTcModals(d, tc),
+  });
+}
+
+function renderTcHome(tc, myCls, d) {
+  return `<div class="wb" style="background:linear-gradient(135deg,#1f6feb,#7c3aed)">
+  <div style="font-size:26px">📋</div><div>
+  <div class="jf" style="font-size:18px;font-weight:700;color:#fff">Welcome, ${escH(tc.name||'Teacher')}!</div>
+  <div style="font-size:12px;color:rgba(255,255,255,.7);margin-top:2px">You have ${myCls.length} classroom${myCls.length!==1?'s':''}</div>
+  </div></div>
+  <div class="stat-grid">
+    <div class="stat-card"><div class="stat-lbl">Classrooms</div><div class="stat-num" style="color:var(--blue)">${myCls.length}</div></div>
+    <div class="stat-card"><div class="stat-lbl">Students</div><div class="stat-num" style="color:var(--green)">${myCls.reduce((a,c)=>a+(c.students||[]).length,0)}</div></div>
+    <div class="stat-card"><div class="stat-lbl">Posts</div><div class="stat-num" style="color:var(--amber)">${myCls.reduce((a,c)=>a+(c.posts||[]).filter(p=>p.tid===tc.id).length,0)}</div></div>
+    <div class="stat-card"><div class="stat-lbl">Submissions</div><div class="stat-num" style="color:var(--purple)">${countTcSubmissions(d,tc.id)}</div></div>
+  </div>
+  <div class="jf" style="font-size:13px;font-weight:700;margin-bottom:10px">My Classrooms</div>
+  ${myCls.length ? myCls.map((c,i)=>`<div class="cls-card" onclick="APP._tcPage='cls_${c.id}';APP._tcTab=0;render()">
+    <div class="cls-banner" style="background:${BCOLS[i%BCOLS.length]}"><div class="cls-bc">
+      <div class="cls-banner-title">${escH(c.name)}</div>
+      <div class="cls-banner-sub">${escH(c.div)} · ${(c.students||[]).length} students</div>
+    </div></div>
+    <div class="cls-footer"><span class="bdg ${SUBJ_C[(c.subjects||{})[tc.id]]||'cgray'}">${(c.subjects||{})[tc.id]||'—'}</span>
+    <div style="font-size:11px;color:var(--text3)">Code: <b style="color:var(--text);letter-spacing:2px">${c.code}</b></div></div>
+  </div>`).join('') : `<div class="empty"><div class="empty-ico">🏫</div><div>No classrooms yet. Ask your supervisor to add you to one.</div></div>`}`;
+}
+
+function countTcSubmissions(d, tid) {
+  let n = 0;
+  Object.values(d.classes||{}).forEach(c => {
+    (c.work||[]).filter(w=>w.tid===tid).forEach(w => {
+      (c.students||[]).forEach(s => {
+        const key = `${c.id}_${w.id}_${s.name}`;
+        if ((d.submissions||{})[key] && (d.submissions||{})[key].submitted) n++;
+      });
+    });
+  });
+  return n;
+}
+
+function renderTcMessages(d, tc, myCls) {
+  const allStudents = [];
+  myCls.forEach(c => (c.students||[]).forEach(s => allStudents.push({...s, clsId:c.id, clsName:c.name})));
+  const contactId = APP.msgContactId;
+  let thread = [];
+  if (contactId) {
+    const key = contactId;
+    thread = (d.messages||{})[key] || [];
+    dbSet(db2 => {
+      if (db2.messages[key]) db2.messages[key].forEach(m => { if(m.from==='student') m.readByTeacher=true; });
+    });
+  }
+  const contact = contactId ? allStudents.find(s=>`${s.clsId}_${tc.id}_${s.name}`===contactId) : null;
+  return `<div style="display:grid;grid-template-columns:220px 1fr;gap:12px;height:calc(100vh - 110px);max-height:600px">
+  <div style="overflow-y:auto">
+    <div class="jf" style="font-size:12px;font-weight:700;color:var(--text2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Students</div>
+    ${allStudents.length ? allStudents.map(s => {
+      const key = `${s.clsId}_${tc.id}_${s.name}`;
+      const msgs = (d.messages||{})[key]||[];
+      const lastMsg = msgs[msgs.length-1];
+      const hasUnread = lastMsg && lastMsg.from==='student' && !lastMsg.readByTeacher;
+      const [col,bg] = avc(s.name);
+      return `<div class="msg-contact ${key===contactId?'active':''}" onclick="APP.msgContactId='${key}';APP._tcPage='messages';render()">
+        <div class="av" style="width:32px;height:32px;font-size:10px;background:${bg};color:${col};flex-shrink:0">${ini(s.name)}</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:12px;font-weight:${hasUnread?700:500}">${escH(s.name)}</div>
+          <div style="font-size:10px;color:var(--text3);white-space:nowrap;overflow:hidden;text-overflow:ellipsis">${escH(s.clsName)}</div>
+        </div>
+        ${hasUnread ? '<div style="width:8px;height:8px;border-radius:50%;background:var(--blue);flex-shrink:0"></div>' : ''}
+      </div>`;
+    }).join('') : '<div style="font-size:12px;color:var(--text3)">No students in your classrooms yet</div>'}
+  </div>
+  <div style="display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden">
+    ${contact ? `
+    <div style="padding:12px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:9px">
+      <div class="av" style="width:30px;height:30px;font-size:10px;background:${avc(contact.name)[1]};color:${avc(contact.name)[0]}">${ini(contact.name)}</div>
+      <div><div class="jf" style="font-size:13px;font-weight:700">${escH(contact.name)}</div><div style="font-size:11px;color:var(--text3)">${escH(contact.clsName)}</div></div>
+    </div>
+    <div id="tc-thread" style="flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:8px">
+      ${thread.length ? thread.map(m=>`<div style="display:flex;flex-direction:column;align-items:${m.from==='teacher'?'flex-end':'flex-start'}">
+        <div class="msg-bubble ${m.from==='teacher'?'mine':'theirs'}">${escH(m.text)}</div>
+        <div class="msg-ts ${m.from==='teacher'?'':'theirs'}" style="font-size:10px;color:var(--text3);margin-top:2px">${m.ts}</div>
+      </div>`).join('') : '<div style="text-align:center;color:var(--text3);font-size:12px;margin-top:20px">No messages yet. Start the conversation!</div>'}
+    </div>
+    <div style="padding:10px;border-top:1px solid var(--border);display:flex;gap:8px">
+      <input type="text" id="tc-msg-inp" placeholder="Type a message…" style="flex:1" onkeydown="if(event.key==='Enter')document.getElementById('tc-msg-send').click()">
+      <button class="bp" id="tc-msg-send" data-msgkey="${contactId}">Send</button>
+    </div>` : `<div class="empty" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center"><div class="empty-ico">💬</div><div>Select a student to view messages</div></div>`}
+  </div>
+</div>`;
+}
+
+function renderTcCls(d, tc, clsId) {
+  const cls = d.classes[clsId];
+  if (!cls) return '<div class="empty">Classroom not found</div>';
+  const mySubj = (cls.subjects||{})[tc.id]||'General';
+  const tab = APP._tcTab || 0;
+  const tabs = ['Stream','Classwork','Materials','Students','Attendance','Quiz','Track Marks','Messages','Teachers'];
+  return `<div class="code-box">
+  <div><div style="font-size:11px;color:var(--blue);font-weight:700;text-transform:uppercase;letter-spacing:.4px;margin-bottom:1px">Student join code</div>
+  <div class="code-val">${cls.code}</div></div>
+  <button class="bs2 bsm" id="copy-code-btn" data-code="${cls.code}" data-clsname="${escH(cls.name)}">📋 Copy</button>
+</div>
+<div class="stat-grid">
+  <div class="stat-card"><div class="stat-lbl">Students</div><div class="stat-num" style="color:var(--green)">${(cls.students||[]).length}</div></div>
+  <div class="stat-card"><div class="stat-lbl">My Posts</div><div class="stat-num" style="color:var(--blue)">${(cls.posts||[]).filter(p=>p.tid===tc.id).length}</div></div>
+  <div class="stat-card"><div class="stat-lbl">Quiz Qs</div><div class="stat-num" style="color:var(--purple)">${(cls.quiz||[]).filter(q=>q.tid===tc.id).length}</div></div>
+  <div class="stat-card"><div class="stat-lbl">Subject</div><div class="stat-num" style="font-size:12px;color:var(--amber)">${mySubj}</div></div>
+</div>
+<div class="tabs">${tabs.map((t,i)=>`<div class="tabn ${i===tab?'on':''}" onclick="APP._tcTab=${i};APP._tcPage='cls_${clsId}';render()">${t}</div>`).join('')}</div>
+<div id="tc-tab-content">
+${tab===0 ? renderTcStream(d, tc, cls) : ''}
+${tab===1 ? renderTcWork(d, tc, cls) : ''}
+${tab===2 ? renderTcMats(d, tc, cls) : ''}
+${tab===3 ? renderTcStudents(tc, cls) : ''}
+${tab===4 ? renderTcAttendance(d, tc, cls) : ''}
+${tab===5 ? renderTcQuiz(d, tc, cls) : ''}
+${tab===6 ? renderTcTrack(d, tc, cls) : ''}
+${tab===7 ? renderTcClsMessages(d, tc, cls) : ''}
+${tab===8 ? renderTcTeachersPanel(d, tc, cls) : ''}
+</div>`;
+}
+
+function renderTcStream(d, tc, cls) {
+  const posts = (cls.posts||[]).filter(p=>p.tid===tc.id);
+  return `<div style="background:var(--bg3);border:1px solid var(--border);border-radius:var(--rl);padding:11px 14px;margin-bottom:12px;cursor:pointer;color:var(--text3);font-size:13px;transition:all .15s" id="open-post-btn" onmouseover="this.style.borderColor='var(--blue)'" onmouseout="this.style.borderColor='var(--border)'">✏ Post a lesson or announcement…</div>
+${posts.length ? posts.slice().reverse().map(p=>`<div class="post-card">
+  <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+    <div class="av" style="width:28px;height:28px;background:var(--blue-bg);color:var(--blue);font-size:9px">${ini(tc.name)}</div>
+    <div style="flex:1"><div class="jf" style="font-size:13px;font-weight:600">${escH(tc.name)}</div><div style="font-size:11px;color:var(--text3)">${p.subj} · ${p.date}</div></div>
+    <span class="bdg ${SUBJ_C[p.subj]||'cgray'}">${p.subj}</span>
+    <button style="background:none;border:none;color:var(--text3);cursor:pointer;font-size:13px" data-del-post="${p.id}" data-cls="${cls.id}">🗑</button>
+  </div>
+  <div class="jf" style="font-size:14px;font-weight:700;margin-bottom:5px">${escH(p.title)}</div>
+  <div class="post-body-txt">${escH(p.body).replace(/\n/g,'<br>')}</div>
+  ${p.att ? `<div style="display:flex;align-items:center;gap:7px;margin-top:8px;padding:8px 11px;background:var(--bg3);border-radius:var(--r);border:1px solid var(--border);font-size:12px;color:var(--text2)">${ATT_I[p.attType]||'📎'} ${p.att.startsWith('http')?`<a href="${escH(p.att)}" target="_blank" style="color:var(--blue)">Open attachment</a>`:escH(p.att)}</div>` : ''}
+</div>`).join('') : '<div class="empty"><div>No posts from you yet.</div></div>'}`;
+}
+
+function renderTcWork(d, tc, cls) {
+  const work = (cls.work||[]).filter(w=>w.tid===tc.id);
+  return `<div style="display:flex;justify-content:flex-end;margin-bottom:10px"><button class="bp bsm" id="open-work-btn">+ Add classwork</button></div>
+${work.length ? work.map(w=>`<div class="work-item">
+  <div class="work-ico" style="background:var(--amber-bg);color:var(--amber)">${ATT_I[w.wtype]||'📋'}</div>
+  <div style="flex:1;min-width:0">
+    <div class="jf" style="font-size:13px;font-weight:600">${escH(w.title)}</div>
+    <div style="font-size:11px;color:var(--text3)">Due: ${escH(w.due||'No due date')} · ${escH(w.subj)}${w.maxMarks?' · Max: '+escH(w.maxMarks)+' marks':''}</div>
+    ${w.inst ? `<div style="font-size:12px;color:var(--text2);margin-top:2px">${escH(w.inst)}</div>` : ''}
+  </div>
+  <span class="bdg ${SUBJ_C[w.subj]||'cgray'}">${escH(w.subj)}</span>
+  <button style="background:none;border:none;color:var(--text3);cursor:pointer" data-del-work="${w.id}" data-cls="${cls.id}">🗑</button>
+</div>`).join('') : '<div class="empty"><div>No classwork yet.</div></div>'}`;
+}
+
+function renderTcMats(d, tc, cls) {
+  const mats = (cls.materials||[]).filter(m=>m.tid===tc.id);
+  return `<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+  <div class="jf" style="font-size:13px;font-weight:700">Educational materials</div>
+  <button class="bp bsm" id="open-mat-btn">+ Share material</button>
+</div>
+${mats.length ? mats.map(m=>`<div class="mat-card">
+  <div style="width:36px;height:36px;border-radius:9px;background:var(--teal-bg);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">${ATT_I[m.mtype]||'📎'}</div>
+  <div style="flex:1;min-width:0">
+    <div class="jf" style="font-size:13px;font-weight:600">${escH(m.title)}</div>
+    ${m.desc ? `<div style="font-size:12px;color:var(--text2);margin-top:1px">${escH(m.desc)}</div>` : ''}
+    <div style="font-size:11px;color:var(--text3);margin-top:2px">${escH(m.subj)} · Shared ${m.date}</div>
+  </div>
+  ${m.att ? (m.att.startsWith('http') ? `<a href="${escH(m.att)}" target="_blank" class="bp bsm" style="text-decoration:none;white-space:nowrap">Open ↗</a>` : `<span class="bdg cgray">${escH(m.att)}</span>`) : ''}
+  <button style="background:none;border:none;color:var(--text3);cursor:pointer;margin-left:6px" data-del-mat="${m.id}" data-cls="${cls.id}">🗑</button>
+</div>`).join('') : '<div class="empty"><div>No materials shared yet.</div></div>'}`;
+}
+
+function renderTcStudents(tc, cls) {
+  const sts = cls.students||[];
+  return `<div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:10px">
+  <span style="font-size:13px;color:var(--text2)">${sts.length} student${sts.length!==1?'s':''}</span>
+  <button class="bp bsm" id="open-stud-btn">+ Add student</button>
+</div>
+${sts.length ? sts.map(s=>{const[col,bg]=avc(s.name);return`<div class="st-row">
+  <div class="av" style="width:34px;height:34px;background:${bg};color:${col};font-size:11px">${ini(s.name)}</div>
+  <div style="flex:1"><div class="jf" style="font-size:13px;font-weight:600">${escH(s.name)}</div>
+  <div style="font-size:11px;color:var(--text3)">Joined ${s.joined}</div></div>
+  <button style="background:none;border:none;color:var(--text3);cursor:pointer" data-del-st="${escH(s.name)}" data-cls="${cls.id}">✕</button>
+</div>`;}).join('') : '<div class="empty"><div>No students yet.</div></div>'}`;
+}
+
+function renderTcAttendance(d, tc, cls) {
+  const sts = cls.students||[];
+  const att = ((cls.attendance||{})[tc.id])||{};
+  const today = new Date().toISOString().slice(0,10);
+  const date = APP._attDate || today;
+  const dayRec = att[date] || {};
+  // Seed the in-memory selection buffer from saved data (or carry over unsaved picks for this date)
+  if (!_attSel || _attSelDate !== date) { _attSel = {...dayRec}; _attSelDate = date; }
+  const dates = Object.keys(att).sort().reverse();
+  const statusIcon = {present:'✓',absent:'✕',late:'⏰'};
+  const statusCls = {present:'cgreen',absent:'cred',late:'camber'};
+
+  let html = `<div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:16px">
+    <input type="date" id="att-date" value="${date}" max="${today}" style="width:auto">
+    <button class="bp bsm" id="att-save">💾 Save attendance</button>
+    <span style="font-size:11px;color:var(--text3)">Marking for ${escH((cls.subjects||{})[tc.id]||'General')}</span>
+  </div>`;
+
+  if (!sts.length) {
+    html += `<div class="empty"><div class="empty-ico">📋</div><div>Add students to this classroom before taking attendance.</div></div>`;
+  } else {
+    html += sts.map(s => {
+      const cur = _attSel[s.name];
+      const [col,bg] = avc(s.name);
+      return `<div class="st-row" data-att-row="${escH(s.name)}">
+        <div class="av" style="width:34px;height:34px;background:${bg};color:${col};font-size:11px">${ini(s.name)}</div>
+        <div style="flex:1"><div class="jf" style="font-size:13px;font-weight:600">${escH(s.name)}</div></div>
+        <div style="display:flex;gap:5px">
+          <button class="att-btn ${cur==='present'?'on-green':''}" data-att-set="${escH(s.name)}" data-status="present" title="Present">✓</button>
+          <button class="att-btn ${cur==='late'?'on-amber':''}" data-att-set="${escH(s.name)}" data-status="late" title="Late">⏰</button>
+          <button class="att-btn ${cur==='absent'?'on-red':''}" data-att-set="${escH(s.name)}" data-status="absent" title="Absent">✕</button>
+        </div>
+      </div>`;
+    }).join('');
+  }
+
+  if (dates.length && sts.length) {
+    html += `<div class="jf" style="font-size:13px;font-weight:700;margin:20px 0 10px">Attendance summary</div>
+    <div style="overflow-x:auto;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl)">
+    <table class="trk-table"><thead><tr><th>Student</th><th>Present</th><th>Late</th><th>Absent</th><th>% Present</th></tr></thead><tbody>`;
+    html += sts.map(s => {
+      let p=0,l=0,a=0;
+      dates.forEach(dt => { const st = att[dt][s.name]; if(st==='present')p++; else if(st==='late')l++; else if(st==='absent')a++; });
+      const marked = p+l+a;
+      const pct = marked ? Math.round((p+l*0.5)/marked*100) : 0;
+      return `<tr><td class="jf" style="font-weight:600;white-space:nowrap">${escH(s.name)}</td><td>${p}</td><td>${l}</td><td>${a}</td><td><span class="mk ${marked?mkCls(pct,100):'mk-ns'}">${marked?pct+'%':'—'}</span></td></tr>`;
+    }).join('');
+    html += `</tbody></table></div>
+    <div style="font-size:10.5px;color:var(--text3);margin-top:8px">${dates.length} day${dates.length!==1?'s':''} recorded · Last: ${new Date(dates[0]).toLocaleDateString('en-GB',{day:'numeric',month:'short',year:'numeric'})}</div>`;
+  }
+  return html;
+}
+
+function renderTcQuiz(d, tc, cls) {
+  const quiz = (cls.quiz||[]).filter(q=>q.tid===tc.id);
+  return `<div style="display:flex;justify-content:flex-end;margin-bottom:10px"><button class="bp bsm" id="open-quiz-btn">+ Add question</button></div>
+${quiz.length ? quiz.map((q,i)=>`<div class="card" style="margin-bottom:8px">
+  <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:7px">
+    <div style="display:flex;gap:5px;align-items:center"><span style="font-size:11px;color:var(--text3)">Q${i+1}</span><span class="bdg ${SUBJ_C[q.subj]||'cgray'}">${q.subj}</span><span class="bdg camber">${q.marks||1} mark${(q.marks||1)>1?'s':''}</span></div>
+    <button style="background:none;border:none;color:var(--text3);cursor:pointer" data-del-quiz="${q.id}" data-cls="${cls.id}">🗑</button>
+  </div>
+  <div class="jf" style="font-size:13px;font-weight:700;margin-bottom:7px">${escH(q.q)}</div>
+  ${q.opts.map((o,j)=>`<div style="font-size:12px;padding:2px 0;color:${j===q.ans?'var(--green)':'var(--text3)'}">${['A','B','C','D'][j]}. ${escH(o)}${j===q.ans?' ✓':''}</div>`).join('')}
+</div>`).join('') : '<div class="empty"><div>No quiz questions yet.</div></div>'}`;
+}
+
+function renderTcTrack(d, tc, cls) {
+  const myWork = (cls.work||[]).filter(w=>w.tid===tc.id);
+  const myQuiz = (cls.quiz||[]).filter(q=>q.tid===tc.id);
+  const totalQM = myQuiz.reduce((a,q)=>a+(parseInt(q.marks)||1),0);
+  const sts = cls.students||[];
+  const marks = cls.marks||{};
+  const qRes = cls.quizResults||{};
+  const subs = d.submissions||{};
+  let html = '<div class="jf" style="font-size:14px;font-weight:700;margin-bottom:14px">Student progress &amp; tracking</div>';
+  if (myWork.length) {
+    html += `<div style="font-size:11px;font-weight:700;color:var(--text2);text-transform:uppercase;letter-spacing:.5px;margin-bottom:8px">Classwork marks <span style="font-weight:400;color:var(--text3)">(click a mark to edit)</span></div>
+    <div style="overflow-x:auto;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);margin-bottom:16px">
+    <table class="trk-table"><thead><tr><th>Student</th>${myWork.map(w=>`<th>${escH(w.title.length>12?w.title.slice(0,12)+'…':w.title)}<br><span style="font-weight:400">/${w.maxMarks||'?'}</span></th>`).join('')}<th>Submissions</th><th>Avg%</th></tr></thead><tbody>`;
+    html += sts.map(s => {
+      const wm = myWork.map(w => {
+        const mk = (marks[s.name]||{})[w.id];
+        const subKey = `${cls.id}_${w.id}_${s.name}`;
+        const sub = subs[subKey];
+        return {id:w.id, mk, max:w.maxMarks, title:w.title, sub};
+      });
+      const valid = wm.filter(m=>m.mk!==undefined&&m.max&&!isNaN(parseFloat(m.mk))&&!isNaN(parseFloat(m.max)));
+      const avg = valid.length ? Math.round(valid.reduce((a,m)=>a+parseFloat(m.mk)/parseFloat(m.max)*100,0)/valid.length) : '—';
+      const subCount = wm.filter(m=>m.sub&&m.sub.submitted).length;
+      return `<tr><td class="jf" style="font-weight:600;white-space:nowrap">${escH(s.name)}</td>
+      ${wm.map(m=>`<td><span class="mk ${mkCls(m.mk,m.max)}" data-open-mark="${escH(s.name)}__${m.id}__${escH(m.title)}__${m.max||''}__${m.mk||''}" data-cls="${cls.id}">${m.mk!==undefined&&m.mk!==''?m.mk:'—'}</span></td>`).join('')}
+      <td><span class="bdg ${subCount>0?'cgreen':'cgray'}">${subCount}/${myWork.length}</span></td>
+      <td><span class="mk ${avg!=='—'?mkCls(avg,100):'mk-ns'}">${avg!=='—'?avg+'%':avg}</span></td></tr>`;
+    }).join('');
+    html += `</tbody></table></div>`;
+  }
+  if (myWork.length) {
+    html += `<div class="jf" style="font-size:13px;font-weight:700;margin-bottom:10px">Student Submissions</div>`;
+    myWork.forEach(w => {
+      const wSubs = sts.map(s=>({...s, sub:(subs[`${cls.id}_${w.id}_${s.name}`]||{})})).filter(s=>s.sub&&s.sub.submitted);
+      html += `<div style="margin-bottom:12px"><div style="font-size:12px;font-weight:700;color:var(--text2);margin-bottom:6px">📝 ${escH(w.title)} <span class="bdg cgray">${wSubs.length} submitted</span></div>
+      ${wSubs.length ? wSubs.map(s=>`<div class="sub-card">
+        <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:8px">
+          <div style="font-size:13px;font-weight:600">${escH(s.name)}</div>
+          <div style="font-size:11px;color:var(--text3)">${s.sub.ts||''}</div>
+        </div>
+        <div style="font-size:13px;color:var(--text2);line-height:1.65;background:var(--bg4);border-radius:var(--r);padding:10px;border:1px solid var(--border);white-space:pre-wrap">${escH(s.sub.text||'(no content)')}</div>
+      </div>`).join('') : '<div style="font-size:12px;color:var(--text3);padding:6px 0">No submissions yet</div>'}`;
+    });
+  }
+  if (myQuiz.length) {
+    html += `<div class="jf" style="font-size:13px;font-weight:700;margin:14px 0 10px">Quiz results</div>
+    <div style="overflow-x:auto;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl)">
+    <table class="trk-table"><thead><tr><th>Student</th><th>Subject</th><th>Correct</th><th>Marks</th><th>%</th><th>Date</th></tr></thead><tbody>`;
+    const mySubj = (cls.subjects||{})[tc.id]||'General';
+    html += sts.map(s => {
+      const res = ((qRes[s.name]||{})[mySubj]);
+      if (res) {
+        const pct = totalQM ? Math.round(res.marks/totalQM*100) : 0;
+        return `<tr><td class="jf" style="font-weight:600">${escH(s.name)}</td><td>${mySubj}</td><td>${res.correct}/${myQuiz.length}</td>
+        <td><span class="mk ${mkCls(res.marks,totalQM)}">${res.marks}</span></td>
+        <td><span class="mk ${mkCls(pct,100)}">${pct}%</span></td>
+        <td style="font-size:11px;color:var(--text3)">${res.date}</td></tr>`;
+      }
+      return `<tr><td class="jf" style="font-weight:600">${escH(s.name)}</td><td>${mySubj}</td><td colspan="3" style="color:var(--text3)">Not attempted</td><td style="color:var(--text3)">—</td></tr>`;
+    }).join('');
+    html += `</tbody></table></div>`;
+  }
+  if (!myWork.length && !myQuiz.length) html += `<div class="empty"><div class="empty-ico">📊</div><div>Add classwork or quiz questions to track student progress.</div></div>`;
+  return html;
+}
+
+function renderTcClsMessages(d, tc, cls) {
+  const sts = cls.students||[];
+  const contactId = APP.msgContactId;
+  let thread = [];
+  if (contactId) {
+    thread = (d.messages||{})[contactId]||[];
+    dbSet(db2 => { if(db2.messages[contactId]) db2.messages[contactId].forEach(m=>{ if(m.from==='student') m.readByTeacher=true; }); });
+  }
+  const contact = contactId ? sts.find(s=>`${cls.id}_${tc.id}_${s.name}`===contactId) : null;
+  return `<div style="display:grid;grid-template-columns:180px 1fr;gap:10px;height:400px">
+  <div style="overflow-y:auto">
+    ${sts.length ? sts.map(s => {
+      const key = `${cls.id}_${tc.id}_${s.name}`;
+      const msgs = (d.messages||{})[key]||[];
+      const lastMsg = msgs[msgs.length-1];
+      const hasUnread = lastMsg && lastMsg.from==='student' && !lastMsg.readByTeacher;
+      const [col,bg] = avc(s.name);
+      return `<div class="msg-contact ${key===contactId?'active':''}" onclick="APP.msgContactId='${key}';APP._tcTab=7;APP._tcPage='cls_${cls.id}';render()">
+        <div class="av" style="width:28px;height:28px;font-size:9px;background:${bg};color:${col};flex-shrink:0">${ini(s.name)}</div>
+        <div style="flex:1;min-width:0"><div style="font-size:12px;font-weight:${hasUnread?700:500}">${escH(s.name)}</div></div>
+        ${hasUnread ? '<div style="width:7px;height:7px;border-radius:50%;background:var(--blue)"></div>' : ''}
+      </div>`;
+    }).join('') : '<div style="font-size:12px;color:var(--text3)">No students yet</div>'}
+  </div>
+  <div style="display:flex;flex-direction:column;background:var(--bg3);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden">
+    ${contact ? `
+    <div style="padding:10px 12px;border-bottom:1px solid var(--border)"><div class="jf" style="font-size:13px;font-weight:700">${escH(contact.name)}</div></div>
+    <div id="tc-thread" style="flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:7px">
+      ${thread.map(m=>`<div style="display:flex;flex-direction:column;align-items:${m.from==='teacher'?'flex-end':'flex-start'}">
+        <div class="msg-bubble ${m.from==='teacher'?'mine':'theirs'}">${escH(m.text)}</div>
+        <div style="font-size:10px;color:var(--text3);margin-top:2px">${m.ts}</div>
+      </div>`).join('')||'<div style="text-align:center;color:var(--text3);font-size:12px;margin-top:16px">No messages yet</div>'}
+    </div>
+    <div style="padding:8px;border-top:1px solid var(--border);display:flex;gap:6px">
+      <input type="text" id="tc-msg-inp" placeholder="Type a message…" style="flex:1;font-size:12px" onkeydown="if(event.key==='Enter')document.getElementById('tc-msg-send').click()">
+      <button class="bp bsm" id="tc-msg-send" data-msgkey="${contactId}">Send</button>
+    </div>` : `<div class="empty" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center"><div class="empty-ico">💬</div><div>Select a student</div></div>`}
+  </div>
+</div>`;
+}
+
+function renderTcTeachersPanel(d, tc, cls) {
+  return `<div class="jf" style="font-size:14px;font-weight:700;margin-bottom:12px">Teachers in this classroom</div>
+  ${(cls.teachers||[]).map(tid => {
+    const t = STATE.teachers[tid]; if(!t) return '';
+    const [col,bg] = avc(t.name); const isMe = tid===tc.id;
+    return `<div class="card" style="display:flex;align-items:center;gap:10px;margin-bottom:7px">
+      <div class="av" style="width:32px;height:32px;background:${bg};color:${col};font-size:11px">${ini(t.name)}</div>
+      <div style="flex:1"><div class="jf" style="font-size:13px;font-weight:600">${escH(t.name)}${isMe?' <span style="color:var(--text3);font-size:11px">(you)</span>':''}</div>
+      <div style="font-size:12px;color:var(--text3)">Subject: <b style="color:var(--text)">${(cls.subjects||{})[tid]||'—'}</b></div></div>
+    </div>`;
+  }).join('')}
+  <div class="sep"></div>
+  <div style="font-size:12px;color:var(--text3)">Join code: <b class="jf" style="color:var(--text);letter-spacing:3px">${cls.code}</b></div>`;
+}
+
+function renderTcModals(d, tc) {
+  const cls = APP._tcPage && APP._tcPage.startsWith('cls_') ? d.classes[APP._tcPage.replace('cls_','')] : null;
+  const clsId = cls ? cls.id : '';
+  const mySubj = cls ? ((cls.subjects||{})[tc.id]||'General') : 'General';
+  return `
+<div class="modal-ov" id="m-post"><div class="modal-box fade-in">
+  <div class="modal-head"><div class="modal-title">New post</div><button class="bgh bsm" id="m-post-close">✕</button></div>
+  <label class="lbl">Title</label><input type="text" id="p-title" placeholder="e.g. Lesson 4: Photosynthesis">
+  <label class="lbl">Content</label><textarea id="p-body" style="min-height:100px" placeholder="Write your lesson or announcement…"></textarea>
+  <label class="lbl">Attachment (optional)</label><input type="text" id="p-att" placeholder="https://... or filename">
+  <label class="lbl">Attachment type</label><select id="p-att-type"><option value="link">🔗 Link</option><option value="pdf">📄 PDF</option><option value="doc">📝 Doc</option><option value="video">🎬 Video</option><option value="other">📎 Other</option></select>
+  <div id="p-err" class="errtxt" style="display:none">⚠ Fill in title and content</div>
+  <div class="frow"><button class="bp" style="flex:1" id="p-save" data-cls="${clsId}" data-subj="${mySubj}">Post</button><button class="bs2" id="m-post-close2">Cancel</button></div>
+</div></div>
+<div class="modal-ov" id="m-work"><div class="modal-box fade-in">
+  <div class="modal-head"><div class="modal-title">Add classwork</div><button class="bgh bsm" id="m-work-close">✕</button></div>
+  <label class="lbl">Title</label><input type="text" id="w-title" placeholder="e.g. Chapter 4 Worksheet">
+  <label class="lbl">Instructions</label><textarea id="w-inst" placeholder="What should students do?"></textarea>
+  <label class="lbl">Work type</label><select id="w-type"><option value="assignment">📝 Assignment</option><option value="worksheet">📋 Worksheet</option><option value="project">🗂 Project</option><option value="essay">✍ Essay</option><option value="practical">🔬 Practical</option><option value="other">📎 Other</option></select>
+  <label class="lbl">Max marks</label><input type="text" id="w-max" placeholder="e.g. 100">
+  <label class="lbl">Due date</label><input type="text" id="w-due" placeholder="e.g. Friday, 6 June 2026">
+  <div id="w-err" class="errtxt" style="display:none">⚠ Enter a title</div>
+  <div class="frow"><button class="bp" style="flex:1" id="w-save" data-cls="${clsId}" data-subj="${mySubj}">Add classwork</button><button class="bs2" id="m-work-close2">Cancel</button></div>
+</div></div>
+<div class="modal-ov" id="m-mat"><div class="modal-box fade-in">
+  <div class="modal-head"><div class="modal-title">Share material</div><button class="bgh bsm" id="m-mat-close">✕</button></div>
+  <div class="info-box">This material is immediately visible to all students in this classroom.</div>
+  <label class="lbl">Title</label><input type="text" id="mt-title" placeholder="e.g. Chapter 5 Revision Notes">
+  <label class="lbl">Description (optional)</label><textarea id="mt-desc" style="min-height:55px" placeholder="Brief description…"></textarea>
+  <label class="lbl">Link or filename</label><input type="text" id="mt-att" placeholder="https://drive.google.com/… or filename">
+  <label class="lbl">Type</label><select id="mt-type"><option value="notes">📄 Notes</option><option value="pdf">📋 PDF</option><option value="video">🎬 Video</option><option value="slides">🖼 Slides</option><option value="link">🔗 Website</option><option value="other">📎 Other</option></select>
+  <div id="mt-err" class="errtxt" style="display:none">⚠ Enter title and attachment</div>
+  <div class="frow"><button class="bp" style="flex:1" id="mt-save" data-cls="${clsId}" data-subj="${mySubj}">Share to all students</button><button class="bs2" id="m-mat-close2">Cancel</button></div>
+</div></div>
+<div class="modal-ov" id="m-stud"><div class="modal-box fade-in">
+  <div class="modal-head"><div class="modal-title">Add student</div><button class="bgh bsm" id="m-stud-close">✕</button></div>
+  <div class="info-box">Students can also join themselves using the class code.</div>
+  <label class="lbl">Student full name</label><input type="text" id="ns-name" placeholder="e.g. Kasun Perera">
+  <div id="ns-err" class="errtxt" style="display:none"></div>
+  <div class="frow"><button class="bp" style="flex:1" id="ns-save" data-cls="${clsId}">Add</button><button class="bs2" id="m-stud-close2">Cancel</button></div>
+</div></div>
+<div class="modal-ov" id="m-quiz"><div class="modal-box fade-in">
+  <div class="modal-head"><div class="modal-title">Add quiz question</div><button class="bgh bsm" id="m-quiz-close">✕</button></div>
+  <label class="lbl">Question</label><input type="text" id="q-q" placeholder="Type your question">
+  <label class="lbl">Option A</label><input type="text" id="q-a">
+  <label class="lbl">Option B</label><input type="text" id="q-b">
+  <label class="lbl">Option C</label><input type="text" id="q-c">
+  <label class="lbl">Option D</label><input type="text" id="q-d">
+  <label class="lbl">Marks</label><input type="text" id="q-marks" placeholder="e.g. 2">
+  <label class="lbl">Correct answer</label><select id="q-ans"><option value="0">A</option><option value="1">B</option><option value="2">C</option><option value="3">D</option></select>
+  <div id="q-err" class="errtxt" style="display:none">⚠ Fill in all fields</div>
+  <div class="frow"><button class="bp" style="flex:1" id="q-save" data-cls="${clsId}" data-subj="${mySubj}">Add question</button><button class="bs2" id="m-quiz-close2">Cancel</button></div>
+</div></div>
+<div class="modal-ov" id="m-mark"><div class="modal-box fade-in">
+  <div class="modal-head"><div class="modal-title">Enter / update mark</div><button class="bgh bsm" id="m-mark-close">✕</button></div>
+  <div id="m-mark-ctx" style="font-size:12px;color:var(--text2);margin-bottom:12px"></div>
+  <label class="lbl">Mark achieved</label><input type="text" id="mk-val" placeholder="e.g. 78">
+  <label class="lbl">Comment (optional)</label><textarea id="mk-comment" style="min-height:55px" placeholder="Great work! Review question 5."></textarea>
+  <div class="frow"><button class="bp" style="flex:1" id="mk-save">Save mark</button><button class="bs2" id="m-mark-close2">Cancel</button></div>
+</div></div>`;
+}
+
+// ── STUDENT SHELL ─────────────────────────────
+function renderStudent() {
+  const d = db();
+  const st = APP.user; // {name, classId}
+  const cls = d.classes[st.classId];
+  if (!cls) return `<div class="land-wrap"><div class="land-card"><div class="jf" style="font-size:16px;font-weight:700;margin-bottom:12px">Classroom not found</div><button class="bp" data-go="land">Back to home</button></div></div>`;
+  const pg = APP._stPage || 'classroom';
+  const subj = APP.curStSubj || 'All';
+  const unread = countStUnread(d, st, cls);
+  const [col,bg] = avc(st.name);
+  const tcs = (cls.teachers||[]).map(tid=>STATE.teachers[tid]).filter(Boolean);
+  const navItems = [
+    {id:'classroom', icon:'🏫', label:'Classroom'},
+    {id:'workspace', icon:'✏️', label:'My Work'},
+    {id:'messages', icon:'💬', label:'Messages', badge: unread},
+    {id:'courses', icon:'📚', label:'Free Courses'},
+  ];
+  return shellTemplate({
+    logo: jmcLogo(32,'#1f6feb','#7c3aed','lst'),
+    title: 'JMC Classroom', subtitle: escH(cls.div||'Student'),
+    navItems, activePage: pg, navPrefix: 'st',
+    topTitle: {classroom:escH(cls.name), workspace:'My Work', messages:'Messages', courses:'Free Courses'}[pg]||'Classroom',
+    content: pg==='classroom' ? renderStClassroom(d, st, cls, subj) :
+             pg==='workspace' ? renderStWorkspace(d, st, cls) :
+             pg==='messages'  ? renderStMessages(d, st, cls, tcs) :
+             pg==='courses'   ? renderStCourses() : renderStClassroom(d, st, cls, subj),
+    footerAvStyle:`width:28px;height:28px;font-size:10px;background:${bg};color:${col}`,
+    footerAvText: ini(st.name),
+    footerName: st.name, footerSub: 'Leave & sign out', signoutGo: 'land',
+    modals: '',
+  });
+}
+
+function countStUnread(d, st, cls) {
+  let n = 0;
+  (cls.teachers||[]).forEach(tid => {
+    const key = `${cls.id}_${tid}_${st.name}`;
+    const msgs = (d.messages||{})[key]||[];
+    const last = msgs[msgs.length-1];
+    if (last && last.from==='teacher' && !last.readByStudent) n++;
+  });
+  return n;
+}
+
+function renderStClassroom(d, st, cls, subj) {
+  const tcs = (cls.teachers||[]).map(tid=>STATE.teachers[tid]).filter(Boolean);
+  const allSubjs = ['All',...new Set(Object.values(cls.subjects||{}))];
+  const posts = subj==='All' ? (cls.posts||[]) : (cls.posts||[]).filter(p=>p.subj===subj);
+  const work = subj==='All' ? (cls.work||[]) : (cls.work||[]).filter(w=>w.subj===subj);
+  const mats = subj==='All' ? (cls.materials||[]) : (cls.materials||[]).filter(m=>m.subj===subj);
+  const quiz = subj==='All' ? (cls.quiz||[]) : (cls.quiz||[]).filter(q=>q.subj===subj);
+  let html = `<div style="display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-bottom:12px">
+    <span class="bdg cblue">${escH(cls.div)}</span>
+    <span class="bdg cgray">${(cls.students||[]).length} students</span>
+    ${tcs.length ? `<span class="bdg cteal">👥 ${tcs.map(t=>escH(t.name)).join(', ')}</span>` : ''}
+  </div>
+  <div style="display:flex;gap:5px;flex-wrap:wrap;margin-bottom:14px">
+    ${allSubjs.map(s=>`<span class="spill ${s===subj?'on':''}" onclick="APP.curStSubj='${s}';APP._stPage='classroom';render()">${s}</span>`).join('')}
+  </div>`;
+  // Attendance summary for this student, scoped to the currently selected subject's teacher(s)
+  {
+    const relevantTids = subj==='All' ? Object.keys(cls.subjects||{}) : Object.keys(cls.subjects||{}).filter(tid=>(cls.subjects||{})[tid]===subj);
+    let p=0,l=0,a=0;
+    relevantTids.forEach(tid=>{
+      const byDate = ((cls.attendance||{})[tid])||{};
+      Object.keys(byDate).forEach(dt=>{ const status=byDate[dt][st.name]; if(status==='present')p++; else if(status==='late')l++; else if(status==='absent')a++; });
+    });
+    const marked = p+l+a;
+    const pct = marked ? Math.round((p+l*0.5)/marked*100) : null;
+    if (marked) {
+      html += `<div class="card" style="margin-bottom:14px;display:flex;align-items:center;gap:16px;flex-wrap:wrap">
+        <div style="text-align:center;min-width:70px"><div class="jf" style="font-size:26px;font-weight:800;color:${pct>=90?'var(--green)':pct>=75?'var(--amber)':'var(--red)'}">${pct}%</div><div style="font-size:10px;color:var(--text3);text-transform:uppercase;letter-spacing:.4px">Attendance</div></div>
+        <div style="display:flex;gap:14px;font-size:12px;color:var(--text2)">
+          <span><b style="color:var(--green)">${p}</b> present</span>
+          <span><b style="color:var(--amber)">${l}</b> late</span>
+          <span><b style="color:var(--red)">${a}</b> absent</span>
+          <span style="color:var(--text3)">· ${marked} day${marked!==1?'s':''} recorded</span>
+        </div>
+      </div>`;
+    }
+  }
+  if (mats.length) {
+    html += `<div class="jf" style="font-size:11px;font-weight:700;color:var(--text2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">📚 Materials</div>`;
+    html += mats.map(m=>`<div class="mat-card" style="margin-bottom:7px">
+      <div style="width:36px;height:36px;border-radius:9px;background:var(--teal-bg);color:var(--teal);display:flex;align-items:center;justify-content:center;font-size:18px;flex-shrink:0">${ATT_I[m.mtype]||'📎'}</div>
+      <div style="flex:1;min-width:0"><div class="jf" style="font-size:13px;font-weight:600">${escH(m.title)}</div>
+      ${m.desc?`<div style="font-size:12px;color:var(--text2);margin-top:1px">${escH(m.desc)}</div>`:''}
+      <div style="font-size:11px;color:var(--text3);margin-top:2px">${escH(m.subj)} · ${m.date}</div></div>
+      ${m.att?(m.att.startsWith('http')?`<a href="${escH(m.att)}" target="_blank" class="bp bsm" style="text-decoration:none;white-space:nowrap">Open ↗</a>`:`<span class="bdg cgray">${escH(m.att)}</span>`):''}
+    </div>`).join('');
+    html += `<div class="sep"></div>`;
+  }
+  if (posts.length) {
+    html += `<div class="jf" style="font-size:11px;font-weight:700;color:var(--text2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Posts</div>`;
+    html += posts.slice().reverse().map(p => {
+      const t = STATE.teachers[p.tid];
+      return `<div class="post-card">
+        <div style="display:flex;align-items:center;gap:8px;margin-bottom:8px">
+          <div class="av" style="width:28px;height:28px;background:var(--blue-bg);color:var(--blue);font-size:9px">${t?ini(t.name):'TC'}</div>
+          <div style="flex:1"><div class="jf" style="font-size:13px;font-weight:600">${t?escH(t.name):'Teacher'}</div><div style="font-size:11px;color:var(--text3)">${p.subj} · ${p.date}</div></div>
+          <span class="bdg ${SUBJ_C[p.subj]||'cgray'}">${p.subj}</span>
+        </div>
+        <div class="jf" style="font-size:14px;font-weight:700;margin-bottom:5px">${escH(p.title)}</div>
+        <div class="post-body-txt">${escH(p.body).replace(/\n/g,'<br>')}</div>
+        ${p.att?`<div style="display:flex;align-items:center;gap:7px;margin-top:8px;padding:8px 11px;background:var(--bg3);border-radius:var(--r);border:1px solid var(--border);font-size:12px;color:var(--text2)">${ATT_I[p.attType]||'📎'} ${p.att.startsWith('http')?`<a href="${escH(p.att)}" target="_blank" style="color:var(--blue)">Open attachment ↗</a>`:escH(p.att)}</div>`:''}
+      </div>`;
+    }).join('');
+  }
+  if (work.length) {
+    html += `<div class="jf" style="font-size:11px;font-weight:700;color:var(--text2);margin:14px 0 8px;text-transform:uppercase;letter-spacing:.5px">Classwork</div>`;
+    html += work.map(w => {
+      const subKey = `${cls.id}_${w.id}_${st.name}`;
+      const sub = (d.submissions||{})[subKey];
+      return `<div class="work-item">
+        <div class="work-ico" style="background:var(--amber-bg);color:var(--amber)">${ATT_I[w.wtype]||'📋'}</div>
+        <div style="flex:1;min-width:0">
+          <div class="jf" style="font-size:13px;font-weight:600">${escH(w.title)}</div>
+          <div style="font-size:11px;color:var(--text3)">Due: ${escH(w.due||'No due date')} · ${escH(w.subj)}${w.maxMarks?' · Max: '+escH(w.maxMarks)+' marks':''}</div>
+          ${w.inst?`<div style="font-size:12px;color:var(--text2);margin-top:2px">${escH(w.inst)}</div>`:''}
+        </div>
+        ${sub && sub.submitted ? `<span class="bdg cgreen">✓ Submitted</span>` : `<button class="bp bsm" onclick="APP._stPage='workspace';APP._wsWorkId='${w.id}';render()">Open workspace</button>`}
+      </div>`;
+    }).join('');
+  }
+  if (quiz.length) {
+    html += `<div class="jf" style="font-size:11px;font-weight:700;color:var(--text2);margin:14px 0 8px;text-transform:uppercase;letter-spacing:.5px">Quiz</div>`;
+    const subjGroups = [...new Set(quiz.map(q=>q.subj))];
+    subjGroups.forEach(sq => {
+      const sqQ = quiz.filter(q=>q.subj===sq);
+      const already = ((db().classes[cls.id].quizResults||{})[st.name]||{})[sq];
+      const totalM = sqQ.reduce((a,q)=>a+(parseInt(q.marks)||1),0);
+      const key = sq.replace(/\W/g,'_');
+      if (already) {
+        const pct = totalM ? Math.round(already.marks/totalM*100) : 0;
+        html += `<div class="card" style="text-align:center;padding:20px;margin-bottom:10px">
+          <div class="jf" style="font-size:13px;font-weight:600;color:var(--text2);margin-bottom:6px">${sq} Quiz</div>
+          <div class="jf" style="font-size:36px;font-weight:700;color:${pct>=70?'var(--green)':pct>=40?'var(--amber)':'var(--red)'}">${already.marks}/${totalM}</div>
+          <div style="font-size:13px;color:var(--text2);margin-top:4px">${pct}% · ${already.correct}/${sqQ.length} correct</div>
+        </div>`;
+      } else {
+        if (!APP.quizState[key]) APP.quizState[key] = {qs:sqQ,cur:0,score:0,marks:0,done:false,answered:false,subj:sq,clsId:cls.id};
+        html += `<div id="quiz-block-${key}" class="card" style="margin-bottom:10px"></div>`;
+      }
+    });
+  }
+  if (!mats.length && !posts.length && !work.length && !quiz.length) html += `<div class="empty"><div class="empty-ico">📚</div><div>Nothing posted yet for this subject.</div></div>`;
+  return html;
+}
+
+function renderStWorkspace(d, st, cls) {
+  const work = cls.work||[];
+  const wsWorkId = APP._wsWorkId;
+  const subs = d.submissions||{};
+  if (wsWorkId) {
+    const w = work.find(x=>x.id===wsWorkId);
+    if (!w) return `<div class="empty"><div>Assignment not found</div></div>`;
+    const subKey = `${cls.id}_${w.id}_${st.name}`;
+    const sub = subs[subKey]||{};
+    const isSubmitted = sub.submitted;
+    return `<div style="display:flex;align-items:center;gap:10px;margin-bottom:16px">
+      <button class="bgh bsm" onclick="APP._stPage='workspace';APP._wsWorkId=null;render()">← All assignments</button>
+      <div class="jf" style="font-size:15px;font-weight:700;flex:1">${escH(w.title)}</div>
+      ${isSubmitted ? '<span class="bdg cgreen">✓ Submitted</span>' : ''}
+    </div>
+    <div class="card" style="margin-bottom:12px">
+      <div class="jf" style="font-size:13px;font-weight:700;margin-bottom:6px">📋 Assignment details</div>
+      <div style="font-size:13px;color:var(--text2);line-height:1.65">${w.inst ? escH(w.inst) : 'Complete the assigned work below.'}</div>
+      ${w.maxMarks ? `<div style="margin-top:8px"><span class="bdg camber">Max: ${escH(w.maxMarks)} marks</span> <span class="bdg cgray">Due: ${escH(w.due||'No due date')}</span></div>` : ''}
+    </div>
+    ${isSubmitted ? `<div class="info-box">✓ You submitted this assignment on ${sub.ts}. Your teacher can view your work.</div>
+    <div style="background:var(--bg3);border:1px solid var(--border2);border-radius:var(--rl);min-height:180px;padding:14px;color:var(--text);font-size:14px;line-height:1.8;white-space:pre-wrap">${escH(sub.text||'')}</div>
+    <div class="frow"><button class="bdng" id="ws-reopen" data-cls="${cls.id}" data-wid="${w.id}" data-sname="${escH(st.name)}">Edit &amp; resubmit</button></div>` :
+    `<div class="jf" style="font-size:13px;font-weight:700;margin-bottom:8px">Your work</div>
+    <div style="font-size:11px;color:var(--text3);margin-bottom:6px">Auto-saved as you type. Submit when ready for your teacher to review.</div>
+    <div class="ws-bar">
+      <button class="ws-btn" onclick="execCmd('bold')"><b>B</b></button>
+      <button class="ws-btn" onclick="execCmd('italic')"><i>I</i></button>
+      <button class="ws-btn" onclick="execCmd('underline')"><u>U</u></button>
+      <button class="ws-btn" onclick="execCmd('insertUnorderedList')">• List</button>
+      <button class="ws-btn" onclick="execCmd('insertOrderedList')">1. List</button>
+    </div>
+    <div class="ws-editor" id="ws-editor" contenteditable="true" data-ph="Start typing your answer here… Your work is saved automatically as you type."
+      oninput="wsAutosave('${cls.id}','${w.id}','${escH(st.name)}')">${sub.text ? escH(sub.text).replace(/\n/g,'<br>') : ''}</div>
+    <div class="frow">
+      <button class="bp" id="ws-submit" data-cls="${cls.id}" data-wid="${w.id}" data-sname="${escH(st.name)}" style="flex:1;padding:10px">Submit assignment ↗</button>
+      <button class="bs2" onclick="APP._stPage='workspace';APP._wsWorkId=null;render()">Save &amp; back</button>
+    </div>
+    <div id="ws-status" style="font-size:11px;color:var(--text3);margin-top:6px"></div>`}`;
+  }
+  return `<div class="jf" style="font-size:18px;font-weight:700;margin-bottom:14px">My Work</div>
+  <div class="info-box">Click an assignment to open your workspace and write your answer. Your work auto-saves and you can submit when ready.</div>
+  ${work.length ? work.map(w => {
+    const subKey = `${cls.id}_${w.id}_${st.name}`;
+    const sub = subs[subKey]||{};
+    const isSubmitted = sub.submitted;
+    const hasDraft = sub.text && !isSubmitted;
+    return `<div class="work-item" style="cursor:pointer" onclick="APP._stPage='workspace';APP._wsWorkId='${w.id}';render()">
+      <div class="work-ico" style="background:var(--amber-bg);color:var(--amber)">${ATT_I[w.wtype]||'📋'}</div>
+      <div style="flex:1;min-width:0">
+        <div class="jf" style="font-size:13px;font-weight:600">${escH(w.title)}</div>
+        <div style="font-size:11px;color:var(--text3)">Due: ${escH(w.due||'No due date')} · ${escH(w.subj)}${w.maxMarks?' · Max: '+escH(w.maxMarks)+' marks':''}</div>
+      </div>
+      ${isSubmitted ? '<span class="bdg cgreen">✓ Submitted</span>' : hasDraft ? '<span class="bdg camber">Draft saved</span>' : '<span class="bdg cgray">Not started</span>'}
+    </div>`;
+  }).join('') : `<div class="empty"><div class="empty-ico">✏️</div><div>No assignments yet. Your teacher will post work here.</div></div>`}`;
+}
+
+function renderStMessages(d, st, cls, tcs) {
+  const contactId = APP.msgContactId;
+  let thread = [];
+  if (contactId) {
+    thread = (d.messages||{})[contactId]||[];
+    dbSet(db2 => { if(db2.messages[contactId]) db2.messages[contactId].forEach(m=>{ if(m.from==='teacher') m.readByStudent=true; }); });
+  }
+  const contactTc = contactId ? tcs.find(t=>`${cls.id}_${t.id}_${st.name}`===contactId) : null;
+  return `<div style="display:grid;grid-template-columns:180px 1fr;gap:12px;height:calc(100vh - 110px);max-height:560px">
+  <div style="overflow-y:auto">
+    <div class="jf" style="font-size:12px;font-weight:700;color:var(--text2);margin-bottom:8px;text-transform:uppercase;letter-spacing:.5px">Teachers</div>
+    ${tcs.length ? tcs.map(t => {
+      const key = `${cls.id}_${t.id}_${st.name}`;
+      const msgs = (d.messages||{})[key]||[];
+      const last = msgs[msgs.length-1];
+      const hasUnread = last && last.from==='teacher' && !last.readByStudent;
+      const [col,bg] = avc(t.name);
+      return `<div class="msg-contact ${key===contactId?'active':''}" onclick="APP.msgContactId='${key}';APP._stPage='messages';render()">
+        <div class="av" style="width:28px;height:28px;font-size:9px;background:${bg};color:${col};flex-shrink:0">${ini(t.name)}</div>
+        <div style="flex:1;min-width:0">
+          <div style="font-size:12px;font-weight:${hasUnread?700:500}">${escH(t.name)}</div>
+          <div style="font-size:10px;color:var(--text3)">${(cls.subjects||{})[t.id]||'General'}</div>
+        </div>
+        ${hasUnread ? '<div style="width:7px;height:7px;border-radius:50%;background:var(--blue)"></div>' : ''}
+      </div>`;
+    }).join('') : '<div style="font-size:12px;color:var(--text3)">No teachers yet</div>'}
+  </div>
+  <div style="display:flex;flex-direction:column;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);overflow:hidden">
+    ${contactTc ? `
+    <div style="padding:10px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:9px">
+      <div class="av" style="width:28px;height:28px;font-size:9px;background:${avc(contactTc.name)[1]};color:${avc(contactTc.name)[0]}">${ini(contactTc.name)}</div>
+      <div><div class="jf" style="font-size:13px;font-weight:700">${escH(contactTc.name)}</div>
+      <div style="font-size:11px;color:var(--text3)">${(cls.subjects||{})[contactTc.id]||'General'}</div></div>
+    </div>
+    <div id="st-thread" style="flex:1;overflow-y:auto;padding:14px;display:flex;flex-direction:column;gap:8px">
+      ${thread.map(m=>`<div style="display:flex;flex-direction:column;align-items:${m.from==='student'?'flex-end':'flex-start'}">
+        <div class="msg-bubble ${m.from==='student'?'mine':'theirs'}">${escH(m.text)}</div>
+        <div style="font-size:10px;color:var(--text3);margin-top:2px;${m.from==='student'?'text-align:right':'text-align:left'}">${m.ts}</div>
+      </div>`).join('')||'<div style="text-align:center;color:var(--text3);font-size:12px;margin-top:20px">Send your teacher a message!</div>'}
+    </div>
+    <div style="padding:10px;border-top:1px solid var(--border);display:flex;gap:8px">
+      <input type="text" id="st-msg-inp" placeholder="Type a message to your teacher…" style="flex:1" onkeydown="if(event.key==='Enter')document.getElementById('st-msg-send').click()">
+      <button class="bp" id="st-msg-send" data-msgkey="${contactId}" data-stname="${escH(st.name)}">Send</button>
+    </div>` : `<div class="empty" style="flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center"><div class="empty-ico">💬</div><div>Select a teacher to send a message</div></div>`}
+  </div>
+</div>`;
+}
+
+function renderStCourses() {
+  return renderCourseGrid();
+}
+
+// ── COURSES SHELL ─────────────────────────────
+function renderCourses() {
+  const name = APP._studentName || (APP.user?APP.user.name:'') || 'Student';
+  const [col,bg] = avc(name);
+  return shellTemplate({
+    logo: jmcLogo(32,'#e3b341','#238636','lco'),
+    title: 'Free Courses', subtitle: 'JMC Classroom',
+    navItems: [
+      {id:'home',icon:'🏠',label:'All Courses'},
+      {id:'sep'},
+      {id:'science',icon:'🔬',label:'Science'},
+      {id:'maths',icon:'📐',label:'Maths'},
+      {id:'english',icon:'📖',label:'English'},
+      {id:'history',icon:'🏛',label:'History'},
+      {id:'ict',icon:'💻',label:'ICT'},
+    ],
+    activePage: APP._courseFilter||'home', navPrefix: 'co',
+    topTitle: 'All Courses',
+    content: renderCourseGrid(),
+    footerAvStyle:`width:28px;height:28px;font-size:10px;background:${bg};color:${col}`,
+    footerAvText: ini(name), footerName: name, footerSub: '← Back to Hub', signoutGo: 'st-hub',
+    modals: '',
+  });
+}
+
+// Real, free courses from established providers (Khan Academy, Code.org, freeCodeCamp, MIT OCW).
+// Each links out to the actual course on the provider's site.
+const COURSES = {
+  science:[
+    {title:'Biology',provider:'Khan Academy',desc:'Cells, genetics, evolution, ecology, and human biology — full free course with videos and practice.',icon:'🧬',grade:'Grade 9–11',url:'https://www.khanacademy.org/science/biology'},
+    {title:'Chemistry',provider:'Khan Academy',desc:'Atoms, the periodic table, bonding, reactions, stoichiometry, and thermochemistry.',icon:'⚗️',grade:'Grade 9–11',url:'https://www.khanacademy.org/science/chemistry'},
+    {title:'Physics',provider:'Khan Academy',desc:'Motion, forces, energy, waves, electricity, and magnetism with worked examples.',icon:'⚡',grade:'Grade 9–11',url:'https://www.khanacademy.org/science/physics'},
+    {title:'Science (all subjects)',provider:'Khan Academy',desc:'Full science hub — biology, chemistry, physics, earth science, and more in one place.',icon:'🔬',grade:'Grade 6–11',url:'https://www.khanacademy.org/science'},
+  ],
+  maths:[
+    {title:'Algebra I',provider:'Khan Academy',desc:'Linear equations, inequalities, functions, and graphing — a complete algebra course.',icon:'📐',grade:'Grade 8–10',url:'https://www.khanacademy.org/math/algebra'},
+    {title:'Algebra II',provider:'Khan Academy',desc:'Polynomials, rational expressions, exponentials, logarithms, and more advanced algebra.',icon:'📈',grade:'Grade 10–11',url:'https://www.khanacademy.org/math/algebra2'},
+    {title:'Geometry',provider:'Khan Academy',desc:'Shapes, angles, area, volume, transformations, and proofs.',icon:'📏',grade:'Grade 8–10',url:'https://www.khanacademy.org/math/geometry'},
+    {title:'Statistics & Probability',provider:'Khan Academy',desc:'Data analysis, distributions, probability, and inference.',icon:'📊',grade:'Grade 10–11',url:'https://www.khanacademy.org/math/statistics-probability'},
+  ],
+  english:[
+    {title:'English Language Arts',provider:'Khan Academy',desc:'Reading comprehension, vocabulary, and writing skills organised by grade level.',icon:'📖',grade:'Grade 6–11',url:'https://www.khanacademy.org/ela'},
+    {title:'Grammar',provider:'Khan Academy',desc:'Parts of speech, punctuation, syntax, and usage — free interactive grammar course.',icon:'📝',grade:'Grade 6–9',url:'https://www.khanacademy.org/humanities/grammar'},
+    {title:'Reading Comprehension Practice',provider:'CommonLit',desc:'Free leveled reading passages with comprehension questions across genres.',icon:'📚',grade:'Grade 6–11',url:'https://www.commonlit.org/'},
+  ],
+  history:[
+    {title:'World History',provider:'Khan Academy',desc:'From early civilisations through the modern era, with primary sources.',icon:'🏛',grade:'Grade 8–11',url:'https://www.khanacademy.org/humanities/world-history'},
+    {title:'US History',provider:'Khan Academy',desc:'Colonial era through the present day, aligned to AP US History.',icon:'🗽',grade:'Grade 9–11',url:'https://www.khanacademy.org/humanities/us-history'},
+    {title:'History & Humanities OpenCourseWare',provider:'MIT OpenCourseWare',desc:'Real MIT course materials, lecture notes, and readings, completely free.',icon:'🎓',grade:'Grade 10–11',url:'https://ocw.mit.edu/'},
+  ],
+  ict:[
+    {title:'Intro to Computer Science',provider:'Code.org',desc:'Beginner-friendly programming and computer science fundamentals, block-based to text-based.',icon:'💻',grade:'Grade 6–10',url:'https://code.org/'},
+    {title:'Learn to Code',provider:'freeCodeCamp',desc:'Full free curriculum: HTML, CSS, JavaScript, and more, with certifications.',icon:'⌨️',grade:'Grade 9–11',url:'https://www.freecodecamp.org/'},
+    {title:'Computer Programming',provider:'Khan Academy',desc:'Intro to JavaScript, drawing & animation, and computer science principles.',icon:'🖥️',grade:'Grade 7–11',url:'https://www.khanacademy.org/computing/computer-programming'},
+  ]
+};
+const ALL_COURSES = Object.entries(COURSES).flatMap(([cat,arr])=>arr.map(c=>({...c,cat})));
+
+function renderCourseGrid() {
+  const filter = APP._courseFilter && APP._courseFilter!=='home' ? APP._courseFilter : null;
+  const list = filter ? (COURSES[filter]||[]).map(c=>({...c,cat:filter})) : ALL_COURSES;
+  return `<div style="background:linear-gradient(135deg,#9e6a03,#238636);border-radius:var(--rl);padding:16px 18px;margin-bottom:16px;display:flex;align-items:center;gap:14px">
+  <div style="font-size:26px">📚</div>
+  <div><div class="jf" style="font-size:16px;font-weight:700;color:#fff">Free Courses</div>
+  <div style="font-size:12px;color:rgba(255,255,255,.75);margin-top:2px">Real, free courses from Khan Academy, Code.org, freeCodeCamp, CommonLit, and MIT OpenCourseWare</div></div>
+</div>
+<div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(210px,1fr));gap:10px">
+${list.map(c=>`<a href="${escH(c.url)}" target="_blank" rel="noopener" style="text-decoration:none;color:inherit;background:var(--bg2);border:1px solid var(--border);border-radius:var(--rl);padding:14px;cursor:pointer;transition:border-color .18s var(--ease),transform .18s var(--ease),box-shadow .18s var(--ease);display:flex;flex-direction:column;gap:5px" onmouseover="this.style.borderColor='var(--amber)';this.style.transform='translateY(-2px)';this.style.boxShadow='var(--shadow-md)'" onmouseout="this.style.borderColor='var(--border)';this.style.transform='';this.style.boxShadow='none'">
+  <div style="font-size:28px">${c.icon}</div>
+  <div class="jf" style="font-size:13px;font-weight:700">${escH(c.title)}</div>
+  <div style="font-size:11px;color:var(--text2);line-height:1.5;flex:1">${escH(c.desc)}</div>
+  <div style="display:flex;gap:4px;flex-wrap:wrap;margin-top:4px">
+    <span class="bdg cblue" style="font-size:10px">${escH(c.provider)}</span>
+    <span class="bdg camber" style="font-size:10px">${escH(c.grade)}</span>
+    <span class="bdg cgreen" style="font-size:10px">Free</span>
+  </div>
+  <div style="font-size:10px;color:var(--text3);margin-top:2px">Opens ${escH(c.provider)} ↗</div>
+</a>`).join('')}
+</div>`;
+}
+
+// ── SHELL TEMPLATE ────────────────────────────
+function shellTemplate({logo,title,subtitle,navItems,activePage,navPrefix,topTitle,content,footerAvStyle,footerAvText,footerName,footerSub,signoutGo,modals}) {
+  const navHtml = navItems.map(n => {
+    if (n.id==='sep') return `<div class="sb-sep"></div>`;
+    return `<div class="sb-ni ${n.id===activePage?'active':''}" onclick="APP._${navPrefix}Page='${n.id}';render()">
+      <span class="sb-ni-ico">${n.icon||'·'}</span>
+      <span style="${n.short?'font-size:11px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis':''}">${n.label}</span>
+      ${n.badge ? `<div class="nbadge">${n.badge}</div>` : ''}
+    </div>`;
+  }).join('');
+  return `<div class="app">
+  <div class="sbar">
+    <div class="sb-logo">${logo}<div><div class="jf" style="font-size:13px;font-weight:700">${title}</div><div style="font-size:10px;color:var(--text3)">${subtitle}</div></div></div>
+    ${navHtml}
+    <div class="sb-foot"><div class="user-chip" onclick="${APP._impersonating ? 'returnToOperator()' : `appSignOut('${signoutGo}')`}">
+      <div class="av" style="${footerAvStyle||'width:28px;height:28px;font-size:10px;background:var(--blue-bg);color:var(--blue)'}">${footerAvText||'?'}</div>
+      <div><div class="jf" style="font-size:12px;font-weight:600">${escH(footerName||'User')}</div><div style="font-size:10px;color:var(--text3)">${APP._impersonating ? '↩ Return to Operator' : escH(footerSub||'Sign out')}</div></div>
+    </div></div>
+  </div>
+  <div class="main-area">
+    ${APP._impersonating ? `<div class="imp-banner">🔍 Viewing as <b>${escH(footerName||'User')}</b> <span class="imp-role">${escH(APP._impersonating.roleLabel)}</span> — Operator check-in mode <button class="imp-return" onclick="returnToOperator()">↩ Return to Operator</button></div>` : ''}
+    <div class="topbar">
+      <div class="topbar-title">${topTitle||''}</div>
+      <button class="topbar-signout" onclick="${APP._impersonating ? 'returnToOperator()' : `appSignOut('${signoutGo}')`}" title="${APP._impersonating ? 'Return to Operator' : (footerSub||'Sign out')}">
+        ${APP._impersonating ? '↩' : '⏻'} <span class="topbar-signout-lbl">${APP._impersonating ? 'Return to Operator' : 'Sign out'}</span>
+      </button>
+    </div>
+    <div class="content-scroll"><div class="content-inner fade-in">${content}</div></div>
+  </div>
+</div>
+${modals||''}`;
+}
+
+function returnToOperator() {
+  fbClearImpersonationListeners();
+  APP.user = { role: 'operator', id: 'operator', name: 'Operator' };
+  APP.screen = 'operator';
+  APP._opPage = APP._impersonating?.returnPage || 'dash';
+  APP._impersonating = null;
+  render();
+}
+
+// ── ATTACH EVENTS ─────────────────────────────
+function attachAll() {
+  document.querySelectorAll('[data-go]').forEach(el => el.addEventListener('click', () => { APP.screen = el.dataset.go; render(); }));
+  const s = APP.screen;
+  if (s==='op-login')   attachOpLogin();
+  if (s==='school-login') attachSchoolLogin();
+  if (s==='sv-login')   attachSvLogin();
+  if (s==='tc-login')   attachTcLogin();
+  if (s==='st-hub')     attachStHub();
+  if (s==='st-join')    attachStJoin();
+  if (s==='operator')   attachOperator();
+  if (s==='school')     attachSchool();
+  if (s==='supervisor') attachSupervisor();
+  if (s==='teacher')    attachTeacher();
+  if (s==='student')    attachStudent();
+  if (s==='courses')    attachCourses();
+  const chat = document.getElementById('tc-thread') || document.getElementById('st-thread');
+  if (chat) chat.scrollTop = chat.scrollHeight;
+  Object.keys(APP.quizState).forEach(key => {
+    const el = document.getElementById('quiz-block-'+key);
+    if (el) renderQBlock(el, key);
+  });
+}
+
+function setBtnBusy(btn, busy, busyLabel) {
+  if (!btn) return;
+  if (busy) { btn.dataset._label = btn.textContent; btn.textContent = busyLabel || 'Please wait…'; btn.disabled = true; btn.style.opacity = '.65'; }
+  else { btn.textContent = btn.dataset._label || btn.textContent; btn.disabled = false; btn.style.opacity = ''; }
+}
+
+// Every staff login screen shares one flow: sign in with Google, resolve
+// the role from Firestore, land on whichever dashboard actually matches —
+// which may not be the tile they clicked, if e.g. they meant to use a
+// different Google account.
+const ROLE_SCREENS = {
+  operator:   { screen:'operator',   pageVar:'_opPage',     defaultPage:'dash' },
+  school:     { screen:'school',     pageVar:'_schoolPage', defaultPage:'dash' },
+  supervisor: { screen:'supervisor', pageVar:'_svPage',     defaultPage:'dash' },
+  teacher:    { screen:'teacher',    pageVar:'_tcPage',     defaultPage:'home' },
+  student:    { screen:'st-hub',     pageVar:'_stPage',     defaultPage:'classroom' },
+};
+function attachGoogleLoginScreen(idPrefix, expectedRole) {
+  const submit = document.getElementById(idPrefix+'-submit');
+  if (!submit) return;
+  submit.addEventListener('click', async () => {
+    const errEl = document.getElementById(idPrefix+'-err');
+    const emEl = document.getElementById(idPrefix+'-em');
+    errEl.style.display = 'none';
+    if (!FB_READY) { emEl.textContent = "Firebase isn't configured yet — see setup notes."; errEl.style.display='flex'; return; }
+    setBtnBusy(submit, true, 'Signing in…');
+    try {
+      const user = await googleSignInFlow();
+      const target = ROLE_SCREENS[user.role];
+      APP.user = user;
+      APP[target.pageVar] = APP[target.pageVar] || target.defaultPage;
+      APP.screen = target.screen;
+      if (user.role !== expectedRole) toast(`This account isn't registered as ${expectedRole} — signed in as ${user.role} instead.`);
+      await loadOrgIntoState();
+      render();
+    } catch (e) {
+      setBtnBusy(submit, false);
+      console.error(e);
+      emEl.textContent = e.code === 'auth/popup-closed-by-user' ? 'Sign-in window closed before finishing.'
+        : ['SCHOOL_NOT_FOUND','SUPERVISOR_NOT_FOUND','TEACHER_NOT_FOUND'].includes(e.message) ? 'This account is registered but the linked record is missing — contact whoever set it up.'
+        : 'Could not sign in — check your connection and try again.';
+      errEl.style.display = 'flex';
+    }
+  });
+}
+function attachOpLogin() { attachGoogleLoginScreen('op', 'operator'); }
+function attachSchoolLogin() { attachGoogleLoginScreen('sc', 'school'); }
+function attachSvLogin() { attachGoogleLoginScreen('sv', 'supervisor'); }
+function attachTcLogin() { attachGoogleLoginScreen('tc', 'teacher'); }
+
+function attachStHub() {
+  document.getElementById('hub-name')?.addEventListener('input',(e)=>{ APP._studentName = e.target.value.trim(); });
+  document.getElementById('hub-courses-btn')?.addEventListener('click',()=>{
+    APP.screen='courses'; APP._coursePage='home'; render();
+  });
+  document.getElementById('hub-join-btn')?.addEventListener('click',()=>{ APP.screen='st-join'; render(); });
+}
+
+function attachStJoin() {
+  document.getElementById('sj-submit')?.addEventListener('click',()=>{
+    const name = document.getElementById('sj-name').value.trim();
+    const code = document.getElementById('sj-code').value.trim().toUpperCase();
+    const em = document.getElementById('sj-em'); const e = document.getElementById('sj-err');
+    e.style.display='none';
+    if (!name) { em.textContent='Enter your name'; e.style.display='flex'; return; }
+    if (code.length!==6) { em.textContent='Enter a valid 6-letter code'; e.style.display='flex'; return; }
+    const d = db();
+    const cls = Object.values(d.classes||{}).find(c=>c.code===code);
+    if (!cls) { em.textContent='Classroom not found. Check your code.'; e.style.display='flex'; return; }
+    let existing = (cls.students||[]).find(s=>s.name.toLowerCase()===name.toLowerCase());
+    if (!existing) {
+      dbSet(db2 => {
+        if(!db2.classes[cls.id].students) db2.classes[cls.id].students=[];
+        db2.classes[cls.id].students.push({name, joined:fdt()});
+      });
+    }
+    APP._studentName = name;
+    APP.screen='student'; APP.user={name, classId:cls.id, role:'student'}; APP.quizState={}; render();
+  });
+}
+
+// ── OPERATOR ATTACH ───────────────────────────
+function attachOperator() {
+  document.getElementById('btn-add-school')?.addEventListener('click',()=>{ openModal('m-add-school'); });
+  document.getElementById('m-add-school-close')?.addEventListener('click',()=>closeModal('m-add-school'));
+  document.getElementById('nsch-cancel')?.addEventListener('click',()=>closeModal('m-add-school'));
+  document.getElementById('nsch-save')?.addEventListener('click', async ()=>{
+    const name = document.getElementById('nsch-name').value.trim();
+    const adminEmail = document.getElementById('nsch-admin-email').value.trim().toLowerCase();
+    const errEl = document.getElementById('nsch-err');
+    const saveBtn = document.getElementById('nsch-save');
+    errEl.style.display = 'none';
+    if (!name) { errEl.textContent='⚠ School name is required'; errEl.style.display='flex'; return; }
+    if (!adminEmail || !adminEmail.includes('@')) { errEl.textContent='⚠ A valid admin Google email is required'; errEl.style.display='flex'; return; }
+    if (Object.values(STATE.schools).some(s => (s.name||'').trim().toLowerCase() === name.toLowerCase())) {
+      errEl.textContent = '⚠ A school with that name already exists'; errEl.style.display = 'flex'; return;
+    }
+    const fields = {
+      name,
+      adminEmail,
+      principalName: document.getElementById('nsch-principal').value.trim(),
+      schoolType: document.getElementById('nsch-type').value.trim(),
+      address: document.getElementById('nsch-address').value.trim(),
+      district: document.getElementById('nsch-district').value.trim(),
+      province: document.getElementById('nsch-province').value.trim(),
+      phone: document.getElementById('nsch-phone').value.trim(),
+      email: document.getElementById('nsch-email').value.trim(),
+      website: document.getElementById('nsch-website').value.trim(),
+    };
+    const logoFile = document.getElementById('nsch-logo').files[0] || null;
+    setBtnBusy(saveBtn, true, 'Creating…');
+    try {
+      await fbCreateSchool(fields, logoFile);
+      document.getElementById('addschool-form').style.display = 'none';
+      document.getElementById('addschool-creds').style.display = 'block';
+      document.getElementById('scred-name').textContent = name;
+      document.getElementById('scred-code').textContent = adminEmail;
+    } catch(e) {
+      setBtnBusy(saveBtn, false);
+      console.error(e);
+      errEl.textContent = e.message === 'EMAIL_TAKEN' ? '⚠ That email is already registered to another account' : '⚠ Could not create school — please try again.';
+      errEl.style.display = 'flex';
+    }
+  });
+  document.getElementById('scred-done')?.addEventListener('click',()=>{
+    closeModal('m-add-school');
+    document.getElementById('addschool-form').style.display='block';
+    document.getElementById('addschool-creds').style.display='none';
+    APP._opPage='schools'; render();
+  });
+  document.getElementById('scred-copy')?.addEventListener('click',()=>{
+    const n=document.getElementById('scred-name').textContent;
+    const c=document.getElementById('scred-code').textContent;
+    navigator.clipboard.writeText(`JMC Classroom — School Login\nSchool name: ${n}\n\nGo to the JMC Classroom login page → School → Continue with Google, signed in as ${c}.`).catch(()=>{});
+    toast('Copied — paste into your email!','success');
+  });
+  document.querySelectorAll('[data-viewas-school]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const school = STATE.schools[btn.dataset.viewasSchool];
+      if(!school){ toast('School not found','err'); return; }
+      APP._impersonating = { roleLabel:'· School', returnPage:'schools' };
+      APP.user = { role:'school', ...school };
+      APP._schoolPage = 'dash';
+      APP.screen = 'school';
+      render();
+    });
+  });
+  document.querySelectorAll('[data-rm-school]').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      if(!confirm('Remove this school? This also removes its Supervisors and Teachers, and cannot be undone.')) return;
+      try { await fbDeleteSchool(btn.dataset.rmSchool); toast('School removed','success'); }
+      catch(e){ console.error(e); toast('Could not remove school','err'); }
+    });
+  });
+  document.querySelectorAll('[data-copy-school-creds]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const c=JSON.parse(btn.dataset.copySchoolCreds);
+      navigator.clipboard.writeText(`JMC Classroom — School Login\nSchool name: ${c.name}\n\nGo to the JMC Classroom login page → School → Continue with Google, signed in as ${c.code}.`).catch(()=>{});
+      toast('Copied — paste into your email!','success');
+    });
+  });
+  document.querySelectorAll('[data-viewas-sv]').forEach(btn=>{
+    btn.addEventListener('click', ()=>{
+      const sv = STATE.supervisors[btn.dataset.viewasSv];
+      if(!sv){ toast('Supervisor not found','err'); return; }
+      APP._impersonating = { roleLabel:'· Supervisor', returnPage:'supervisors' };
+      APP.user = { role:'supervisor', id: sv.id, name: sv.name };
+      APP._svPage = 'dash';
+      APP.screen = 'supervisor';
+      fbSubscribeTeachersForSupervisor(sv.id, true); // Operator doesn't normally load this collection
+      render();
+    });
+  });
+  document.querySelectorAll('[data-rm-sv-op]').forEach(btn=>{
+    btn.addEventListener('click', async ()=>{
+      if(!confirm('Remove this supervisor? Their teachers will be removed too.')) return;
+      try { await fbDeleteSupervisor(btn.dataset.rmSvOp); toast('Supervisor removed','success'); }
+      catch(e){ console.error(e); toast('Could not remove supervisor','err'); }
+    });
+  });
+  document.querySelectorAll('[data-toggle-pw]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const id=btn.dataset.togglePw; const pw=btn.dataset.pw;
+      const el=document.getElementById('sv-pw-'+id);
+      if(!el) return;
+      if(el.textContent==='••••••••'){el.textContent=pw;btn.textContent='🙈 Hide';}
+      else{el.textContent='••••••••';btn.textContent='👁 Show';}
+    });
+  });
+  document.querySelectorAll('[data-copy-creds]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const c=JSON.parse(btn.dataset.copyCreds);
+      navigator.clipboard.writeText(`JMC Classroom Supervisor\nName: ${c.name}\nUsername: ${c.user}\nPassword: ${c.pass}`).catch(()=>{});
+      toast('Copied!','success');
+    });
+  });
+  document.querySelectorAll('[data-rm-sv]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      if(!confirm('Remove this supervisor?')) return;
+      dbSet(d=>delete STATE.supervisors[btn.dataset.rmSv]);
+      APP._opPage='supervisors'; render();
+    });
+  });
+}
+
+// ── SUPERVISOR ATTACH ─────────────────────────
+let _ntSubjs=[], _ncTcs=[], _attSel=null, _attSelDate=null;
+function attachSupervisor() {
+  document.getElementById('btn-add-tc')?.addEventListener('click',()=>{_ntSubjs=[];openModal('m-add-tc');});
+  document.getElementById('m-add-tc-close')?.addEventListener('click',()=>closeModal('m-add-tc'));
+  document.getElementById('nt-cancel')?.addEventListener('click',()=>closeModal('m-add-tc'));
+  document.getElementById('nt-save')?.addEventListener('click',async ()=>{
+    const n=document.getElementById('nt-name').value.trim();
+    const email=document.getElementById('nt-email').value.trim().toLowerCase();
+    const e=document.getElementById('nt-err');
+    const saveBtn=document.getElementById('nt-save');
+    e.style.display='none';
+    if(!n||!email||!email.includes('@')){e.textContent='⚠ Fill in a name and a valid email';e.style.display='flex';return;}
+    setBtnBusy(saveBtn, true, 'Creating…');
+    try {
+      const supervisorId = APP.user.id;
+      await fbCreateTeacher(supervisorId, APP.user.schoolId, n, email, _ntSubjs.slice());
+      closeModal('m-add-tc'); toast(`Teacher added — they sign in with ${email}`,'success'); APP._svPage='teachers'; render();
+    } catch(err) {
+      setBtnBusy(saveBtn, false);
+      console.error(err);
+      e.textContent = err.message==='EMAIL_TAKEN' ? '⚠ That email is already registered to another account' : '⚠ Could not create teacher — check your connection';
+      e.style.display='flex';
+    }
+  });
+  document.querySelectorAll('#nt-subj-wrap .spill').forEach(sp=>{
+    sp.addEventListener('click',()=>{ const on=sp.classList.toggle('on'); if(on)_ntSubjs.push(sp.dataset.subj); else _ntSubjs=_ntSubjs.filter(x=>x!==sp.dataset.subj); });
+  });
+  document.getElementById('btn-create-cls')?.addEventListener('click',()=>{_ncTcs=[];openModal('m-create-cls');});
+  document.getElementById('m-create-cls-close')?.addEventListener('click',()=>closeModal('m-create-cls'));
+  document.getElementById('nc-cancel')?.addEventListener('click',()=>closeModal('m-create-cls'));
+  document.getElementById('nc-save')?.addEventListener('click',()=>{
+    const name=document.getElementById('nc-name').value.trim();
+    const div=document.getElementById('nc-div').value.trim();
+    const e=document.getElementById('nc-err');
+    if(!name||!div){e.textContent='⚠ Enter name and division';e.style.display='flex';return;}
+    const d=db(); const id='cls_'+Date.now();
+    const subjects={};
+    _ncTcs.forEach(tid=>{const t=STATE.teachers[tid];if(t)subjects[tid]=t.subjects&&t.subjects.length?t.subjects[0]:'General';});
+    dbSet(db2=>{db2.classes[id]={id,name,div,code:gCode(),teachers:_ncTcs.slice(),subjects,students:[],posts:[],work:[],materials:[],quiz:[],marks:{},quizResults:{},created:fdt()};});
+    closeModal('m-create-cls'); toast('Classroom created!','success'); APP._svPage='classrooms'; render();
+  });
+  document.querySelectorAll('#nc-tc-wrap .spill').forEach(sp=>{
+    sp.addEventListener('click',()=>{ const on=sp.classList.toggle('on'); if(on)_ncTcs.push(sp.dataset.tc); else _ncTcs=_ncTcs.filter(x=>x!==sp.dataset.tc); });
+  });
+  document.querySelectorAll('[data-rm-tc]').forEach(btn=>{
+    btn.addEventListener('click',async ()=>{
+      if(!confirm('Remove this teacher?'))return;
+      const id=btn.dataset.rmTc;
+      try {
+        await fbDeleteTeacher(id);
+        dbSet(d=>{ Object.values(d.classes).forEach(c=>{ c.teachers=(c.teachers||[]).filter(t=>t!==id); if(c.subjects) delete c.subjects[id]; }); });
+        APP._svPage='teachers'; render();
+      } catch(e) { console.error(e); toast('Could not remove teacher','err'); }
+    });
+  });
+  document.querySelectorAll('[data-rm-st]').forEach(btn=>{
+    btn.addEventListener('click',()=>{const [cid,name]=btn.dataset.rmSt.split('__');dbSet(d=>{d.classes[cid].students=(d.classes[cid].students||[]).filter(s=>s.name!==name);});APP._svPage='students';render();});
+  });
+  document.querySelectorAll('[data-add-tc-cls]').forEach(btn=>{
+    btn.addEventListener('click',()=>{APP._addTcClsId=btn.dataset.addTcCls;openModal('m-add-tc-cls');});
+  });
+  document.getElementById('m-add-tc-cls-close')?.addEventListener('click',()=>closeModal('m-add-tc-cls'));
+  document.getElementById('m-add-tc-cls-close2')?.addEventListener('click',()=>closeModal('m-add-tc-cls'));
+  document.querySelectorAll('[data-add-tc-to-cls]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const tid=btn.dataset.addTcToCls; const cid=APP._addTcClsId;
+      const d=db(); const t=STATE.teachers[tid]; const cls=d.classes[cid]; if(!t||!cls) return;
+      dbSet(db2=>{if(!db2.classes[cid].teachers.includes(tid)){db2.classes[cid].teachers.push(tid);db2.classes[cid].subjects[tid]=t.subjects&&t.subjects.length?t.subjects[0]:'General';}});
+      closeModal('m-add-tc-cls'); toast('Teacher added to classroom!','success'); APP._svPage='classrooms'; render();
+    });
+  });
+  document.querySelectorAll('[data-rm-tc-cls]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const [cid,tid]=btn.dataset.rmTcCls.split('__');
+      if(!confirm('Remove this teacher from the classroom?')) return;
+      dbSet(d=>{d.classes[cid].teachers=(d.classes[cid].teachers||[]).filter(t=>t!==tid);if(d.classes[cid].subjects)delete d.classes[cid].subjects[tid];});
+      APP._svPage='classrooms'; render();
+    });
+  });
+}
+
+// ── TEACHER ATTACH ────────────────────────────
+let _markCtx = null;
+function attachTeacher() {
+  document.querySelectorAll('[data-code]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const code=btn.dataset.code; const cn=btn.dataset.clsname||'';
+      navigator.clipboard.writeText(`Join ${cn}!\nCode: ${code}\nGo to JMC Classroom → Student → Join a Classroom → enter this code.`).catch(()=>{});
+      toast('Code copied!','success');
+    });
+  });
+  document.getElementById('att-date')?.addEventListener('change',(e)=>{
+    APP._attDate = e.target.value;
+    _attSel = null; // force reload from saved data for the new date
+    render();
+  });
+  document.querySelectorAll('[data-att-set]').forEach(btn=>{
+    btn.addEventListener('click',()=>{
+      const name = btn.dataset.attSet, status = btn.dataset.status;
+      _attSel[name] = (_attSel[name] === status) ? undefined : status; // click again to un-mark
+      const row = document.querySelector(`[data-att-row="${CSS.escape(name)}"]`);
+      if (row) row.querySelectorAll('.att-btn').forEach(b=>{
+        b.classList.remove('on-green','on-amber','on-red');
+        if (_attSel[name] === b.dataset.status) {
+          b.classList.add(b.dataset.status==='present'?'on-green':b.dataset.status==='late'?'on-amber':'on-red');
+        }
+      });
+    });
+  });
+  document.getElementById('att-save')?.addEventListener('click',()=>{
+    const cid = APP._tcPage.replace('cls_','');
+    const date = APP._attDate || new Date().toISOString().slice(0,10);
+    const clean = {}; Object.keys(_attSel||{}).forEach(k=>{ if(_attSel[k]) clean[k]=_attSel[k]; });
+    dbSet(d=>{
+      const cls = d.classes[cid]; if(!cls) return;
+      if(!cls.attendance) cls.attendance={};
+      if(!cls.attendance[APP.user.id]) cls.attendance[APP.user.id]={};
+      cls.attendance[APP.user.id][date] = clean;
+    });
+    toast('Attendance saved!','success'); render();
+  });
+  document.getElementById('tc-msg-send')?.addEventListener('click',()=>{
+    const inp=document.getElementById('tc-msg-inp'); const key=document.getElementById('tc-msg-send').dataset.msgkey;
+    if(!inp||!key) return;
+    const text=inp.value.trim(); if(!text) return;
+    dbSet(d=>{if(!d.messages[key])d.messages[key]=[];d.messages[key].push({from:'teacher',text,ts:fts(),readByStudent:false});});
+    inp.value=''; APP._tcPage=APP._tcPage; render();
+  });
+  document.getElementById('open-post-btn')?.addEventListener('click',()=>openModal('m-post'));
+  document.getElementById('m-post-close')?.addEventListener('click',()=>closeModal('m-post'));
+  document.getElementById('m-post-close2')?.addEventListener('click',()=>closeModal('m-post'));
+  document.getElementById('p-save')?.addEventListener('click',()=>{
+    const t=document.getElementById('p-title').value.trim(); const b=document.getElementById('p-body').value.trim();
+    if(!t||!b){document.getElementById('p-err').style.display='flex';return;}
+    const btn=document.getElementById('p-save'); const cid=btn.dataset.cls; const subj=btn.dataset.subj;
+    dbSet(d=>{if(d.classes[cid])d.classes[cid].posts.push({id:'p'+Date.now(),title:t,body:b,att:document.getElementById('p-att').value.trim(),attType:document.getElementById('p-att-type').value,subj,tid:APP.user.id,date:fdt()});});
+    closeModal('m-post'); render();
+  });
+  document.getElementById('open-work-btn')?.addEventListener('click',()=>openModal('m-work'));
+  document.getElementById('m-work-close')?.addEventListener('click',()=>closeModal('m-work'));
+  document.getElementById('m-work-close2')?.addEventListener('click',()=>closeModal('m-work'));
+  document.getElementById('w-save')?.addEventListener('click',()=>{
+    const t=document.getElementById('w-title').value.trim();
+    if(!t){document.getElementById('w-err').style.display='flex';return;}
+    const btn=document.getElementById('w-save'); const cid=btn.dataset.cls; const subj=btn.dataset.subj;
+    dbSet(d=>{if(d.classes[cid])d.classes[cid].work.push({id:'w'+Date.now(),title:t,inst:document.getElementById('w-inst').value.trim(),wtype:document.getElementById('w-type').value,maxMarks:document.getElementById('w-max').value.trim(),due:document.getElementById('w-due').value.trim()||'No due date',subj,tid:APP.user.id});});
+    closeModal('m-work'); render();
+  });
+  document.getElementById('open-mat-btn')?.addEventListener('click',()=>openModal('m-mat'));
+  document.getElementById('m-mat-close')?.addEventListener('click',()=>closeModal('m-mat'));
+  document.getElementById('m-mat-close2')?.addEventListener('click',()=>closeModal('m-mat'));
+  document.getElementById('mt-save')?.addEventListener('click',()=>{
+    const t=document.getElementById('mt-title').value.trim(); const a=document.getElementById('mt-att').value.trim();
+    if(!t||!a){document.getElementById('mt-err').style.display='flex';return;}
+    const btn=document.getElementById('mt-save'); const cid=btn.dataset.cls; const subj=btn.dataset.subj;
+    dbSet(d=>{if(!d.classes[cid].materials)d.classes[cid].materials=[];d.classes[cid].materials.push({id:'m'+Date.now(),title:t,desc:document.getElementById('mt-desc').value.trim(),att:a,mtype:document.getElementById('mt-type').value,subj,tid:APP.user.id,date:fdt()});});
+    closeModal('m-mat'); render();
+  });
+  document.getElementById('open-stud-btn')?.addEventListener('click',()=>openModal('m-stud'));
+  document.getElementById('m-stud-close')?.addEventListener('click',()=>closeModal('m-stud'));
+  document.getElementById('m-stud-close2')?.addEventListener('click',()=>closeModal('m-stud'));
+  document.getElementById('ns-save')?.addEventListener('click',()=>{
+    const name=document.getElementById('ns-name').value.trim(); const e=document.getElementById('ns-err');
+    const cid=document.getElementById('ns-save').dataset.cls;
+    if(!name){e.textContent='⚠ Enter a name';e.style.display='flex';return;}
+    const d=db();
+    if((d.classes[cid]&&d.classes[cid].students||[]).find(s=>s.name.toLowerCase()===name.toLowerCase())){e.textContent='⚠ Already enrolled';e.style.display='flex';return;}
+    dbSet(db2=>{db2.classes[cid].students.push({name,joined:fdt()});});
+    closeModal('m-stud'); render();
+  });
+  document.getElementById('open-quiz-btn')?.addEventListener('click',()=>openModal('m-quiz'));
+  document.getElementById('m-quiz-close')?.addEventListener('click',()=>closeModal('m-quiz'));
+  document.getElementById('m-quiz-close2')?.addEventListener('click',()=>closeModal('m-quiz'));
+  document.getElementById('q-save')?.addEventListener('click',()=>{
+    const q=document.getElementById('q-q').value.trim();
+    const opts=['q-a','q-b','q-c','q-d'].map(id=>document.getElementById(id).value.trim());
+    if(!q||opts.some(o=>!o)){document.getElementById('q-err').style.display='flex';return;}
+    const btn=document.getElementById('q-save'); const cid=btn.dataset.cls; const subj=btn.dataset.subj;
+    dbSet(d=>{d.classes[cid].quiz.push({id:'q'+Date.now(),q,opts,ans:parseInt(document.getElementById('q-ans').value),marks:parseInt(document.getElementById('q-marks').value)||1,subj,tid:APP.user.id});});
+    closeModal('m-quiz'); render();
+  });
+  document.querySelectorAll('[data-open-mark]').forEach(el=>{
+    el.addEventListener('click',()=>{
+      const [sName,wId,wTitle,max,cur]=el.dataset.openMark.split('__');
+      const cid=el.dataset.cls;
+      _markCtx={sName,wId,cid};
+      document.getElementById('m-mark-ctx').innerHTML=`Student: <b>${escH(sName)}</b> &nbsp;|&nbsp; Work: <b>${escH(wTitle)}</b> &nbsp;|&nbsp; Max: <b>${escH(max)||'?'}</b>`;
+      document.getElementById('mk-val').value=cur||'';
+      document.getElementById('mk-comment').value='';
+      openModal('m-mark');
+    });
+  });
+  document.getElementById('m-mark-close')?.addEventListener('click',()=>closeModal('m-mark'));
+  document.getElementById('m-mark-close2')?.addEventListener('click',()=>closeModal('m-mark'));
+  document.getElementById('mk-save')?.addEventListener('click',()=>{
+    if(!_markCtx) return;
+    const val=document.getElementById('mk-val').value.trim(); if(!val){toast('Enter a mark','error');return;}
+    dbSet(d=>{if(!d.classes[_markCtx.cid].marks)d.classes[_markCtx.cid].marks={};if(!d.classes[_markCtx.cid].marks[_markCtx.sName])d.classes[_markCtx.cid].marks[_markCtx.sName]={};d.classes[_markCtx.cid].marks[_markCtx.sName][_markCtx.wId]=val;});
+    closeModal('m-mark'); toast('Mark saved!','success'); render();
+  });
+  document.querySelectorAll('[data-del-post]').forEach(btn=>{btn.addEventListener('click',()=>{dbSet(d=>{d.classes[btn.dataset.cls].posts=(d.classes[btn.dataset.cls].posts||[]).filter(p=>p.id!==btn.dataset.delPost);});render();});});
+  document.querySelectorAll('[data-del-work]').forEach(btn=>{btn.addEventListener('click',()=>{dbSet(d=>{d.classes[btn.dataset.cls].work=(d.classes[btn.dataset.cls].work||[]).filter(w=>w.id!==btn.dataset.delWork);});render();});});
+  document.querySelectorAll('[data-del-mat]').forEach(btn=>{btn.addEventListener('click',()=>{dbSet(d=>{d.classes[btn.dataset.cls].materials=(d.classes[btn.dataset.cls].materials||[]).filter(m=>m.id!==btn.dataset.delMat);});render();});});
+  document.querySelectorAll('[data-del-quiz]').forEach(btn=>{btn.addEventListener('click',()=>{dbSet(d=>{d.classes[btn.dataset.cls].quiz=(d.classes[btn.dataset.cls].quiz||[]).filter(q=>q.id!==btn.dataset.delQuiz);});render();});});
+  document.querySelectorAll('[data-del-st]').forEach(btn=>{btn.addEventListener('click',()=>{dbSet(d=>{d.classes[btn.dataset.cls].students=(d.classes[btn.dataset.cls].students||[]).filter(s=>s.name!==btn.dataset.delSt);});render();});});
+  document.getElementById('ws-reopen')?.addEventListener('click',()=>{
+    const {cls,wid,sname}=document.getElementById('ws-reopen').dataset;
+    dbSet(d=>{const key=`${cls}_${wid}_${sname}`;if(d.submissions&&d.submissions[key])d.submissions[key].submitted=false;});
+    render();
+  });
+}
+
+// ── STUDENT ATTACH ────────────────────────────
+function attachStudent() {
+  document.getElementById('st-msg-send')?.addEventListener('click',()=>{
+    const inp=document.getElementById('st-msg-inp'); const btn=document.getElementById('st-msg-send');
+    const key=btn.dataset.msgkey; const sname=btn.dataset.stname;
+    if(!inp||!key) return;
+    const text=inp.value.trim(); if(!text) return;
+    dbSet(d=>{if(!d.messages[key])d.messages[key]=[];d.messages[key].push({from:'student',text,ts:fts(),readByTeacher:false});});
+    inp.value=''; render();
+  });
+  document.getElementById('ws-submit')?.addEventListener('click',()=>{
+    const btn=document.getElementById('ws-submit');
+    const {cls,wid,sname}=btn.dataset;
+    const editor=document.getElementById('ws-editor');
+    const text=editor?editor.innerText.trim():'';
+    if(!text){toast('Write something before submitting','error');return;}
+    dbSet(d=>{if(!d.submissions)d.submissions={};d.submissions[`${cls}_${wid}_${sname}`]={text,submitted:true,ts:fdt()+' '+fts()};});
+    toast('Assignment submitted!','success'); APP._stPage='workspace'; APP._wsWorkId=null; render();
+  });
+  document.getElementById('ws-reopen')?.addEventListener('click',()=>{
+    const {cls,wid,sname}=document.getElementById('ws-reopen').dataset;
+    dbSet(d=>{const key=`${cls}_${wid}_${sname}`;if(d.submissions&&d.submissions[key])d.submissions[key].submitted=false;});
+    render();
+  });
+}
+
+function wsAutosave(clsId, wId, stName) {
+  const editor=document.getElementById('ws-editor');
+  if(!editor) return;
+  const text=editor.innerText.trim();
+  const key=`${clsId}_${wId}_${stName}`;
+  dbSet(d=>{if(!d.submissions)d.submissions={};if(!d.submissions[key]||!d.submissions[key].submitted)d.submissions[key]={text,submitted:false,ts:null};});
+  const st=document.getElementById('ws-status');
+  if(st){st.textContent='Draft saved';setTimeout(()=>{if(st)st.textContent='';},2000);}
+}
+
+function execCmd(cmd) {
+  document.execCommand(cmd,false,null);
+  document.getElementById('ws-editor')?.focus();
+}
+
+// ── QUIZ ENGINE ───────────────────────────────
+function renderQBlock(el, key) {
+  const qs = APP.quizState[key];
+  if (!qs) return;
+  const d = db();
+  const cls = d.classes[qs.clsId];
+  if (!cls) return;
+  if (qs.done) {
+    const totalM = qs.qs.reduce((a,q)=>a+(parseInt(q.marks)||1),0);
+    const pct = totalM ? Math.round(qs.marks/totalM*100) : 0;
+    el.innerHTML=`<div style="text-align:center;padding:20px">
+      <div class="jf" style="font-size:36px;font-weight:700;color:${pct>=70?'var(--green)':pct>=40?'var(--amber)':'var(--red)'}">${qs.marks}/${totalM}</div>
+      <div style="font-size:13px;color:var(--text2);margin:6px 0 4px">${pct}% · ${qs.score}/${qs.qs.length} correct</div>
+      <div style="font-size:13px;color:var(--text);margin-bottom:10px">${pct>=70?'Excellent! ':pct>=40?'Good effort!':'Keep studying!'}</div>
+      <div class="info-box">Result saved. Your teacher can see your score.</div>
+    </div>`;
+    dbSet(db2=>{
+      if(!db2.classes[qs.clsId].quizResults)db2.classes[qs.clsId].quizResults={};
+      if(!db2.classes[qs.clsId].quizResults[APP.user.name])db2.classes[qs.clsId].quizResults[APP.user.name]={};
+      db2.classes[qs.clsId].quizResults[APP.user.name][qs.subj]={correct:qs.score,marks:qs.marks,total:qs.qs.length,date:fdt()};
+    });
+    delete APP.quizState[key];
+    return;
+  }
+  const q=qs.qs[qs.cur];
+  el.innerHTML=`<div>
+    <div style="font-size:11px;color:var(--text3);margin-bottom:9px;font-weight:700">${qs.subj} — Q${qs.cur+1}/${qs.qs.length}</div>
+    <div class="jf" style="font-size:14px;font-weight:700;margin-bottom:11px;line-height:1.5">${escH(q.q)} <span class="bdg camber">${q.marks||1} mark${(q.marks||1)>1?'s':''}</span></div>
+    ${q.opts.map((o,i)=>`<button class="qopt" id="qo_${key}_${i}">${['A','B','C','D'][i]}. ${escH(o)}</button>`).join('')}
+    <div id="qfb_${key}" style="font-size:12px;padding:7px 10px;border-radius:var(--r);margin-top:5px;display:none"></div>
+    <button id="qnxt_${key}" style="display:none;margin-top:9px" class="bp bsm">${qs.cur>=qs.qs.length-1?'See results':'Next question'}</button>
+  </div>`;
+  q.opts.forEach((_,i)=>{
+    document.getElementById(`qo_${key}_${i}`)?.addEventListener('click',()=>stAnsQ(key,i,q.ans,parseInt(q.marks)||1));
+  });
+  document.getElementById(`qnxt_${key}`)?.addEventListener('click',()=>{
+    const qs2=APP.quizState[key]; if(!qs2) return;
+    qs2.cur++; qs2.answered=false;
+    if(qs2.cur>=qs2.qs.length) qs2.done=true;
+    renderQBlock(el,key);
+  });
+}
+
+function stAnsQ(key,i,ans,marks){
+  const qs=APP.quizState[key]; if(!qs||qs.answered) return;
+  qs.answered=true;
+  for(let j=0;j<4;j++){const b=document.getElementById(`qo_${key}_${j}`);if(b)b.disabled=true;}
+  const fb=document.getElementById('qfb_'+key);
+  if(fb)fb.style.display='block';
+  if(i===ans){
+    document.getElementById(`qo_${key}_${i}`)?.classList.add('ok');
+    if(fb){fb.textContent=`Correct! +${marks} mark${marks>1?'s':''}`;fb.style.background='var(--green-bg)';fb.style.color='var(--green)';}
+    qs.score++; qs.marks+=marks;
+  } else {
+    document.getElementById(`qo_${key}_${i}`)?.classList.add('no');
+    document.getElementById(`qo_${key}_${ans}`)?.classList.add('ok');
+    if(fb){fb.textContent='Incorrect. Correct: '+['A','B','C','D'][ans]+'. '+qs.qs[qs.cur].opts[ans];fb.style.background='var(--red-bg)';fb.style.color='var(--red)';}
+  }
+  document.getElementById('qnxt_'+key)?.style.setProperty('display','inline-block');
+}
+
+// ── COURSES ATTACH ────────────────────────────
+function attachCourses() {
+  document.querySelectorAll('[data-course-filter]').forEach(el=>{
+    el.addEventListener('click',()=>{APP._courseFilter=el.dataset.courseFilter;render();});
+  });
+}
+
+// ── MODAL HELPERS ─────────────────────────────
+function openModal(id) { const el=document.getElementById(id); if(el) el.classList.add('show'); }
+function closeModal(id) { const el=document.getElementById(id); if(el) el.classList.remove('show'); }
+
+// ── BOOT ──────────────────────────────────────
+// Pure localStorage app: no network round-trip needed, so boot is instant —
+// just restore whichever account (if any) was last signed in.
+function bootApp() {
+  initFirebase();
+  if (!FB_READY) { APP.screen = 'land'; render(); return; }
+  APP.screen = 'boot';
+  render();
+  FB_AUTH.onAuthStateChanged(async (fbUser) => {
+    if (!fbUser) {
+      if (APP.screen === 'boot') { APP.screen = 'land'; render(); }
+      return;
+    }
+    try {
+      const profile = await bootstrapUserProfile(fbUser);
+      const user = await loadAppUserFromProfile(profile);
+      APP.user = user;
+      const target = ROLE_SCREENS[user.role];
+      APP[target.pageVar] = APP[target.pageVar] || target.defaultPage;
+      APP.screen = target.screen;
+      await loadOrgIntoState();
+      render();
+    } catch (e) {
+      console.error('Session restore failed', e);
+      await fbSignOut();
+      APP.screen = 'land';
+      render();
+    }
+  });
+}
+
+bootApp();
+</script>
+</body>
+</html>

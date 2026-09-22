@@ -1,0 +1,18 @@
+{
+  "// NOTE": "Shape reference for the SECOND Firebase project (jmc-class, the classroom backend). Download from that project's console and save as app/src/main/res/raw/jmc_class_services.json. See ../docs/FIREBASE_SETUP.md.",
+  "project_info": {
+    "project_number": "111111111111",
+    "project_id": "jmc-class",
+    "storage_bucket": "jmc-class.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:111111111111:android:1111111111111111111111",
+        "android_client_info": { "package_name": "lk.jmcinnovators.learning" }
+      },
+      "api_key": [ { "current_key": "YOUR_API_KEY_HERE" } ]
+    }
+  ],
+  "configuration_version": "1"
+}

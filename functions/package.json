@@ -1,0 +1,11 @@
+{
+  "name": "jmc-innovators-functions",
+  "description": "Optional bonus Cloud Functions for JMC Innovators (session revocation, cleanup, monthly report scaffold). Nothing in the live site requires these to be deployed.",
+  "engines": { "node": "20" },
+  "main": "index.js",
+  "dependencies": {
+    "firebase-admin": "^12.1.0",
+    "firebase-functions": "^5.0.0"
+  },
+  "private": true
+}

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">JMC Innovators</string>
+    <string name="app_subtitle">Learning Platform</string>
+    <string name="app_tagline">Learn. Create. Innovate.</string>
+
+    <!-- OAuth "Web client (auto created by Google Service)" (client_type 3) from
+         app/google-services.json, jmc-home2 project. Required by Credential Manager /
+         Google Sign-In (see AuthRepository.kt and FIREBASE_SETUP.md). -->
+    <string name="default_web_client_id" translatable="false">129216148625-k3gkmcol114rntrmgettubri6jo9pphe.apps.googleusercontent.com</string>
+
+    <string name="channel_general_id" translatable="false">jmc_general</string>
+    <string name="channel_general_name">General updates</string>
+    <string name="channel_classroom_id" translatable="false">jmc_classroom</string>
+    <string name="channel_classroom_name">Classroom activity</string>
+
+    <string name="cd_logo">JMC Innovators logo</string>
+    <string name="cd_back">Go back</string>
+    <string name="cd_profile_photo">Profile photo</string>
+    <string name="cd_notifications">Notifications</string>
+    <string name="cd_search">Search</string>
+</resources>

@@ -1,0 +1,192 @@
+rules_version = '2';
+
+// ============================================================
+// JMC INNOVATORS — Firestore Security Rules
+// ------------------------------------------------------------
+// Covers ONLY the "jmc-home2" project (the Home Page / Google
+// Login Firebase project). Does not apply to, reference, or
+// affect the separate Firebase project used by jmc_Classroom.html.
+//
+// This is the actual security boundary for the parental control
+// system: a child's own signed-in session can read
+// parentControls/{uid} but can never write it — only the linked,
+// *active* parent's account can. That is enforced here, on
+// Google's servers, not just hidden in client-side JavaScript.
+// ============================================================
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // ---------------- Helpers ----------------
+    function isSignedIn() { return request.auth != null; }
+    function isSelf(uid) { return isSignedIn() && request.auth.uid == uid; }
+
+    // Single admin identity — the site owner's account. Update this email
+    // if the admin account ever changes.
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.email == 'jmc.innovators2027@gmail.com';
+    }
+
+    function linkOf(childUid) {
+      return get(/databases/$(database)/documents/parentLinks/$(childUid));
+    }
+    // True for ANY link status — used only where a parent needs to see who
+    // they're about to approve, never for reading behaviour/restriction data.
+    function isLinkedParentOf(childUid) {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/parentLinks/$(childUid))
+        && linkOf(childUid).data.parentUid == request.auth.uid;
+    }
+    // True only once the parent has approved — this is the real gate for
+    // anything sensitive (controls, monitoring data).
+    function isActiveParentOf(childUid) {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/parentLinks/$(childUid))
+        && linkOf(childUid).data.parentUid == request.auth.uid
+        && linkOf(childUid).data.status == 'active';
+    }
+    function myRole() {
+      return get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role;
+    }
+    function isRole(r) { return isSignedIn() && myRole() == r; }
+
+    // ---------------- users (core profile) ----------------
+    match /users/{uid} {
+      allow read: if isSelf(uid) || isAdmin() || isLinkedParentOf(uid);
+      allow create: if isSelf(uid)
+                    && request.resource.data.uid == uid
+                    && request.resource.data.role in ['student', 'teacher', 'parent', 'operator'];
+      // Role is locked after creation — a student can't self-promote to
+      // dodge parental controls, and nobody can grant themselves admin.
+      allow update: if isAdmin()
+                    || (isSelf(uid) && request.resource.data.role == resource.data.role);
+      allow delete: if isAdmin();
+    }
+
+    // ---------------- role-specific shards ----------------
+    match /students/{uid} {
+      allow read: if isSelf(uid) || isAdmin() || isActiveParentOf(uid);
+      allow write: if isSelf(uid) || isAdmin();
+    }
+    match /teachers/{uid} {
+      allow read: if isSignedIn();
+      allow write: if isSelf(uid) || isAdmin();
+    }
+    match /parents/{uid} {
+      // Includes the optional PIN hash — parent-only, never child-readable.
+      allow read, write: if isSelf(uid) || isAdmin();
+    }
+    match /operators/{uid} {
+      allow read: if isSignedIn();
+      allow write: if isSelf(uid) || isAdmin();
+    }
+    match /roles/{roleId} {
+      allow read: if isSignedIn();
+      allow write: if isAdmin();
+    }
+
+    // ---------------- parent ⇄ child pairing ----------------
+    match /linkCodes/{code} {
+      allow create: if isRole('parent')
+                    && request.resource.data.parentUid == request.auth.uid
+                    && request.resource.data.claimedBy == null;
+      // Readable by any signed-in user so a child can validate a code
+      // they were handed by their parent. Codes are single-use, short
+      // (6-digit) and expire in 15 minutes.
+      allow read: if isSignedIn();
+      allow update: if isSignedIn()
+                    && resource.data.claimedBy == null
+                    && resource.data.expiresAt > request.time
+                    && request.resource.data.claimedBy == request.auth.uid
+                    && request.resource.data.diff(resource.data).affectedKeys().hasOnly(['claimedBy', 'claimedAt']);
+      allow delete: if isAdmin() || (isSignedIn() && resource.data.parentUid == request.auth.uid);
+    }
+
+    match /parentLinks/{childUid} {
+      allow read: if isSelf(childUid) || isAdmin()
+                  || (isSignedIn() && resource.data.parentUid == request.auth.uid);
+      allow create: if isSelf(childUid)
+                    && request.resource.data.childUid == childUid
+                    && request.resource.data.status == 'pending'
+                    && exists(/databases/$(database)/documents/linkCodes/$(request.resource.data.viaCode))
+                    && get(/databases/$(database)/documents/linkCodes/$(request.resource.data.viaCode)).data.parentUid == request.resource.data.parentUid
+                    && get(/databases/$(database)/documents/linkCodes/$(request.resource.data.viaCode)).data.claimedBy == request.auth.uid;
+      // Parent approves / rejects / edits status.
+      allow update: if isAdmin() || (isSignedIn() && resource.data.parentUid == request.auth.uid);
+      // Either side can dissolve the link. (Site owner: remove the isSelf()
+      // clause below if you want only parents to be able to unlink — see
+      // SETUP_GUIDE.md for the tradeoffs.)
+      allow delete: if isAdmin() || isSelf(childUid)
+                    || (isSignedIn() && resource.data.parentUid == request.auth.uid);
+    }
+
+    // ---------------- the actual enforcement document ----------------
+    match /parentControls/{childUid} {
+      allow read: if isSelf(childUid) || isActiveParentOf(childUid) || isAdmin();
+      // THE key rule: a child can read their own restrictions to render the
+      // UI correctly, but can never write here — only their active,
+      // approved parent (or the admin) can.
+      allow write: if isActiveParentOf(childUid) || isAdmin();
+    }
+
+    // ---------------- self-logged monitoring data ----------------
+    // The child's own client logs its own activity; the linked active
+    // parent (and only that parent) can read it. Nobody can edit history
+    // after the fact except the admin, to keep it trustworthy.
+    match /loginHistory/{uid}/entries/{entryId} {
+      allow create: if isSelf(uid);
+      allow read: if isSelf(uid) || isActiveParentOf(uid) || isAdmin();
+      allow update, delete: if isAdmin();
+    }
+    match /studyHistory/{uid}/entries/{entryId} {
+      allow create: if isSelf(uid);
+      allow read: if isSelf(uid) || isActiveParentOf(uid) || isAdmin();
+      allow update, delete: if isAdmin();
+    }
+    match /activityLogs/{uid}/entries/{entryId} {
+      allow create: if isSelf(uid);
+      allow read: if isSelf(uid) || isActiveParentOf(uid) || isAdmin();
+      allow update, delete: if isAdmin();
+    }
+    match /securityLogs/{uid}/entries/{entryId} {
+      allow create: if isSelf(uid) || isAdmin();
+      allow read: if isSelf(uid) || isActiveParentOf(uid) || isAdmin();
+      allow update, delete: if isAdmin();
+    }
+    match /sessions/{uid}/entries/{entryId} {
+      allow create: if isSelf(uid);
+      allow read, delete: if isSelf(uid) || isAdmin();
+      allow update: if isAdmin();
+    }
+
+    // ---------------- settings ----------------
+    match /userSettings/{uid} {
+      allow read, write: if isSelf(uid) || isAdmin();
+    }
+    match /themeSettings/{uid} {
+      allow read, write: if isSelf(uid) || isAdmin();
+    }
+
+    // ---------------- notifications ----------------
+    match /notifications/{uid}/items/{notifId} {
+      allow read, update, delete: if isSelf(uid) || isAdmin();
+      // Self, or the child's active parent, can create a notification.
+      allow create: if isSelf(uid) || isActiveParentOf(uid) || isAdmin();
+    }
+
+    // ---------------- reports & analytics (reserved for future use) ----------------
+    match /reports/{childUid}/items/{reportId} {
+      allow read: if isSelf(childUid) || isActiveParentOf(childUid) || isAdmin();
+      allow write: if isAdmin();
+    }
+    match /analytics/{uid}/items/{itemId} {
+      allow read: if isSelf(uid) || isActiveParentOf(uid) || isAdmin();
+      allow write: if isSelf(uid) || isAdmin();
+    }
+
+    // Default deny — anything not explicitly matched above is inaccessible.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

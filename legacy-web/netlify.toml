@@ -1,0 +1,110 @@
+[build]
+  publish = "."
+
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "SAMEORIGIN"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(self), geolocation=()"
+
+[[headers]]
+  for = "/*.html"
+  [headers.values]
+    Cache-Control = "public, max-age=0, must-revalidate"
+
+[[headers]]
+  for = "/favicon.ico"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "/site.webmanifest"
+  [headers.values]
+    Cache-Control = "public, max-age=86400"
+
+[[headers]]
+  for = "/css/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/js/*"
+  [headers.values]
+    Cache-Control = "public, max-age=3600, must-revalidate"
+
+[[headers]]
+  for = "/service-worker.js"
+  [headers.values]
+    Cache-Control = "no-cache"
+
+[[redirects]]
+  from = "/home"
+  to = "/index.html"
+  status = 301
+
+[[redirects]]
+  from = "/about"
+  to = "/about2.html"
+  status = 301
+
+[[redirects]]
+  from = "/exam-papers"
+  to = "/exampapers.html"
+  status = 301
+
+[[redirects]]
+  from = "/textbooks"
+  to = "/text_books.html"
+  status = 301
+
+[[redirects]]
+  from = "/tools"
+  to = "/educational_tools.html"
+  status = 301
+
+[[redirects]]
+  from = "/ai-center"
+  to = "/chatbot.html"
+  status = 301
+
+[[redirects]]
+  from = "/classroom"
+  to = "/jmc_Classroom.html"
+  status = 301
+
+[[redirects]]
+  from = "/notebook"
+  to = "/notebook.html"
+  status = 301
+
+[[redirects]]
+  from = "/contact"
+  to = "/tell_us.html"
+  status = 301
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/dashboard.html"
+  status = 301
+
+[[redirects]]
+  from = "/settings"
+  to = "/settings.html"
+  status = 301
+
+[[redirects]]
+  from = "/parent-control"
+  to = "/parent-control.html"
+  status = 301
+
+[[redirects]]
+  from = "/profile"
+  to = "/profile.html"
+  status = 301

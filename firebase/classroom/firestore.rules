@@ -1,0 +1,108 @@
+rules_version = '2';
+
+// ============================================================
+// JMC INNOVATORS CLASSROOM — Firestore Security Rules
+// ------------------------------------------------------------
+// Covers ONLY the "jmc-class" project (legacy-web/jmc_Classroom.html's
+// backend). No rules file for this project existed before this app —
+// legacy-web keeps classes/assignments/quizzes in browser localStorage
+// (see ../../MIGRATION.md). This file is written for the Firestore
+// schema the native app introduces (lk.jmcinnovators.learning.data.model.Classroom.kt),
+// and only covers schools/supervisors/teachers/invites in the same shape
+// jmc_Classroom.html already wrote there.
+// ============================================================
+
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    function isSignedIn() { return request.auth != null; }
+    function isSelf(uid) { return isSignedIn() && request.auth.uid == uid; }
+
+    function isTeacherOf(classId) {
+      return isSignedIn()
+        && get(/databases/$(database)/documents/classes/$(classId)).data.teacherUid == request.auth.uid;
+    }
+    function isMemberOf(classId) {
+      return isSignedIn()
+        && exists(/databases/$(database)/documents/classes/$(classId)/students/$(request.auth.uid));
+    }
+
+    // ---------------- school hierarchy (matches legacy-web's existing shape) ----------------
+    match /schools/{schoolId} {
+      allow read: if isSignedIn();
+      allow write: if false; // provisioned by an operator via a Cloud Function only
+    }
+    match /supervisors/{uid} {
+      allow read, write: if isSelf(uid);
+    }
+    match /teachers/{uid} {
+      allow read: if isSignedIn();
+      allow write: if isSelf(uid);
+    }
+    match /invites/{inviteId} {
+      // Invited-by-email flow: readable by anyone signed in so a new teacher can
+      // redeem their invite; only the inviter (a supervisor) creates one.
+      allow read: if isSignedIn();
+      allow create: if isSignedIn();
+      allow update, delete: if false; // consumed via Cloud Function
+    }
+
+    // ---------------- classes (new: native-app target schema) ----------------
+    match /classes/{classId} {
+      allow read: if isSignedIn(); // join-code lookup needs to read before membership exists
+      allow create, update, delete: if isSignedIn() && request.resource.data.teacherUid == request.auth.uid;
+
+      match /students/{studentUid} {
+        // A student can add themselves (the "join by code" write) or leave; a teacher can
+        // manage roster entries for their own class.
+        allow read: if isSelf(studentUid) || isTeacherOf(classId);
+        allow create, delete: if isSelf(studentUid) || isTeacherOf(classId);
+        allow update: if isTeacherOf(classId);
+      }
+
+      match /assignments/{assignmentId} {
+        allow read: if isMemberOf(classId) || isTeacherOf(classId);
+        allow write: if isTeacherOf(classId);
+      }
+
+      match /quizzes/{quizId} {
+        allow read: if isMemberOf(classId) || isTeacherOf(classId);
+        allow write: if isTeacherOf(classId);
+
+        // Correct answers never reach a student's client: this subcollection is
+        // teacher/admin-only, and QuizAttempt scoring must happen in a Cloud Function.
+        match /questions/{questionId} {
+          allow read, write: if isTeacherOf(classId);
+        }
+      }
+
+      match /announcements/{announcementId} {
+        allow read: if isMemberOf(classId) || isTeacherOf(classId);
+        allow write: if isTeacherOf(classId);
+      }
+    }
+
+    // ---------------- submissions & attempts (new) ----------------
+    match /submissions/{submissionId} {
+      allow read: if isSignedIn()
+                  && (resource.data.studentUid == request.auth.uid
+                      || isTeacherOf(resource.data.classId));
+      allow create: if isSignedIn() && request.resource.data.studentUid == request.auth.uid;
+      // Grading is a teacher action; students can't edit their own grade/feedback.
+      allow update: if isSignedIn() && isTeacherOf(resource.data.classId);
+    }
+
+    match /quizAttempts/{attemptId} {
+      allow read: if isSignedIn()
+                  && (resource.data.studentUid == request.auth.uid
+                      || isTeacherOf(resource.data.classId));
+      // Attempts are written by a Cloud Function after grading, never directly by the
+      // client, so a student can't post their own score.
+      allow write: if false;
+    }
+
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

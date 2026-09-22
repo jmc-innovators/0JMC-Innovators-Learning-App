@@ -1,0 +1,22 @@
+{
+  "// NOTE": "This is a SHAPE REFERENCE ONLY, not a real config. Download the real file from Firebase console > Project settings > Your apps > google-services.json, for the jmc-home2 project, package lk.jmcinnovators.learning (or com.jmcinnovators.app if you keep the original package name). Place it at app/google-services.json. See ../docs/FIREBASE_SETUP.md.",
+  "project_info": {
+    "project_number": "000000000000",
+    "project_id": "jmc-home2",
+    "storage_bucket": "jmc-home2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
+        "android_client_info": { "package_name": "lk.jmcinnovators.learning" }
+      },
+      "oauth_client": [
+        { "client_id": "000000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com", "client_type": 3 }
+      ],
+      "api_key": [ { "current_key": "YOUR_API_KEY_HERE" } ],
+      "services": { "appinvite_service": {} }
+    }
+  ],
+  "configuration_version": "1"
+}

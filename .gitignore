@@ -1,0 +1,40 @@
+# Build output
+build/
+.gradle/
+.idea/
+*.iml
+captures/
+.externalNativeBuild/
+.cxx/
+
+# Local machine config
+local.properties
+
+# Signing material -- NEVER commit
+*.jks
+*.keystore
+keystore.properties
+
+# Secrets
+.env
+.env.*
+serviceAccount*.json
+*-adminsdk-*.json
+*.pem
+*.p12
+
+# Firebase client config: obtain from the Firebase console (see FIREBASE_SETUP.md).
+# The *.example files in firebase/ document the expected shape.
+app/google-services.json
+app/src/main/res/raw/jmc_class_services.json
+
+# Cloud Functions
+functions/node_modules/
+functions/.env*
+functions/.runtimeconfig.json
+firebase-debug.log*
+.firebase/
+
+# OS
+.DS_Store
+Thumbs.db

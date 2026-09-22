@@ -1,0 +1,42 @@
+rules_version = '2';
+
+// ============================================================
+// JMC INNOVATORS — Firebase Storage Rules ("jmc-home2" project)
+// ------------------------------------------------------------
+// jmc.innovators2027@gmail.com is treated as the admin/owner
+// account for resource uploads (text books, exam papers, etc).
+// ============================================================
+
+service firebase.storage {
+  match /b/{bucket}/o {
+
+    function isSignedIn() { return request.auth != null; }
+    function isSelf(uid) { return isSignedIn() && request.auth.uid == uid; }
+    function isAdmin() {
+      return isSignedIn() && request.auth.token.email == 'jmc.innovators2027@gmail.com';
+    }
+
+    // Personal space: profile photos, submitted work, exported files.
+    // 10MB cap, images/PDF only.
+    match /users/{uid}/{allPaths=**} {
+      allow read: if isSelf(uid) || isAdmin();
+      allow write: if isSelf(uid)
+                   && request.resource.size < 10 * 1024 * 1024
+                   && request.resource.contentType.matches('image/.*|application/pdf');
+      allow delete: if isSelf(uid) || isAdmin();
+    }
+
+    // Shared learning resources (exam papers, text books, tools) — publicly
+    // readable, only the admin account can upload/replace/remove them.
+    match /resources/{allPaths=**} {
+      allow read: if true;
+      allow write: if isAdmin()
+                   && request.resource.size < 50 * 1024 * 1024;
+    }
+
+    // Everything else defaults to admin-only.
+    match /{allPaths=**} {
+      allow read, write: if isAdmin();
+    }
+  }
+}

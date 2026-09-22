@@ -1,0 +1,1280 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Smart Notebook | JMC Innovators Learning Platform</title>
+<meta name="description" content="Auto notes, summaries and smart writing tools powered by AI - the JMC Innovators AI Notebook helps students study smarter.">
+<meta name="keywords" content="AI notebook, smart notes, AI study tools, JMC Innovators notebook">
+<meta name="author" content="JMC Innovators">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://jmcinnovators.netlify.app/notebook.html">
+<meta name="theme-color" content="#05070f">
+
+<!-- Open Graph / Facebook / WhatsApp / LinkedIn preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JMC Innovators Learning Platform">
+<meta property="og:url" content="https://jmcinnovators.netlify.app/notebook.html">
+<meta property="og:title" content="AI Smart Notebook | JMC Innovators Learning Platform">
+<meta property="og:description" content="Auto notes, summaries and smart writing tools powered by AI - the JMC Innovators AI Notebook helps students study smarter.">
+<meta property="og:image" content="https://jmcinnovators.netlify.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter/X card preview -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Smart Notebook | JMC Innovators Learning Platform">
+<meta name="twitter:description" content="Auto notes, summaries and smart writing tools powered by AI - the JMC Innovators AI Notebook helps students study smarter.">
+<meta name="twitter:image" content="https://jmcinnovators.netlify.app/og-image.png">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Structured data for richer Google search results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "AI Smart Notebook | JMC Innovators Learning Platform",
+  "url": "https://jmcinnovators.netlify.app/notebook.html",
+  "description": "Auto notes, summaries and smart writing tools powered by AI - the JMC Innovators AI Notebook helps students study smarter.",
+  "isPartOf": { "@type": "WebSite", "name": "JMC Innovators Learning Platform", "url": "https://jmcinnovators.netlify.app/" }
+}
+</script><link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,700;0,900;1,700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script src="https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mammoth/1.6.0/mammoth.browser.min.js"></script>
+<style>
+:root {
+  --bg:        #0d0f14;
+  --surface:   #141720;
+  --card:      #1c2030;
+  --border:    #262d42;
+  --border-2:  #313a54;
+  --accent:    #4f8ef7;
+  --accent-2:  #7eb3ff;
+  --accent-dim:#1a2d52;
+  --gold:      #f5c842;
+  --gold-dim:  #2e2510;
+  --green:     #3ecf8e;
+  --green-dim: #0d2e1f;
+  --red:       #f25f5c;
+  --red-dim:   #2e1212;
+  --purple:    #a78bfa;
+  --purple-dim:#1e1535;
+  --text:      #e8eaf0;
+  --text-2:    #9aa3be;
+  --text-3:    #5a6480;
+  --glow:      0 0 24px rgba(79,142,247,0.18);
+  --shadow:    0 2px 12px rgba(0,0,0,0.4), 0 1px 3px rgba(0,0,0,0.3);
+  --shadow-lg: 0 8px 40px rgba(0,0,0,0.6), 0 2px 8px rgba(0,0,0,0.4);
+}
+*{margin:0;padding:0;box-sizing:border-box;}
+html,body{height:100%;background:var(--bg);color:var(--text);font-family:'Space Grotesk',sans-serif;font-size:14px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+#shell{display:flex;height:100vh;overflow:hidden;}
+
+/* ── SIDEBAR ── */
+#sidebar{width:256px;min-width:256px;background:var(--surface);border-right:1px solid var(--border);display:flex;flex-direction:column;overflow:hidden;}
+#sidebar-header{padding:20px 18px 16px;border-bottom:1px solid var(--border);}
+#logo{display:flex;align-items:center;gap:10px;margin-bottom:16px;}
+#logo-badge{background:linear-gradient(135deg,var(--accent),var(--purple));border-radius:10px;width:34px;height:34px;display:flex;align-items:center;justify-content:center;font-size:16px;box-shadow:0 0 16px rgba(79,142,247,0.4);flex-shrink:0;}
+#logo-text{display:flex;flex-direction:column;line-height:1.1;}
+#logo-name{font-family:'Playfair Display',serif;font-size:17px;font-weight:900;color:var(--text);letter-spacing:0.5px;}
+#logo-sub{font-size:9px;font-weight:600;letter-spacing:2.5px;text-transform:uppercase;color:var(--accent);opacity:0.8;}
+#new-nb-btn{width:100%;padding:9px 14px;background:linear-gradient(135deg,var(--accent),#3a7ae0);color:#fff;border:none;border-radius:9px;font-family:'Space Grotesk',sans-serif;font-size:13px;font-weight:600;cursor:pointer;display:flex;align-items:center;justify-content:center;gap:7px;transition:all 0.2s;box-shadow:0 2px 12px rgba(79,142,247,0.3);}
+#new-nb-btn:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(79,142,247,0.45);}
+#sidebar-label{font-size:9px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-3);padding:14px 18px 6px;}
+#notebook-list{flex:1;overflow-y:auto;padding:0 8px 8px;}
+.nb-item{padding:10px 11px;border-radius:9px;cursor:pointer;transition:all 0.15s;display:flex;align-items:flex-start;gap:9px;margin-bottom:2px;border:1px solid transparent;}
+.nb-item:hover{background:var(--card);border-color:var(--border);}
+.nb-item.active{background:var(--accent-dim);border-color:var(--accent);box-shadow:var(--glow);}
+.nb-icon{font-size:15px;margin-top:1px;flex-shrink:0;}
+.nb-info{flex:1;min-width:0;}
+.nb-title{font-size:13px;font-weight:600;color:var(--text);white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.nb-meta{font-size:10px;color:var(--text-3);margin-top:1px;}
+.nb-del{opacity:0;background:none;border:none;cursor:pointer;color:var(--text-3);font-size:13px;padding:3px;border-radius:5px;flex-shrink:0;transition:0.15s;}
+.nb-item:hover .nb-del{opacity:1;}
+.nb-del:hover{color:var(--red);background:var(--red-dim);}
+#sidebar-footer{padding:12px 18px;border-top:1px solid var(--border);}
+#settings-btn{width:100%;padding:8px 12px;background:transparent;border:1px solid var(--border);border-radius:8px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:500;color:var(--text-2);cursor:pointer;display:flex;align-items:center;gap:7px;transition:0.15s;}
+#settings-btn:hover{background:var(--card);border-color:var(--border-2);color:var(--text);}
+.api-dot{width:8px;height:8px;border-radius:50%;background:var(--red);flex-shrink:0;transition:0.3s;}
+.api-dot.active{background:var(--green);box-shadow:0 0 8px rgba(62,207,142,0.5);}
+
+/* ── MAIN ── */
+#main{flex:1;display:flex;flex-direction:column;overflow:hidden;background:var(--bg);}
+#topbar{padding:12px 20px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;background:var(--surface);flex-shrink:0;}
+#nb-title-wrap{display:flex;align-items:center;gap:10px;flex:1;min-width:0;}
+#nb-title-input{font-family:'Playfair Display',serif;font-size:19px;font-weight:700;color:var(--text);border:none;outline:none;background:transparent;flex:1;letter-spacing:0.2px;min-width:0;}
+#nb-title-input::placeholder{color:var(--text-3);}
+.top-actions{display:flex;align-items:center;gap:7px;flex-shrink:0;}
+.btn-icon{width:34px;height:34px;border:1px solid var(--border);background:transparent;border-radius:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;font-size:15px;color:var(--text-2);transition:0.15s;}
+.btn-icon:hover{background:var(--card);border-color:var(--border-2);color:var(--text);}
+.btn-outline{padding:7px 14px;border:1px solid var(--border);background:transparent;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;color:var(--text-2);cursor:pointer;display:flex;align-items:center;gap:6px;transition:0.15s;}
+.btn-outline:hover{background:var(--card);border-color:var(--accent);color:var(--accent);}
+
+/* ── CONTENT ── */
+#content-area{flex:1;display:flex;overflow:hidden;}
+
+/* SOURCE PANEL */
+#source-panel{width:270px;min-width:270px;border-right:1px solid var(--border);display:flex;flex-direction:column;background:var(--surface);}
+.panel-header{padding:12px 14px 10px;border-bottom:1px solid var(--border);display:flex;align-items:center;justify-content:space-between;}
+.panel-title{font-size:10px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:var(--text-3);}
+#upload-btn{padding:6px 11px;background:var(--accent);color:#fff;border:none;border-radius:7px;font-family:'Space Grotesk',sans-serif;font-size:11px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:4px;transition:all 0.15s;}
+#upload-btn:hover{background:var(--accent-2);transform:translateY(-1px);}
+#file-input{display:none;}
+#source-list{flex:1;overflow-y:auto;padding:8px;}
+#drop-zone{margin:4px;border:2px dashed var(--border-2);border-radius:12px;padding:28px 16px;text-align:center;color:var(--text-3);cursor:pointer;transition:0.2s;}
+#drop-zone:hover,#drop-zone.drag-over{border-color:var(--accent);background:var(--accent-dim);color:var(--accent-2);}
+#drop-zone .dz-icon{font-size:30px;margin-bottom:10px;opacity:0.6;}
+#drop-zone strong{display:block;font-size:13px;font-weight:600;color:var(--text-2);margin-bottom:4px;}
+#drop-zone p{font-size:11px;line-height:1.5;color:var(--text-3);}
+.source-card{background:var(--card);border:1px solid var(--border);border-radius:10px;padding:10px 12px;margin-bottom:6px;cursor:pointer;transition:0.15s;}
+.source-card:hover{border-color:var(--accent);box-shadow:var(--glow);}
+.source-card.active-source{border-color:var(--accent);background:var(--accent-dim);}
+.src-header{display:flex;align-items:center;gap:7px;margin-bottom:5px;}
+.src-icon{font-size:17px;}
+.src-name{font-size:12px;font-weight:600;color:var(--text);flex:1;min-width:0;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.src-del{opacity:0;background:none;border:none;cursor:pointer;color:var(--text-3);font-size:12px;flex-shrink:0;border-radius:4px;padding:2px 5px;transition:0.15s;}
+.source-card:hover .src-del{opacity:1;}
+.src-del:hover{color:var(--red);background:var(--red-dim);}
+.src-meta{display:flex;align-items:center;gap:5px;flex-wrap:wrap;}
+.src-badge{font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;padding:2px 6px;border-radius:4px;}
+.src-badge.pdf{background:var(--red-dim);color:var(--red);}
+.src-badge.docx,.src-badge.doc{background:var(--accent-dim);color:var(--accent-2);}
+.src-badge.txt,.src-badge.md{background:var(--border);color:var(--text-2);}
+.src-badge.csv{background:var(--green-dim);color:var(--green);}
+.src-badge.image{background:var(--gold-dim);color:var(--gold);}
+.src-badge.code,.src-badge.json,.src-badge.html,.src-badge.other{background:var(--purple-dim);color:var(--purple);}
+.src-size{font-size:10px;color:var(--text-3);}
+.src-status{font-size:10px;padding:2px 6px;border-radius:4px;margin-left:auto;}
+.src-status.processing{background:var(--gold-dim);color:var(--gold);}
+.src-status.ready{background:var(--green-dim);color:var(--green);}
+.src-status.error{background:var(--red-dim);color:var(--red);}
+.progress-bar{height:2px;background:var(--border);border-radius:2px;overflow:hidden;margin-top:7px;}
+.progress-fill{height:100%;background:linear-gradient(90deg,var(--accent),var(--purple));border-radius:2px;animation:prog 1.8s ease-in-out infinite;}
+@keyframes prog{0%{width:15%}50%{width:85%}100%{width:15%}}
+
+/* NOTES */
+#notes-area{flex:1;display:flex;flex-direction:column;overflow:hidden;}
+#notes-toolbar{padding:10px 14px;border-bottom:1px solid var(--border);display:flex;align-items:center;gap:6px;background:var(--surface);flex-shrink:0;flex-wrap:wrap;}
+.tool-sep{width:1px;height:20px;background:var(--border-2);margin:0 2px;}
+.tb-btn{padding:7px 13px;border:1px solid var(--border);background:transparent;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:600;color:var(--text-2);cursor:pointer;transition:0.15s;display:flex;align-items:center;gap:5px;white-space:nowrap;}
+.tb-btn:hover{background:var(--card);border-color:var(--border-2);color:var(--text);}
+.tb-btn.primary{background:linear-gradient(135deg,var(--accent),#3a7ae0);color:#fff;border-color:var(--accent);box-shadow:0 2px 12px rgba(79,142,247,0.25);}
+.tb-btn.primary:hover{transform:translateY(-1px);box-shadow:0 4px 20px rgba(79,142,247,0.4);}
+.tb-btn:disabled{opacity:0.4;cursor:not-allowed;transform:none!important;}
+#notes-container{flex:1;overflow-y:auto;padding:20px;display:flex;flex-direction:column;gap:14px;}
+
+/* NOTE CARDS */
+.note-card{background:var(--card);border:1px solid var(--border);border-radius:12px;overflow:hidden;box-shadow:var(--shadow);animation:slideIn 0.3s ease;}
+@keyframes slideIn{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:translateY(0)}}
+.note-card-header{padding:10px 14px;background:var(--surface);border-bottom:1px solid var(--border);display:flex;align-items:center;gap:8px;}
+.note-badge{padding:3px 8px;border-radius:5px;font-size:9px;font-weight:700;letter-spacing:1px;text-transform:uppercase;}
+.badge-summary{background:var(--accent-dim);color:var(--accent-2);}
+.badge-key{background:var(--green-dim);color:var(--green);}
+.badge-question{background:var(--purple-dim);color:var(--purple);}
+.badge-outline{background:var(--gold-dim);color:var(--gold);}
+.badge-flashcard{background:var(--red-dim);color:var(--red);}
+.badge-manual{background:var(--border);color:var(--text-2);}
+.note-src{font-size:10px;color:var(--text-3);flex:1;white-space:nowrap;overflow:hidden;text-overflow:ellipsis;}
+.note-actions{display:flex;gap:3px;margin-left:auto;}
+.nc-btn{background:none;border:none;cursor:pointer;color:var(--text-3);font-size:12px;padding:3px 7px;border-radius:5px;transition:0.15s;}
+.nc-btn:hover{background:var(--border);color:var(--text);}
+.note-card-body{padding:14px 16px;font-size:13px;line-height:1.75;color:var(--text-2);}
+.note-card-body h3{font-family:'Playfair Display',serif;font-size:16px;color:var(--text);margin-bottom:8px;}
+.note-card-body ul,.note-card-body ol{padding-left:18px;margin:6px 0;}
+.note-card-body li{margin-bottom:5px;}
+.note-card-body p{margin-bottom:6px;}
+.note-card-body p:last-child{margin-bottom:0;}
+.note-card-body strong{font-weight:700;color:var(--text);}
+.note-card-body em{color:var(--text-3);}
+.note-editable{min-height:80px;outline:none;white-space:pre-wrap;font-family:'Space Grotesk',sans-serif;color:var(--text-2);}
+
+/* FLASHCARDS */
+.flashcard-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin:4px 0;}
+.fc-front,.fc-back{padding:12px 14px;border-radius:9px;font-size:12px;line-height:1.6;}
+.fc-front{background:linear-gradient(135deg,var(--accent-dim),var(--purple-dim));border:1px solid var(--accent);color:var(--text);}
+.fc-back{background:var(--surface);border:1px solid var(--border-2);color:var(--text-2);}
+.fc-label{font-size:8px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-3);margin-bottom:6px;}
+
+/* Q&A PANEL */
+#qa-panel{width:310px;min-width:310px;border-left:1px solid var(--border);display:flex;flex-direction:column;background:var(--surface);}
+#qa-messages{flex:1;overflow-y:auto;padding:12px;display:flex;flex-direction:column;gap:9px;}
+.msg{max-width:93%;padding:10px 13px;border-radius:11px;font-size:12px;line-height:1.65;animation:msgIn 0.2s ease;}
+@keyframes msgIn{from{opacity:0;transform:translateY(5px)}to{opacity:1;transform:translateY(0)}}
+.msg-user{background:linear-gradient(135deg,var(--accent),#3a7ae0);color:#fff;align-self:flex-end;border-bottom-right-radius:3px;}
+.msg-ai{background:var(--card);color:var(--text-2);border:1px solid var(--border);align-self:flex-start;border-bottom-left-radius:3px;}
+.msg-ai strong{color:var(--text);}
+.msg-typing{background:var(--card);border:1px solid var(--border);align-self:flex-start;padding:12px 16px;border-radius:11px;border-bottom-left-radius:3px;}
+.typing-dots{display:inline-flex;gap:4px;align-items:center;}
+.typing-dots span{width:6px;height:6px;background:var(--accent);border-radius:50%;animation:bounce 1.2s infinite;}
+.typing-dots span:nth-child(2){animation-delay:0.2s;}
+.typing-dots span:nth-child(3){animation-delay:0.4s;}
+@keyframes bounce{0%,60%,100%{transform:translateY(0)}30%{transform:translateY(-6px)}}
+#qa-input-area{padding:12px;border-top:1px solid var(--border);}
+#qa-input{width:100%;padding:9px 12px;border:1px solid var(--border-2);border-radius:9px;font-family:'Space Grotesk',sans-serif;font-size:12px;color:var(--text);background:var(--card);outline:none;resize:none;min-height:68px;max-height:130px;transition:border-color 0.15s;line-height:1.5;margin-bottom:8px;}
+#qa-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,142,247,0.12);}
+#qa-input::placeholder{color:var(--text-3);}
+#qa-send-row{display:flex;align-items:center;justify-content:space-between;gap:7px;}
+.qa-chips{display:flex;gap:5px;flex-wrap:wrap;flex:1;}
+.qa-chip{padding:4px 9px;background:var(--card);border:1px solid var(--border);border-radius:20px;font-size:10px;color:var(--text-3);cursor:pointer;transition:0.15s;white-space:nowrap;}
+.qa-chip:hover{background:var(--accent-dim);border-color:var(--accent);color:var(--accent-2);}
+#qa-send{padding:8px 15px;background:linear-gradient(135deg,var(--accent),#3a7ae0);color:#fff;border:none;border-radius:8px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;cursor:pointer;display:flex;align-items:center;gap:5px;transition:0.15s;flex-shrink:0;box-shadow:0 2px 10px rgba(79,142,247,0.3);}
+#qa-send:hover{transform:translateY(-1px);box-shadow:0 4px 16px rgba(79,142,247,0.4);}
+#qa-send:disabled{opacity:0.4;cursor:not-allowed;transform:none;}
+
+/* WELCOME */
+#welcome{flex:1;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:40px;text-align:center;gap:14px;}
+#welcome .w-glyph{font-size:52px;opacity:0.25;}
+#welcome h2{font-family:'Playfair Display',serif;font-size:22px;font-weight:700;color:var(--text);}
+#welcome p{font-size:13px;max-width:340px;line-height:1.7;color:var(--text-3);}
+
+/* MODAL */
+#modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.7);z-index:1000;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+#modal-overlay.show{display:flex;}
+#modal{background:var(--card);border:1px solid var(--border-2);border-radius:16px;padding:28px;max-width:420px;width:90%;box-shadow:var(--shadow-lg);}
+#modal h2{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:6px;color:var(--text);}
+#modal p{font-size:12px;color:var(--text-3);margin-bottom:20px;line-height:1.6;}
+#modal input,.modal-text-input{width:100%;padding:10px 12px;border:1px solid var(--border-2);border-radius:9px;font-family:'Space Grotesk',sans-serif;font-size:13px;color:var(--text);background:var(--surface);outline:none;margin-bottom:10px;transition:border-color 0.15s;}
+#modal input:focus,.modal-text-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,142,247,0.12);}
+#modal input::placeholder,.modal-text-input::placeholder{color:var(--text-3);}
+.modal-actions{display:flex;gap:9px;justify-content:flex-end;margin-top:6px;}
+
+/* API KEY MODAL */
+#api-modal-overlay{display:none;position:fixed;inset:0;background:rgba(0,0,0,0.75);z-index:1100;align-items:center;justify-content:center;backdrop-filter:blur(4px);}
+#api-modal-overlay.show{display:flex;}
+#api-modal{background:var(--card);border:1px solid var(--border-2);border-radius:16px;padding:28px;max-width:440px;width:90%;box-shadow:var(--shadow-lg);}
+#api-modal h2{font-family:'Playfair Display',serif;font-size:20px;font-weight:700;margin-bottom:6px;color:var(--text);}
+.api-modal-desc{font-size:12px;color:var(--text-3);margin-bottom:18px;line-height:1.6;}
+.api-field-label{font-size:10px;font-weight:700;letter-spacing:1.5px;text-transform:uppercase;color:var(--text-3);margin-bottom:5px;}
+.api-input{width:100%;padding:10px 12px;border:1px solid var(--border-2);border-radius:9px;font-family:'JetBrains Mono',monospace;font-size:12px;color:var(--green);background:var(--surface);outline:none;margin-bottom:14px;transition:border-color 0.15s;}
+.api-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(79,142,247,0.12);}
+.api-input::placeholder{color:var(--text-3);font-family:'Space Grotesk',sans-serif;}
+.api-status-row{display:flex;align-items:center;gap:8px;padding:10px 12px;border-radius:9px;margin-bottom:14px;font-size:12px;}
+.api-status-row.set{background:var(--green-dim);border:1px solid rgba(62,207,142,0.2);color:var(--green);}
+.api-status-row.unset{background:var(--red-dim);border:1px solid rgba(242,95,92,0.2);color:var(--red);}
+.api-modal-actions{display:flex;gap:9px;justify-content:flex-end;margin-top:4px;}
+.lock-icon{font-size:16px;}
+.admin-note{font-size:10px;color:var(--text-3);margin-top:10px;padding:8px 10px;background:var(--surface);border-radius:7px;border:1px solid var(--border);}
+.provider-toggle{display:flex;gap:8px;margin-bottom:14px;}
+.provider-btn{flex:1;padding:9px 10px;border:1px solid var(--border-2);background:var(--surface);border-radius:9px;font-family:'Space Grotesk',sans-serif;font-size:12px;font-weight:700;color:var(--text-2);cursor:pointer;transition:0.15s;text-align:center;}
+.provider-btn.active{border-color:var(--accent);background:var(--accent-dim);color:var(--accent-2);box-shadow:var(--glow);}
+
+/* TOAST */
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%);background:var(--card);border:1px solid var(--border-2);color:var(--text);padding:10px 22px;border-radius:10px;font-size:12px;font-weight:600;opacity:0;pointer-events:none;transition:opacity 0.3s;z-index:2000;box-shadow:var(--shadow-lg);}
+#toast.show{opacity:1;}
+#toast.success{border-color:var(--green);color:var(--green);}
+#toast.error{border-color:var(--red);color:var(--red);}
+
+::-webkit-scrollbar{width:5px;}
+::-webkit-scrollbar-track{background:transparent;}
+::-webkit-scrollbar-thumb{background:var(--border-2);border-radius:3px;}
+::-webkit-scrollbar-thumb:hover{background:var(--text-3);}
+
+@media(max-width:960px){#qa-panel{display:none;}}
+@media(max-width:700px){#sidebar{display:none;}#source-panel{width:200px;min-width:200px;}}
+@media(max-width:520px){#source-panel{display:none;}}
+</style>
+</head>
+<body>
+<style>
+.jmcnav-wrap *{box-sizing:border-box;}
+.jmcnav-wrap{position:sticky;top:0;z-index:99999;padding:14px 18px;font-family:'Manrope',Arial,Helvetica,sans-serif;}
+.jmcnav{max-width:1280px;margin:0 auto;position:relative;background:rgba(9,12,22,0.78);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid rgba(148,163,196,0.16);border-radius:18px;box-shadow:0 16px 40px -18px rgba(0,0,0,.7);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px;}
+.jmcnav::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(120deg,rgba(255,255,255,.14),transparent 30%,transparent 70%,rgba(255,255,255,.07));-webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;}
+.jmcnav-brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:14.5px;color:#f3f5fb;text-decoration:none;flex-shrink:0;font-family:'Sora',Arial,sans-serif;letter-spacing:-0.01em;}
+.jmcnav-brand svg{width:26px;height:26px;flex-shrink:0;}
+.jmcnav-brand em{color:#f2a71b;font-style:normal;}
+.jmcnav-brand small{display:block;font-size:9.5px;font-weight:600;color:#8891ac;letter-spacing:.02em;}
+.jmcnav-links{display:flex;align-items:center;gap:2px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;}
+.jmcnav-links::-webkit-scrollbar{display:none;}
+.jmcnav-links a{font-size:13px;font-weight:600;color:#c3cadd;text-decoration:none;padding:9px 12px;border-radius:10px;white-space:nowrap;position:relative;transition:color .2s ease, background .2s ease;}
+.jmcnav-links a::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;height:2px;background:linear-gradient(90deg,#f2a71b,#ffcf6b);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .3s ease;}
+.jmcnav-links a:hover{color:#f3f5fb;background:rgba(255,255,255,0.05);}
+.jmcnav-links a:hover::after{transform:scaleX(1);}
+.jmcnav-links a.jmcnav-active{color:#f2a71b;}
+.jmcnav-links a.jmcnav-active::after{transform:scaleX(1);}
+.jmcnav-links a.jmcnav-ai{background:linear-gradient(135deg,rgba(99,102,241,0.18),rgba(242,167,27,0.10));border:1px solid rgba(99,102,241,0.32);}
+.jmcnav-app{display:flex;align-items:center;gap:7px;padding:9px 15px 9px 11px;background:linear-gradient(135deg,rgba(61,220,132,0.18),rgba(10,14,28,0.6));color:#f3f5fb;border-radius:999px;font-weight:700;font-size:12.5px;border:1px solid rgba(61,220,132,0.4);white-space:nowrap;position:relative;overflow:hidden;isolation:isolate;text-decoration:none;flex-shrink:0;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
+.jmcnav-app:hover{transform:translateY(-2px);border-color:rgba(61,220,132,0.75);box-shadow:0 14px 28px -10px rgba(61,220,132,0.45);}
+.jmcnav-app:active{transform:translateY(0) scale(.96);}
+.jmcnav-app svg{width:16px;height:16px;flex-shrink:0;}
+.jmcnav-burger{display:none;width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(148,163,196,0.2);flex-shrink:0;align-items:center;justify-content:center;cursor:pointer;}
+.jmcnav-burger span,.jmcnav-burger span::before,.jmcnav-burger span::after{content:"";display:block;width:16px;height:2px;background:#f3f5fb;border-radius:2px;position:relative;transition:transform .25s ease, opacity .25s ease;}
+.jmcnav-burger span::before{position:absolute;top:-5px;}
+.jmcnav-burger span::after{position:absolute;top:5px;}
+.jmcnav-burger.open span{background:transparent;}
+.jmcnav-burger.open span::before{transform:translateY(5px) rotate(45deg);}
+.jmcnav-burger.open span::after{transform:translateY(-5px) rotate(-45deg);}
+.jmcnav-mobile{max-width:1280px;margin:8px auto 0;max-height:0;overflow:hidden;border-radius:16px;background:rgba(9,12,22,0.92);backdrop-filter:blur(18px);border:1px solid rgba(148,163,196,0.14);transition:max-height .4s cubic-bezier(.22,1,.36,1);}
+.jmcnav-mobile.open{max-height:600px;}
+.jmcnav-mobile-inner{display:flex;flex-direction:column;padding:10px;}
+.jmcnav-mobile-inner a{padding:12px 14px;border-radius:10px;color:#c3cadd;font-weight:600;font-size:14px;text-decoration:none;transition:background .2s ease,color .2s ease;}
+.jmcnav-mobile-inner a:hover{background:rgba(255,255,255,.05);color:#fff;}
+.jmcnav-mobile-inner a.jmcnav-active{color:#f2a71b;background:rgba(242,167,27,0.08);}
+.jmcnav-mobile-inner a.jmcnav-app-mobile{margin-top:6px;background:linear-gradient(135deg,rgba(61,220,132,0.18),rgba(10,14,28,0.6));border:1px solid rgba(61,220,132,0.4);color:#fff;text-align:center;}
+@media (max-width:980px){
+  .jmcnav-links{display:none;}
+  .jmcnav-app{display:none;}
+  .jmcnav-burger{display:flex;}
+}
+.jmcnav-ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:jmcnavRipple .6s cubic-bezier(.16,1,.3,1);pointer-events:none;}
+@keyframes jmcnavRipple{to{transform:scale(1);opacity:0;}}
+</style>
+<div class="jmcnav-wrap">
+  <header class="jmcnav">
+    <a href="index.html" class="jmcnav-brand">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 8-4.2V15h1.5V8L12 3z" fill="#f2a71b"/><path d="M6 12.2V16c0 1.8 2.7 3.5 6 3.5s6-1.7 6-3.5v-3.8l-6 3.1-6-3.1z" fill="#f2a71b" opacity="0.55"/></svg>
+      <span>JMC <em>INNOVATORS</em><small>Learning Platform</small></span>
+    </a>
+    <nav class="jmcnav-links">
+          <a href="index.html">Home</a>
+          <a href="about2.html">About</a>
+          <a href="exampapers.html">Exam Papers</a>
+          <a href="text_books.html">Text Books</a>
+          <a href="educational_tools.html">Educational Tools</a>
+          <a href="chatbot.html" class="jmcnav-ai">AI Center</a>
+          <a href="jmc_Classroom.html">JMC Classroom</a>
+          <a href="https://www.youtube.com/playlist?list=PLLCm9p-4g7Zs" target="_blank" rel="noopener">Watch Intro</a>
+          <a href="notebook.html" class="jmcnav-active">AI Notebook</a>
+          <a href="tell_us.html">Tell Us</a>
+    </nav>
+    <a class="jmcnav-app" href="https://drive.google.com/file/d/1qsNbHeVEHm_XndglWahtKljjoQOHwAHD/view?usp=drivesdk" target="_blank" rel="noopener" aria-label="Download Android App">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 18.5c0 .8.7 1.5 1.5 1.5H9v2.3a1.7 1.7 0 0 0 3.4 0V20h1.2v2.3a1.7 1.7 0 0 0 3.4 0V20h1.5c.8 0 1.5-.7 1.5-1.5V9H6v9.5z" fill="#3DDC84"/><path d="M6.3 7.5h11.4c-.4-1.9-1.6-3.5-3.2-4.5l1-1.7a.5.5 0 1 0-.9-.5l-1 1.8a6.9 6.9 0 0 0-4.2 0l-1-1.8a.5.5 0 1 0-.9.5l1 1.7c-1.6 1-2.8 2.6-3.2 4.5z" fill="#3DDC84"/><circle cx="9" cy="10.8" r=".9" fill="#0b1024"/><circle cx="15" cy="10.8" r=".9" fill="#0b1024"/><path d="M2.5 9.5A1.5 1.5 0 0 1 4 11v4a1.5 1.5 0 0 1-3 0v-4a1.5 1.5 0 0 1 1.5-1.5zM21.5 9.5A1.5 1.5 0 0 1 23 11v4a1.5 1.5 0 0 1-3 0v-4a1.5 1.5 0 0 1 1.5-1.5z" fill="#3DDC84"/></svg>
+      <span>Get App</span>
+    </a>
+    <button class="jmcnav-burger" id="jmcnavBurger" aria-label="Menu"><span></span></button>
+  </header>
+  <div class="jmcnav-mobile" id="jmcnavMobile">
+    <div class="jmcnav-mobile-inner">
+      <a href="index.html">Home</a>
+          <a href="about2.html">About</a>
+          <a href="exampapers.html">Exam Papers</a>
+          <a href="text_books.html">Text Books</a>
+          <a href="educational_tools.html">Educational Tools</a>
+          <a href="chatbot.html">AI Center</a>
+          <a href="jmc_Classroom.html">JMC Classroom</a>
+          <a href="https://www.youtube.com/playlist?list=PLLCm9p-4g7Zs" target="_blank" rel="noopener">Watch Intro</a>
+          <a href="notebook.html" class="jmcnav-active">AI Notebook</a>
+          <a href="tell_us.html">Tell Us</a>
+      <a href="https://drive.google.com/file/d/1qsNbHeVEHm_XndglWahtKljjoQOHwAHD/view?usp=drivesdk" target="_blank" rel="noopener" class="jmcnav-app-mobile">📱 Get Android App</a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var burger = document.getElementById('jmcnavBurger');
+  var mobile = document.getElementById('jmcnavMobile');
+  if(burger && mobile){
+    burger.addEventListener('click', function(){
+      burger.classList.toggle('open');
+      mobile.classList.toggle('open');
+    });
+  }
+  document.addEventListener('pointerdown', function(e){
+    var el = e.target.closest('.jmcnav-app, .jmcnav-app-mobile, .jmcnav-links a');
+    if(!el) return;
+    var rect = el.getBoundingClientRect();
+    var size = Math.max(rect.width, rect.height) * 1.8;
+    var span = document.createElement('span');
+    span.className = 'jmcnav-ripple';
+    span.style.width = span.style.height = size + 'px';
+    span.style.left = (e.clientX - rect.left - size/2) + 'px';
+    span.style.top = (e.clientY - rect.top - size/2) + 'px';
+    if(getComputedStyle(el).position === 'static') el.style.position = 'relative';
+    el.style.overflow = 'hidden';
+    el.appendChild(span);
+    span.addEventListener('animationend', function(){ span.remove(); });
+  });
+})();
+</script>
+
+<div id="shell">
+
+  <!-- SIDEBAR -->
+  <div id="sidebar">
+    <div id="sidebar-header">
+      <div id="logo">
+        <div id="logo-badge">📓</div>
+        <div id="logo-text">
+          <div id="logo-name">JMC AI</div>
+          <div id="logo-sub">Notebook</div>
+        </div>
+      </div>
+      <button id="new-nb-btn" onclick="newNotebook()">＋ New Notebook</button>
+    </div>
+    <div id="sidebar-label">Notebooks</div>
+    <div id="notebook-list"></div>
+    <div id="sidebar-footer">
+      <button id="settings-btn" onclick="openAPISettings()">
+        <div class="api-dot" id="api-dot"></div>
+        <span id="api-btn-label">API Key Settings</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- MAIN -->
+  <div id="main">
+    <div id="topbar">
+      <div id="nb-title-wrap">
+        <input id="nb-title-input" placeholder="Untitled Notebook" maxlength="80">
+      </div>
+      <div class="top-actions">
+        <button class="btn-outline" onclick="exportNotes()">⬇ Export</button>
+        <button class="btn-icon" title="Toggle Q&A" onclick="toggleQA()">💬</button>
+        <button class="btn-icon" title="Toggle Sources" onclick="toggleSources()">📎</button>
+      </div>
+    </div>
+
+    <div id="content-area">
+
+      <!-- SOURCE PANEL -->
+      <div id="source-panel">
+        <div class="panel-header">
+          <span class="panel-title">Sources</span>
+          <button id="upload-btn" onclick="document.getElementById('file-input').click()">＋ Add</button>
+          <input type="file" id="file-input" multiple accept=".pdf,.txt,.md,.csv,.json,.html,.doc,.docx,.rtf,.xml,.js,.py,.ts,.java,.cpp,.c,.png,.jpg,.jpeg,.gif,.webp">
+        </div>
+        <div id="source-list">
+          <div id="drop-zone" onclick="document.getElementById('file-input').click()">
+            <div class="dz-icon">📂</div>
+            <strong>Drop files here</strong>
+            <p>PDF, DOCX, TXT, MD, CSV, JSON, HTML, images &amp; code</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- NOTES AREA -->
+      <div id="notes-area">
+        <div id="notes-toolbar">
+          <button class="tb-btn primary" id="btn-summary" onclick="generateNote('summary')">✦ Summarize</button>
+          <button class="tb-btn" id="btn-key" onclick="generateNote('key')">🔑 Key Points</button>
+          <button class="tb-btn" id="btn-outline" onclick="generateNote('outline')">📋 Outline</button>
+          <button class="tb-btn" id="btn-flashcard" onclick="generateNote('flashcard')">🃏 Flashcards</button>
+          <div class="tool-sep"></div>
+          <button class="tb-btn" onclick="addManualNote()">＋ Add Note</button>
+          <button class="tb-btn" onclick="clearNotes()" style="margin-left:auto;color:var(--text-3)">🗑 Clear</button>
+        </div>
+        <div id="notes-container">
+          <div id="welcome">
+            <div class="w-glyph">📓</div>
+            <h2>Start by adding a source</h2>
+            <p>Upload a PDF, DOCX, TXT, CSV, or image file. Then use the toolbar to generate AI-powered summaries, key points, outlines, and flashcards.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Q&A PANEL -->
+      <div id="qa-panel">
+        <div class="panel-header" style="justify-content:center;">
+          <span class="panel-title">Ask about your sources</span>
+        </div>
+        <div id="qa-messages">
+          <div class="msg msg-ai">👋 Hi! Upload a source and I'll help you understand it. Ask me anything.</div>
+        </div>
+        <div id="qa-input-area">
+          <textarea id="qa-input" placeholder="Ask a question about your sources…" rows="3"
+            onkeydown="if(event.key==='Enter'&&!event.shiftKey){event.preventDefault();sendQA();}"></textarea>
+          <div id="qa-send-row">
+            <div class="qa-chips">
+              <span class="qa-chip" onclick="quickQ('Summarize the main idea')">Main idea</span>
+              <span class="qa-chip" onclick="quickQ('What are the key terms?')">Key terms</span>
+              <span class="qa-chip" onclick="quickQ('What questions might appear on a test?')">Test Qs</span>
+            </div>
+            <button id="qa-send" onclick="sendQA()">Send ↑</button>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+<!-- NEW NOTEBOOK MODAL -->
+<div id="modal-overlay">
+  <div id="modal">
+    <h2 id="modal-title">New Notebook</h2>
+    <p id="modal-desc">Give your notebook a name to get started.</p>
+    <input id="modal-input" placeholder="e.g. Biology 101, Q3 Research…" maxlength="60">
+    <div class="modal-actions">
+      <button class="btn-outline" onclick="closeModal()">Cancel</button>
+      <button class="tb-btn primary" onclick="confirmModal()">Create</button>
+    </div>
+  </div>
+</div>
+
+<!-- API KEY SETTINGS MODAL -->
+<div id="api-modal-overlay">
+  <div id="api-modal">
+    <h2>⚙ API Key Settings</h2>
+    <p class="api-modal-desc">This panel is restricted to admin. Enter your admin password to manage your AI provider and API key.</p>
+
+    <div id="api-modal-auth-step">
+      <div class="api-field-label">Admin Password</div>
+      <input type="password" class="api-input" id="admin-pwd-input" placeholder="Enter admin password…"
+        onkeydown="if(event.key==='Enter')verifyAdmin()">
+      <div class="api-modal-actions">
+        <button class="btn-outline" onclick="closeAPIModal()">Cancel</button>
+        <button class="tb-btn primary" onclick="verifyAdmin()">🔓 Unlock</button>
+      </div>
+    </div>
+
+    <div id="api-modal-key-step" style="display:none;">
+      <div class="api-field-label">AI Provider</div>
+      <div class="provider-toggle">
+        <button type="button" class="provider-btn" id="provider-btn-gemini" onclick="setProvider('gemini')">✨ Gemini (Free)</button>
+        <button type="button" class="provider-btn" id="provider-btn-groq" onclick="setProvider('groq')">⚡ Groq (Free)</button>
+      </div>
+
+      <div id="api-current-status" class="api-status-row unset">
+        <span class="lock-icon">🔴</span><span id="api-status-text">No API key set</span>
+      </div>
+      <div class="api-field-label" id="api-key-label">API Key</div>
+      <input type="password" class="api-input" id="api-key-input" placeholder="Enter your API key…">
+      <div class="admin-note" id="provider-help-note">🔒 The key is stored locally in your browser only. It is never transmitted anywhere except to the selected provider's API.</div>
+      <div class="api-modal-actions" style="margin-top:14px;">
+        <button class="btn-outline" onclick="clearAPIKey()" style="color:var(--red);border-color:var(--red);">Clear Key</button>
+        <button class="btn-outline" onclick="closeAPIModal()">Cancel</button>
+        <button class="tb-btn primary" onclick="saveAPIKey()">💾 Save Key</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="toast"></div>
+
+<script>
+/* ═══════════════════════════════════════════════
+   JMC AI NOTEBOOK  — Gemini + Groq Free API Backend
+═══════════════════════════════════════════════ */
+
+const GEMINI_MODEL  = 'gemini-2.5-flash';
+const GROQ_MODEL    = 'llama-3.3-70b-versatile';
+const ADMIN_PASS    = 'innovators2027';
+const STORE_KEY_API = 'jmc_gemini_key';      /* legacy single-key store, kept for back-compat with Gemini */
+const STORE_KEY_GEMINI = 'jmc_provider_key_gemini';
+const STORE_KEY_GROQ   = 'jmc_provider_key_groq';
+const STORE_PROVIDER   = 'jmc_provider';
+const STORE_NBS      = 'jmc_notebooks';
+const STORE_SRCS     = 'jmc_sources';
+const STORE_NOTES    = 'jmc_notes';
+
+let notebooks = [], sources = {}, notes = {};
+let activeNB  = null;
+let generating = false, qaActive = false;
+let modalCb   = null;
+let pendingProvider = null; /* provider currently selected inside the settings modal */
+
+try { notebooks = JSON.parse(localStorage.getItem(STORE_NBS)  || '[]'); } catch(e){}
+try { sources   = JSON.parse(localStorage.getItem(STORE_SRCS) || '{}'); } catch(e){}
+try { notes     = JSON.parse(localStorage.getItem(STORE_NOTES)|| '{}'); } catch(e){}
+
+/* ── PROVIDER / KEY HELPERS ── */
+function getProvider(){
+  let p = localStorage.getItem(STORE_PROVIDER);
+  if (!p){
+    /* migrate legacy gemini-only key if present */
+    const legacy = localStorage.getItem(STORE_KEY_API);
+    if (legacy) { localStorage.setItem(STORE_KEY_GEMINI, legacy); }
+    p = 'gemini';
+    localStorage.setItem(STORE_PROVIDER, p);
+  }
+  return p;
+}
+function setStoredProvider(p){ localStorage.setItem(STORE_PROVIDER, p); }
+function getKeyForProvider(p){
+  if (p==='groq') return localStorage.getItem(STORE_KEY_GROQ) || '';
+  return localStorage.getItem(STORE_KEY_GEMINI) || localStorage.getItem(STORE_KEY_API) || '';
+}
+function setKeyForProvider(p,key){
+  if (p==='groq') localStorage.setItem(STORE_KEY_GROQ,key);
+  else { localStorage.setItem(STORE_KEY_GEMINI,key); localStorage.setItem(STORE_KEY_API,key); }
+}
+function clearKeyForProvider(p){
+  if (p==='groq') localStorage.removeItem(STORE_KEY_GROQ);
+  else { localStorage.removeItem(STORE_KEY_GEMINI); localStorage.removeItem(STORE_KEY_API); }
+}
+function getAPIKey(){ return getKeyForProvider(getProvider()); }
+function save(){
+  localStorage.setItem(STORE_NBS,   JSON.stringify(notebooks));
+  localStorage.setItem(STORE_SRCS,  JSON.stringify(sources));
+  localStorage.setItem(STORE_NOTES, JSON.stringify(notes));
+}
+
+/* ── AI CALL (routes to Gemini or Groq) ── */
+async function callGemini(prompt, base64Image, mediaMime, maxTokens) {
+  const provider = getProvider();
+  if (provider === 'groq') return callGroq(prompt, base64Image, mediaMime, maxTokens);
+  return callGeminiAPI(prompt, base64Image, mediaMime, maxTokens);
+}
+
+async function callGeminiAPI(prompt, base64Image, mediaMime, maxTokens) {
+  const key = getKeyForProvider('gemini');
+  if (!key) {
+    showToast('No Gemini API key set — open Settings to add one', 'error');
+    throw new Error('No API key configured. Click "API Key Settings" in the sidebar.');
+  }
+
+  const url = `https://generativelanguage.googleapis.com/v1beta/models/${GEMINI_MODEL}:generateContent?key=${key}`;
+
+  const parts = [];
+  if (base64Image) {
+    parts.push({ inline_data: { mime_type: mediaMime || 'image/jpeg', data: base64Image } });
+  }
+  parts.push({ text: prompt });
+
+  const body = {
+    contents: [{ role: 'user', parts }],
+    generationConfig: {
+      maxOutputTokens: maxTokens || 2048,
+      temperature: 0.4
+    }
+  };
+
+  const res  = await fetch(url, { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(body) });
+  const data = await res.json();
+
+  if (!res.ok || data.error) {
+    const msg = data.error?.message || `API error ${res.status}`;
+    throw new Error(msg);
+  }
+
+  return data.candidates?.[0]?.content?.parts?.map(p=>p.text||'').join('') || '';
+}
+
+async function callGroq(prompt, base64Image, mediaMime, maxTokens) {
+  const key = getKeyForProvider('groq');
+  if (!key) {
+    showToast('No Groq API key set — open Settings to add one', 'error');
+    throw new Error('No API key configured. Click "API Key Settings" in the sidebar.');
+  }
+
+  const url = 'https://api.groq.com/openai/v1/chat/completions';
+
+  /* Groq's free Llama models in chat/completions don't accept image inputs the
+     same way Gemini does, so if an image was supplied we note that in the prompt
+     text instead of silently dropping it. */
+  let userText = prompt;
+  if (base64Image) {
+    userText = 'NOTE: An image was attached but this provider (Groq) cannot read images directly — ' +
+      'please answer using any text context given below as best as possible.\n\n' + prompt;
+  }
+
+  const body = {
+    model: GROQ_MODEL,
+    messages: [{ role: 'user', content: userText }],
+    max_tokens: maxTokens || 2048,
+    temperature: 0.4
+  };
+
+  const res  = await fetch(url, {
+    method:'POST',
+    headers:{ 'Content-Type':'application/json', 'Authorization': `Bearer ${key}` },
+    body: JSON.stringify(body)
+  });
+  const data = await res.json();
+
+  if (!res.ok || data.error) {
+    const msg = data.error?.message || `API error ${res.status}`;
+    throw new Error(msg);
+  }
+
+  return data.choices?.[0]?.message?.content || '';
+}
+
+/* ── API KEY SETTINGS ── */
+function openAPISettings(){
+  document.getElementById('api-modal-auth-step').style.display = '';
+  document.getElementById('api-modal-key-step').style.display  = 'none';
+  document.getElementById('admin-pwd-input').value = '';
+  document.getElementById('api-key-input').value   = '';
+  document.getElementById('api-modal-overlay').classList.add('show');
+  setTimeout(()=>document.getElementById('admin-pwd-input').focus(), 60);
+}
+function closeAPIModal(){
+  document.getElementById('api-modal-overlay').classList.remove('show');
+  document.getElementById('admin-pwd-input').value='';
+  document.getElementById('api-key-input').value='';
+}
+function verifyAdmin(){
+  const pwd = document.getElementById('admin-pwd-input').value;
+  if (pwd !== ADMIN_PASS){ showToast('Incorrect password', 'error'); return; }
+  document.getElementById('api-modal-auth-step').style.display = 'none';
+  document.getElementById('api-modal-key-step').style.display  = '';
+  pendingProvider = getProvider();
+  setProvider(pendingProvider);
+  setTimeout(()=>document.getElementById('api-key-input').focus(), 50);
+}
+function setProvider(p){
+  pendingProvider = p;
+  document.getElementById('provider-btn-gemini').classList.toggle('active', p==='gemini');
+  document.getElementById('provider-btn-groq').classList.toggle('active', p==='groq');
+  const keyInput = document.getElementById('api-key-input');
+  keyInput.value = getKeyForProvider(p);
+  document.getElementById('api-key-label').textContent = p==='groq' ? 'Groq API Key' : 'Gemini API Key';
+  keyInput.placeholder = p==='groq' ? 'gsk_…' : 'AIzaSy…';
+  document.getElementById('provider-help-note').innerHTML = p==='groq'
+    ? '🔒 The key is stored locally in your browser only. Get a free Groq API key at <strong>console.groq.com/keys</strong>. It is never transmitted anywhere except to the Groq API.'
+    : '🔒 The key is stored locally in your browser only. Get a free Gemini API key at <strong>aistudio.google.com/apikey</strong>. It is never transmitted anywhere except to the Gemini API.';
+  refreshAPIStatus();
+}
+function refreshAPIStatus(){
+  const provider = pendingProvider || getProvider();
+  const key  = getKeyForProvider(provider);
+  const dot  = document.getElementById('api-dot');
+  const statusRow  = document.getElementById('api-current-status');
+  const statusText = document.getElementById('api-status-text');
+  const btnLabel   = document.getElementById('api-btn-label');
+  const activeKeySet = !!getAPIKey();
+  if (key) {
+    statusRow.className='api-status-row set';
+    statusText.textContent = (provider==='groq'?'Groq':'Gemini') + ' API key is set ✓';
+  } else {
+    statusRow.className='api-status-row unset';
+    statusText.textContent = 'No ' + (provider==='groq'?'Groq':'Gemini') + ' API key set';
+  }
+  if (activeKeySet) { dot.classList.add('active'); }
+  else { dot.classList.remove('active'); }
+  btnLabel.textContent = 'API Key Settings';
+}
+function saveAPIKey(){
+  const k = document.getElementById('api-key-input').value.trim();
+  if (!k){ showToast('Enter a valid key', 'error'); return; }
+  const provider = pendingProvider || getProvider();
+  setKeyForProvider(provider, k);
+  setStoredProvider(provider);
+  refreshAPIStatus();
+  showToast((provider==='groq'?'Groq':'Gemini') + ' API key saved ✓', 'success');
+  closeAPIModal();
+}
+function clearAPIKey(){
+  const provider = pendingProvider || getProvider();
+  if (!confirm('Remove the saved ' + (provider==='groq'?'Groq':'Gemini') + ' API key?')) return;
+  clearKeyForProvider(provider);
+  refreshAPIStatus();
+  showToast('Key cleared', 'success');
+  closeAPIModal();
+}
+document.getElementById('api-modal-overlay').addEventListener('click', e=>{
+  if (e.target===document.getElementById('api-modal-overlay')) closeAPIModal();
+});
+
+/* ── NOTEBOOKS ── */
+function newNotebook(){
+  openModal('New Notebook','Give your notebook a name.','e.g. Biology 101…', name=>{
+    if (!name.trim()) return;
+    const nb={id:uid(),name:name.trim(),created:Date.now()};
+    notebooks.unshift(nb); sources[nb.id]=[]; notes[nb.id]=[];
+    save(); renderSidebar(); openNotebook(nb.id);
+  });
+}
+function openNotebook(id){
+  activeNB=id;
+  const nb=notebooks.find(n=>n.id===id);
+  document.getElementById('nb-title-input').value=nb.name;
+  renderSidebar(); renderSources(); renderNotes();
+}
+function deleteNotebook(id,e){
+  e.stopPropagation();
+  if (!confirm('Delete this notebook and all its data?')) return;
+  notebooks=notebooks.filter(n=>n.id!==id);
+  delete sources[id]; delete notes[id];
+  if (activeNB===id){
+    activeNB=notebooks[0]?.id||null;
+    if (activeNB) openNotebook(activeNB); else resetUI();
+  }
+  save(); renderSidebar();
+}
+function renameNB(){
+  const nb=notebooks.find(n=>n.id===activeNB);
+  if (!nb) return;
+  nb.name=document.getElementById('nb-title-input').value.trim()||'Untitled';
+  save(); renderSidebar();
+}
+document.getElementById('nb-title-input').addEventListener('blur',renameNB);
+
+function resetUI(){
+  document.getElementById('nb-title-input').value='';
+  document.getElementById('source-list').innerHTML=dropZoneHTML();
+  document.getElementById('notes-container').innerHTML=welcomeHTML();
+}
+function renderSidebar(){
+  const list=document.getElementById('notebook-list');
+  if (!notebooks.length){
+    list.innerHTML=`<div style="padding:24px;text-align:center;color:var(--text-3);font-size:12px;line-height:1.6;">No notebooks yet.<br>Click <strong style="color:var(--accent)">+ New Notebook</strong> to begin.</div>`;
+    return;
+  }
+  list.innerHTML=notebooks.map(nb=>`
+    <div class="nb-item ${nb.id===activeNB?'active':''}" onclick="openNotebook('${nb.id}')">
+      <span class="nb-icon">${nbIcon(nb)}</span>
+      <div class="nb-info">
+        <div class="nb-title">${esc(nb.name)}</div>
+        <div class="nb-meta">${(sources[nb.id]||[]).length} sources · ${(notes[nb.id]||[]).length} notes</div>
+      </div>
+      <button class="nb-del" onclick="deleteNotebook('${nb.id}',event)">✕</button>
+    </div>
+  `).join('');
+  refreshAPIStatus();
+}
+function nbIcon(nb){
+  const s=sources[nb.id]||[];
+  if (!s.length) return '📓';
+  const t=s[0].type;
+  return t==='pdf'?'📕':t==='image'?'🖼':t==='csv'?'📊':t==='html'?'🌐':'📄';
+}
+
+/* ── FILE HANDLING ── */
+document.getElementById('file-input').addEventListener('change',e=>{
+  handleFiles(Array.from(e.target.files)); e.target.value='';
+});
+document.addEventListener('dragover',e=>e.preventDefault());
+document.addEventListener('drop',e=>{
+  e.preventDefault();
+  document.getElementById('drop-zone')?.classList.remove('drag-over');
+  const files=Array.from(e.dataTransfer.files);
+  if (files.length) handleFiles(files);
+});
+const dzEl=document.getElementById('drop-zone');
+if (dzEl){
+  dzEl.addEventListener('dragover',e=>{e.preventDefault();dzEl.classList.add('drag-over');});
+  dzEl.addEventListener('dragleave',()=>dzEl.classList.remove('drag-over'));
+}
+
+async function handleFiles(files){
+  if (!activeNB){
+    const nb={id:uid(),name:'New Notebook',created:Date.now()};
+    notebooks.unshift(nb); sources[nb.id]=[]; notes[nb.id]=[];
+    activeNB=nb.id;
+    document.getElementById('nb-title-input').value=nb.name;
+    save(); renderSidebar();
+  }
+  for (const file of files){
+    const src={id:uid(),name:file.name,type:fileType(file.name),size:file.size,text:'',status:'processing',wordCount:0};
+    sources[activeNB].push(src); renderSources(); save();
+    try {
+      const r=await extractText(file);
+      src.text=r.text; src.wordCount=r.text.split(/\s+/).filter(Boolean).length;
+      src.status=src.text.trim().length>10?'ready':'error';
+      src.errorMsg=src.status==='error'?'No readable text found':'';
+    } catch(err){
+      src.status='error'; src.errorMsg=err.message||'Could not read file';
+    }
+    renderSources(); save();
+  }
+  hideWelcome();
+}
+
+/* ── TEXT EXTRACTORS ── */
+async function extractText(file){
+  const ext=file.name.split('.').pop().toLowerCase();
+  if (ext==='pdf') return extractPDF(file);
+  if (ext==='docx') return extractDOCX(file);
+  if (['png','jpg','jpeg','gif','webp','bmp'].includes(ext)) return extractImage(file);
+  if (['html','htm'].includes(ext)){
+    const raw=await readAsText(file);
+    const tmp=document.createElement('div'); tmp.innerHTML=raw;
+    tmp.querySelectorAll('script,style,noscript').forEach(el=>el.remove());
+    return {text:(tmp.innerText||tmp.textContent||'').replace(/\s{3,}/g,'\n\n').trim()};
+  }
+  if (ext==='rtf'){
+    const raw=await readAsText(file);
+    const text=raw.replace(/\{[^{}]*\}/g,'').replace(/\\[a-z]+[-\d]* ?/gi,'').replace(/[{}\\]/g,'').replace(/\s{2,}/g,'\n').trim();
+    return {text};
+  }
+  if (['xml','svg'].includes(ext)){
+    const raw=await readAsText(file);
+    const doc=new DOMParser().parseFromString(raw,'application/xml');
+    return {text:(doc.documentElement.textContent||'').replace(/\s{3,}/g,'\n\n').trim()};
+  }
+  if (['csv','tsv'].includes(ext)){
+    const raw=await readAsText(file);
+    const sep=ext==='tsv'?'\t':',';
+    const rows=raw.trim().split('\n').slice(0,200);
+    const text=rows.map((r,i)=>{const c=r.split(sep).map(x=>x.replace(/^"|"$/g,'').trim());return i===0?'[ '+c.join(' | ')+' ]':c.join(' | ');}).join('\n');
+    return {text:'TABLE:\n'+text};
+  }
+  if (ext==='json'){
+    const raw=await readAsText(file);
+    try{const obj=JSON.parse(raw);return {text:'JSON:\n'+JSON.stringify(obj,null,2).slice(0,50000)};}
+    catch{return {text:raw.slice(0,50000)};}
+  }
+  if (ext==='doc'){
+    const raw=await readAsText(file,'latin1');
+    const text=raw.replace(/[^\x20-\x7E\n\r\t]/g,' ').replace(/ {4,}/g,'\n').replace(/\n{3,}/g,'\n\n').trim();
+    if (text.length<50) throw new Error('.doc binary — save as .docx');
+    return {text};
+  }
+  const raw=await readAsText(file);
+  return {text:raw.slice(0,200000)};
+}
+
+async function extractPDF(file){
+  if (typeof pdfjsLib==='undefined') throw new Error('PDF library not loaded');
+  pdfjsLib.GlobalWorkerOptions.workerSrc='https://cdnjs.cloudflare.com/ajax/libs/pdf.js/3.11.174/pdf.worker.min.js';
+  const ab=await readAsArrayBuffer(file);
+  const pdf=await pdfjsLib.getDocument({data:ab}).promise;
+  const maxP=Math.min(pdf.numPages,80); let text='';
+  for (let i=1;i<=maxP;i++){
+    const pg=await pdf.getPage(i);
+    const ct=await pg.getTextContent();
+    const pt=ct.items.map(x=>x.str).join(' ').replace(/ {3,}/g,'\n').trim();
+    if (pt) text+=`\n[Page ${i}]\n${pt}\n`;
+  }
+  if (!text.trim()) throw new Error('PDF is scanned/image-only — no extractable text found');
+  return {text:text.trim()};
+}
+
+async function extractDOCX(file){
+  if (typeof mammoth==='undefined') throw new Error('DOCX library not loaded');
+  const ab=await readAsArrayBuffer(file);
+  const r=await mammoth.extractRawText({arrayBuffer:ab});
+  const text=(r.value||'').trim();
+  if (!text) throw new Error('DOCX has no readable text');
+  return {text};
+}
+
+async function extractImage(file){
+  if (getProvider()==='groq') throw new Error('Image text extraction requires the Gemini provider (Groq free models cannot read images). Switch provider in Settings.');
+  const b64=await readAsBase64(file);
+  const text=await callGemini(
+    'Extract and transcribe ALL text visible in this image. If it contains a document, table, chart, or diagram, describe its structure and content fully. Output plain text only.',
+    b64, file.type||'image/jpeg', 2048
+  );
+  if (!text) throw new Error('No text found in image');
+  return {text};
+}
+
+function readAsText(file,enc){return new Promise((res,rej)=>{const r=new FileReader();r.onload=e=>res(e.target.result);r.onerror=rej;r.readAsText(file,enc||'UTF-8');});}
+function readAsArrayBuffer(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=e=>res(e.target.result);r.onerror=rej;r.readAsArrayBuffer(file);});}
+function readAsBase64(file){return new Promise((res,rej)=>{const r=new FileReader();r.onload=e=>res(e.target.result.split(',')[1]);r.onerror=rej;r.readAsDataURL(file);});}
+
+function fileType(name){
+  const e=name.split('.').pop().toLowerCase();
+  if (e==='pdf') return 'pdf';
+  if (e==='docx') return 'docx';
+  if (e==='doc') return 'doc';
+  if (['txt','md','rtf'].includes(e)) return 'txt';
+  if (['csv','tsv'].includes(e)) return 'csv';
+  if (['json','xml','svg'].includes(e)) return 'json';
+  if (['html','htm'].includes(e)) return 'html';
+  if (['png','jpg','jpeg','gif','webp','bmp'].includes(e)) return 'image';
+  if (['js','ts','py','java','c','cpp','cs','go','rs','rb','php','swift','kt'].includes(e)) return 'code';
+  return 'other';
+}
+function formatBytes(b){if(b<1024)return b+'B';if(b<1048576)return(b/1024).toFixed(1)+'KB';return(b/1048576).toFixed(1)+'MB';}
+
+/* ── RENDER SOURCES ── */
+function renderSources(){
+  const list=document.getElementById('source-list');
+  const srcs=sources[activeNB]||[];
+  if (!srcs.length){list.innerHTML=dropZoneHTML();return;}
+  list.innerHTML=srcs.map(s=>`
+    <div class="source-card" id="src-${s.id}" onclick="selectSource('${s.id}')">
+      <div class="src-header">
+        <span class="src-icon">${srcIcon(s.type)}</span>
+        <span class="src-name" title="${esc(s.name)}">${esc(s.name)}</span>
+        <button class="src-del" onclick="deleteSource('${s.id}',event)">✕</button>
+      </div>
+      <div class="src-meta">
+        <span class="src-badge ${s.type}">${s.type.toUpperCase()}</span>
+        <span class="src-size">${formatBytes(s.size)}</span>
+        ${s.status==='ready'&&s.wordCount?`<span class="src-size">${s.wordCount.toLocaleString()}w</span>`:''}
+        <span class="src-status ${s.status}">
+          ${s.status==='processing'?'⏳ Reading…':s.status==='ready'?'✓ Ready':'✗ '+esc(s.errorMsg||'Error')}
+        </span>
+      </div>
+      ${s.status==='processing'?`<div class="progress-bar"><div class="progress-fill"></div></div>`:''}
+    </div>
+  `).join('')
+  +`<div style="margin-top:6px;border:1.5px dashed var(--border-2);border-radius:9px;padding:10px;text-align:center;color:var(--text-3);font-size:11px;cursor:pointer;" onclick="document.getElementById('file-input').click()">＋ Add another source</div>`;
+}
+function srcIcon(t){return {pdf:'📕',docx:'📘',doc:'📗',txt:'📄',csv:'📊',json:'🗂',html:'🌐',image:'🖼',code:'💻',other:'📎'}[t]||'📎';}
+function selectSource(id){
+  document.querySelectorAll('.source-card').forEach(c=>c.classList.remove('active-source'));
+  document.getElementById('src-'+id)?.classList.add('active-source');
+}
+function deleteSource(id,e){
+  e.stopPropagation();
+  sources[activeNB]=(sources[activeNB]||[]).filter(s=>s.id!==id);
+  save(); renderSources();
+  if (!(sources[activeNB]||[]).length) showWelcome();
+}
+
+/* ── NOTES RENDER ── */
+function hideWelcome(){document.getElementById('welcome')?.remove();}
+function showWelcome(){
+  const nc=document.getElementById('notes-container');
+  if (!document.getElementById('welcome')) nc.innerHTML=welcomeHTML();
+}
+function renderNotes(){
+  const nc=document.getElementById('notes-container');
+  const nts=notes[activeNB]||[];
+  if (!nts.length){nc.innerHTML=welcomeHTML();return;}
+  nc.innerHTML='';
+  nts.forEach(n=>nc.appendChild(buildNoteCard(n)));
+}
+function buildNoteCard(note){
+  const div=document.createElement('div');
+  div.className='note-card'; div.id='note-'+note.id;
+  const lbl={summary:'Summary',key:'Key Points',outline:'Outline',flashcard:'Flashcards',manual:'Note',question:'Q&A'}[note.type]||note.type;
+  div.innerHTML=`
+    <div class="note-card-header">
+      <span class="note-badge badge-${note.type}">${lbl}</span>
+      <span class="note-src">${esc(note.sourceName||'')}</span>
+      <div class="note-actions">
+        <button class="nc-btn" onclick="copyNote('${note.id}')" title="Copy">📋</button>
+        <button class="nc-btn" onclick="deleteNote('${note.id}')" title="Delete">✕</button>
+      </div>
+    </div>
+    <div class="note-card-body">${note.html||''}</div>`;
+  return div;
+}
+function deleteNote(id){
+  notes[activeNB]=(notes[activeNB]||[]).filter(n=>n.id!==id);
+  document.getElementById('note-'+id)?.remove();
+  save();
+  if (!(notes[activeNB]||[]).length) showWelcome();
+}
+function copyNote(id){
+  const note=(notes[activeNB]||[]).find(n=>n.id===id);
+  if (!note) return;
+  const tmp=document.createElement('div'); tmp.innerHTML=note.html||'';
+  navigator.clipboard.writeText(tmp.textContent||'').then(()=>showToast('Copied!','success'));
+}
+function addManualNote(){
+  if (!activeNB){showToast('Create a notebook first','error');return;}
+  hideWelcome();
+  const nid=uid();
+  const note={id:nid,type:'manual',html:'<div contenteditable="true" class="note-editable">Write your note here…</div>',sourceName:'Manual note'};
+  if (!notes[activeNB]) notes[activeNB]=[];
+  notes[activeNB].push(note);
+  const nc=document.getElementById('notes-container');
+  const card=buildNoteCard(note);
+  nc.appendChild(card);
+  card.querySelector('[contenteditable]')?.focus();
+  save();
+}
+function clearNotes(){
+  if (!activeNB||!(notes[activeNB]||[]).length) return;
+  if (!confirm('Clear all notes in this notebook?')) return;
+  notes[activeNB]=[]; save(); renderNotes();
+}
+
+/* ── CONTEXT BUILDER ── */
+function buildContext(maxChars){
+  maxChars=maxChars||30000;
+  const srcs=(sources[activeNB]||[]).filter(s=>s.status==='ready'&&s.text);
+  if (!srcs.length) return null;
+  let ctx=''; const perSrc=Math.floor(maxChars/srcs.length);
+  for (const s of srcs) ctx+=`\n\n--- SOURCE: ${s.name} ---\n${s.text.slice(0,perSrc)}`;
+  return ctx.trim();
+}
+
+/* ── AI NOTE GENERATION ── */
+const NOTE_PROMPTS={
+  summary: ctx=>`You are an expert study assistant. Write a clear comprehensive summary (3-5 paragraphs) of the following source material. Highlight the most important concepts with <strong> tags.
+
+Source material:
+${ctx}
+
+Respond with well-formatted HTML paragraphs only using <p> and <strong> and <em> tags. No markdown, no code blocks, no preamble — just the HTML content directly.`,
+
+  key: ctx=>`You are an expert study assistant. Extract the 7-10 most important key points from this material. Be concise and specific.
+
+Source material:
+${ctx}
+
+Respond with ONLY an HTML unordered list: <ul><li>...</li></ul>. Bold key terms with <strong>. No markdown, no extra wrappers, no preamble.`,
+
+  outline: ctx=>`You are an expert study assistant. Create a hierarchical outline of this material with main topics and sub-points.
+
+Source material:
+${ctx}
+
+Respond with ONLY nested HTML lists: <ul><li><strong>Main Topic</strong><ul><li>Sub-point</li></ul></li></ul>. No markdown, no extra wrapper, no preamble.`,
+
+  flashcard: ctx=>`You are a study flashcard generator. Create 6 flashcard pairs (question + answer) from this material.
+
+Source material:
+${ctx}
+
+Respond ONLY with a valid JSON array, no markdown fences, no prose, just raw JSON:
+[{"q":"question text","a":"answer text"}]`
+};
+
+function setGenBtns(disabled){
+  ['btn-summary','btn-key','btn-outline','btn-flashcard'].forEach(id=>{
+    const b=document.getElementById(id); if(b) b.disabled=disabled;
+  });
+}
+
+async function generateNote(type){
+  if (!activeNB){showToast('Create or open a notebook first','error');return;}
+  if (!getAPIKey()){showToast('Set your API key in Settings first','error');return;}
+  if (generating){showToast('Already generating, please wait…');return;}
+  const ctx=buildContext(30000);
+  if (!ctx){showToast('Add a source file first!','error');return;}
+  generating=true; setGenBtns(true); hideWelcome();
+
+  const nc=document.getElementById('notes-container');
+  const phId=uid();
+  const ph=document.createElement('div');
+  ph.className='note-card'; ph.id='note-'+phId;
+  const lbl={summary:'Summary',key:'Key Points',outline:'Outline',flashcard:'Flashcards'}[type];
+  const providerLabel = getProvider()==='groq' ? 'Groq' : 'Gemini';
+  ph.innerHTML=`
+    <div class="note-card-header">
+      <span class="note-badge badge-${type}">${lbl}</span>
+      <span class="note-src">Generating with ${providerLabel}…</span>
+    </div>
+    <div class="note-card-body" style="text-align:center;padding:24px;color:var(--text-3);">
+      <div class="typing-dots"><span></span><span></span><span></span></div>
+      <div style="margin-top:12px;font-size:12px;">AI is working on your ${lbl.toLowerCase()}…</div>
+    </div>`;
+  nc.appendChild(ph); nc.scrollTop=nc.scrollHeight;
+
+  try {
+    const prompt=NOTE_PROMPTS[type](ctx);
+    const raw=await callGemini(prompt,null,null,4096);
+    let html='';
+    if (type==='flashcard'){
+      try {
+        const clean=raw.replace(/```json|```/g,'').trim();
+        const cards=JSON.parse(clean);
+        html=`<div class="flashcard-grid">`+cards.map(c=>`
+          <div><div class="fc-front"><div class="fc-label">Question</div>${esc(c.q)}</div></div>
+          <div><div class="fc-back"><div class="fc-label">Answer</div>${esc(c.a)}</div></div>`).join('')+`</div>`;
+      } catch { html=`<p>${esc(raw)}</p>`; }
+    } else {
+      html=raw;
+    }
+    const srcNames=(sources[activeNB]||[]).filter(s=>s.status==='ready').map(s=>s.name).join(', ');
+    const note={id:phId,type,html,sourceName:srcNames};
+    if (!notes[activeNB]) notes[activeNB]=[];
+    notes[activeNB].push(note); save();
+
+    ph.querySelector('.note-card-body').innerHTML=html;
+    ph.querySelector('.note-src').textContent=srcNames;
+    ph.querySelector('.note-card-header').innerHTML=`
+      <span class="note-badge badge-${type}">${lbl}</span>
+      <span class="note-src">${esc(srcNames)}</span>
+      <div class="note-actions">
+        <button class="nc-btn" onclick="copyNote('${phId}')" title="Copy">📋</button>
+        <button class="nc-btn" onclick="deleteNote('${phId}')" title="Delete">✕</button>
+      </div>`;
+    renderSidebar();
+    showToast(lbl+' generated ✓','success');
+  } catch(err){
+    ph.querySelector('.note-card-body').innerHTML=
+      `<p style="color:var(--red);">⚠ ${esc(err.message||'Error generating note.')}</p>`;
+  } finally {
+    generating=false; setGenBtns(false);
+  }
+}
+
+/* ── Q&A ── */
+async function sendQA(){
+  if (qaActive) return;
+  const input=document.getElementById('qa-input');
+  const question=input.value.trim(); if(!question) return;
+  input.value=''; appendMsg(question,'user');
+  if (!getAPIKey()){appendMsg('⚠ No API key set. Open Settings to add your API key.','ai');return;}
+  const ctx=buildContext(20000);
+  const typEl=document.createElement('div');
+  typEl.className='msg msg-typing';
+  typEl.innerHTML='<div class="typing-dots"><span></span><span></span><span></span></div>';
+  document.getElementById('qa-messages').appendChild(typEl); scrollQA();
+  qaActive=true; document.getElementById('qa-send').disabled=true;
+  const sysNote=ctx
+    ?`You are an expert tutor. Answer questions based ONLY on the provided source material. Be concise and accurate. If the answer isn't in the sources, say so.\n\nSOURCES:\n${ctx}\n\n`
+    :`You are an expert tutor. No sources uploaded yet. Encourage the user to upload a document.\n\n`;
+  try {
+    const answer=await callGemini(sysNote+'User question: '+question,null,null,2048);
+    typEl.remove(); appendMsg(answer,'ai');
+  } catch(err){
+    typEl.remove(); appendMsg('⚠ Error: '+(err.message||'Could not reach the AI provider.'),'ai');
+  } finally {
+    qaActive=false; document.getElementById('qa-send').disabled=false;
+  }
+}
+function appendMsg(text,role){
+  const msgs=document.getElementById('qa-messages');
+  const div=document.createElement('div'); div.className=`msg msg-${role}`;
+  const safe=esc(text).replace(/\*\*(.*?)\*\*/g,'<strong>$1</strong>').replace(/\n/g,'<br>');
+  div.innerHTML=safe; msgs.appendChild(div); scrollQA();
+}
+function scrollQA(){const m=document.getElementById('qa-messages');m.scrollTop=m.scrollHeight;}
+function quickQ(q){document.getElementById('qa-input').value=q;sendQA();}
+
+/* ── EXPORT ── */
+function exportNotes(){
+  if (!activeNB){showToast('No notebook open','error');return;}
+  const nb=notebooks.find(n=>n.id===activeNB);
+  const nts=notes[activeNB]||[];
+  if (!nts.length){showToast('No notes to export','error');return;}
+  const html=`<!DOCTYPE html><html><head><meta charset="UTF-8"><title>${esc(nb.name)} — JMC AI Notebook</title>
+<style>body{font-family:'Segoe UI',sans-serif;max-width:820px;margin:40px auto;padding:0 24px;background:#0d0f14;color:#e8eaf0;line-height:1.7;}h1{font-size:26px;margin-bottom:4px;color:#fff;}
+.meta{color:#5a6480;font-size:12px;margin-bottom:32px;}.note{margin-bottom:28px;border:1px solid #262d42;border-radius:10px;overflow:hidden;}
+.nh{background:#141720;padding:10px 16px;font-size:10px;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:#9aa3be;}
+.nb{padding:16px;}ul{padding-left:20px;}li{margin-bottom:5px;}</style></head>
+<body><h1>${esc(nb.name)}</h1><div class="meta">Exported from JMC AI NOTEBOOK · ${new Date().toLocaleDateString()}</div>
+${nts.map(n=>`<div class="note"><div class="nh">${n.type}</div><div class="nb">${n.html||''}</div></div>`).join('')}
+</body></html>`;
+  const blob=new Blob([html],{type:'text/html'});
+  const a=document.createElement('a');
+  a.href=URL.createObjectURL(blob);
+  a.download=`${nb.name.replace(/[^a-z0-9]/gi,'_')}_JMC_notes.html`;
+  a.click(); showToast('Exported!','success');
+}
+
+/* ── UI TOGGLES ── */
+function toggleQA(){const p=document.getElementById('qa-panel');p.style.display=p.style.display==='none'?'':'none';}
+function toggleSources(){const p=document.getElementById('source-panel');p.style.display=p.style.display==='none'?'':'flex';}
+
+/* ── TOAST ── */
+function showToast(msg,type){
+  const t=document.getElementById('toast');
+  t.textContent=msg; t.className='';
+  if (type==='success') t.classList.add('success');
+  if (type==='error')   t.classList.add('error');
+  t.classList.add('show');
+  setTimeout(()=>t.classList.remove('show','success','error'),2600);
+}
+
+/* ── MODAL ── */
+function openModal(title,desc,placeholder,cb){
+  document.getElementById('modal-title').textContent=title;
+  document.getElementById('modal-desc').textContent=desc;
+  const inp=document.getElementById('modal-input');
+  inp.placeholder=placeholder; inp.value='';
+  document.getElementById('modal-overlay').classList.add('show');
+  modalCb=cb; setTimeout(()=>inp.focus(),60);
+}
+function closeModal(){document.getElementById('modal-overlay').classList.remove('show');}
+function confirmModal(){const v=document.getElementById('modal-input').value;closeModal();if(modalCb)modalCb(v);}
+document.getElementById('modal-input').addEventListener('keydown',e=>{
+  if(e.key==='Enter')confirmModal();
+  if(e.key==='Escape')closeModal();
+});
+document.getElementById('modal-overlay').addEventListener('click',e=>{
+  if(e.target===document.getElementById('modal-overlay'))closeModal();
+});
+
+/* ── UTILS ── */
+function uid(){return Math.random().toString(36).slice(2,10)+Date.now().toString(36);}
+function esc(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
+function dropZoneHTML(){return `<div id="drop-zone" onclick="document.getElementById('file-input').click()"><div class="dz-icon">📂</div><strong>Drop files here</strong><p>PDF, DOCX, TXT, MD, CSV, JSON, HTML, images &amp; code</p></div>`;}
+function welcomeHTML(){return `<div id="welcome"><div class="w-glyph">📓</div><h2>Start by adding a source</h2><p>Upload a PDF, DOCX, TXT, CSV, or image. Use the toolbar to generate AI-powered summaries, key points, outlines, and flashcards.</p></div>`;}
+
+/* ── INIT ── */
+renderSidebar();
+refreshAPIStatus();
+if (notebooks.length) openNotebook(notebooks[0].id);
+</script>
+</body>
+</html>

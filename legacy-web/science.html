@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Science Chemistry Lab | JMC Innovators Learning Platform</title>
+<meta name="description" content="Explore an interactive periodic table and chemistry tools to visualize elements and reactions - part of JMC Innovators Educational Tools.">
+<meta name="keywords" content="periodic table, chemistry lab, science tools, interactive chemistry">
+<meta name="author" content="JMC Innovators">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<link rel="canonical" href="https://jmcinnovators.netlify.app/science.html">
+<meta name="theme-color" content="#05070f">
+
+<!-- Open Graph / Facebook / WhatsApp / LinkedIn preview -->
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="JMC Innovators Learning Platform">
+<meta property="og:url" content="https://jmcinnovators.netlify.app/science.html">
+<meta property="og:title" content="Science Chemistry Lab | JMC Innovators Learning Platform">
+<meta property="og:description" content="Explore an interactive periodic table and chemistry tools to visualize elements and reactions - part of JMC Innovators Educational Tools.">
+<meta property="og:image" content="https://jmcinnovators.netlify.app/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:locale" content="en_US">
+
+<!-- Twitter/X card preview -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Science Chemistry Lab | JMC Innovators Learning Platform">
+<meta name="twitter:description" content="Explore an interactive periodic table and chemistry tools to visualize elements and reactions - part of JMC Innovators Educational Tools.">
+<meta name="twitter:image" content="https://jmcinnovators.netlify.app/og-image.png">
+
+<!-- Favicons -->
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+
+<!-- Structured data for richer Google search results -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebPage",
+  "name": "Science Chemistry Lab | JMC Innovators Learning Platform",
+  "url": "https://jmcinnovators.netlify.app/science.html",
+  "description": "Explore an interactive periodic table and chemistry tools to visualize elements and reactions - part of JMC Innovators Educational Tools.",
+  "isPartOf": { "@type": "WebSite", "name": "JMC Innovators Learning Platform", "url": "https://jmcinnovators.netlify.app/" }
+}
+</script>
+
+<link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap" rel="stylesheet">
+
+<style>
+body {
+  margin: 0;
+  font-family: 'Orbitron', sans-serif;
+  color: white;
+  background: url('https://th.bing.com/th/id/OIP.G1fBG3cfNDxUAqsrVCKp_wHaEJ?w=286&h=180&c=7&r=0&o=7&pid=1.7&rm=3') no-repeat center/cover;
+  background-size: cover;
+  overflow-x: hidden;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,30,0.75);
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  font-size: 30px;
+  letter-spacing: 2px;
+  font-weight: bold;
+  position: relative;
+  z-index: 2;
+  text-shadow: 0 0 10px cyan;
+}
+
+#table {
+  display: grid;
+  grid-template-columns: repeat(18, 48px);
+  gap: 6px;
+  justify-content: center;
+  padding: 20px;
+  position: relative;
+  z-index: 2;
+}
+
+.element {
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 8px;
+  cursor: pointer;
+  border: 1px solid rgba(255,255,255,0.25);
+  transition: 0.25s;
+  user-select: none;
+}
+
+.element:hover {
+  transform: scale(1.25);
+  box-shadow: 0 0 20px cyan;
+}
+
+/* CATEGORY COLORS */
+.alkali { color: gold; }
+.alkaline { color: silver; }
+.transition { color: cyan; }
+.posttransition { color: orange; }
+.metalloid { color: violet; }
+.nonmetal { color: lightgreen; }
+.noble { color: hotpink; }
+
+/* PANEL */
+#panel {
+  position: fixed;
+  right: -420px;
+  top: 0;
+  width: 400px;
+  height: 100%;
+  background: rgba(10,10,30,0.97);
+  padding: 15px;
+  transition: 0.5s ease;
+  overflow-y: auto;
+  z-index: 5;
+}
+
+#panel.active {
+  right: 0;
+}
+
+canvas {
+  display: block;
+  margin: auto;
+  background: rgba(0,0,0,0.8);
+  border-radius: 10px;
+  box-shadow: 0 0 20px cyan;
+}
+</style>
+</head>
+
+<body>
+<style>
+.jmcnav-wrap *{box-sizing:border-box;}
+.jmcnav-wrap{position:sticky;top:0;z-index:99999;padding:14px 18px;font-family:'Manrope',Arial,Helvetica,sans-serif;}
+.jmcnav{max-width:1280px;margin:0 auto;position:relative;background:rgba(9,12,22,0.78);backdrop-filter:blur(18px) saturate(160%);-webkit-backdrop-filter:blur(18px) saturate(160%);border:1px solid rgba(148,163,196,0.16);border-radius:18px;box-shadow:0 16px 40px -18px rgba(0,0,0,.7);padding:10px 16px;display:flex;align-items:center;justify-content:space-between;gap:14px;}
+.jmcnav::before{content:"";position:absolute;inset:0;border-radius:inherit;padding:1px;background:linear-gradient(120deg,rgba(255,255,255,.14),transparent 30%,transparent 70%,rgba(255,255,255,.07));-webkit-mask:linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude;pointer-events:none;}
+.jmcnav-brand{display:flex;align-items:center;gap:9px;font-weight:800;font-size:14.5px;color:#f3f5fb;text-decoration:none;flex-shrink:0;font-family:'Sora',Arial,sans-serif;letter-spacing:-0.01em;}
+.jmcnav-brand svg{width:26px;height:26px;flex-shrink:0;}
+.jmcnav-brand em{color:#f2a71b;font-style:normal;}
+.jmcnav-brand small{display:block;font-size:9.5px;font-weight:600;color:#8891ac;letter-spacing:.02em;}
+.jmcnav-links{display:flex;align-items:center;gap:2px;flex-wrap:nowrap;overflow-x:auto;scrollbar-width:none;}
+.jmcnav-links::-webkit-scrollbar{display:none;}
+.jmcnav-links a{font-size:13px;font-weight:600;color:#c3cadd;text-decoration:none;padding:9px 12px;border-radius:10px;white-space:nowrap;position:relative;transition:color .2s ease, background .2s ease;}
+.jmcnav-links a::after{content:"";position:absolute;left:12px;right:12px;bottom:2px;height:2px;background:linear-gradient(90deg,#f2a71b,#ffcf6b);border-radius:2px;transform:scaleX(0);transform-origin:left;transition:transform .3s ease;}
+.jmcnav-links a:hover{color:#f3f5fb;background:rgba(255,255,255,0.05);}
+.jmcnav-links a:hover::after{transform:scaleX(1);}
+.jmcnav-links a.jmcnav-active{color:#f2a71b;}
+.jmcnav-links a.jmcnav-active::after{transform:scaleX(1);}
+.jmcnav-links a.jmcnav-ai{background:linear-gradient(135deg,rgba(99,102,241,0.18),rgba(242,167,27,0.10));border:1px solid rgba(99,102,241,0.32);}
+.jmcnav-app{display:flex;align-items:center;gap:7px;padding:9px 15px 9px 11px;background:linear-gradient(135deg,rgba(61,220,132,0.18),rgba(10,14,28,0.6));color:#f3f5fb;border-radius:999px;font-weight:700;font-size:12.5px;border:1px solid rgba(61,220,132,0.4);white-space:nowrap;position:relative;overflow:hidden;isolation:isolate;text-decoration:none;flex-shrink:0;transition:transform .25s ease, box-shadow .25s ease, border-color .25s ease;}
+.jmcnav-app:hover{transform:translateY(-2px);border-color:rgba(61,220,132,0.75);box-shadow:0 14px 28px -10px rgba(61,220,132,0.45);}
+.jmcnav-app:active{transform:translateY(0) scale(.96);}
+.jmcnav-app svg{width:16px;height:16px;flex-shrink:0;}
+.jmcnav-burger{display:none;width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,0.05);border:1px solid rgba(148,163,196,0.2);flex-shrink:0;align-items:center;justify-content:center;cursor:pointer;}
+.jmcnav-burger span,.jmcnav-burger span::before,.jmcnav-burger span::after{content:"";display:block;width:16px;height:2px;background:#f3f5fb;border-radius:2px;position:relative;transition:transform .25s ease, opacity .25s ease;}
+.jmcnav-burger span::before{position:absolute;top:-5px;}
+.jmcnav-burger span::after{position:absolute;top:5px;}
+.jmcnav-burger.open span{background:transparent;}
+.jmcnav-burger.open span::before{transform:translateY(5px) rotate(45deg);}
+.jmcnav-burger.open span::after{transform:translateY(-5px) rotate(-45deg);}
+.jmcnav-mobile{max-width:1280px;margin:8px auto 0;max-height:0;overflow:hidden;border-radius:16px;background:rgba(9,12,22,0.92);backdrop-filter:blur(18px);border:1px solid rgba(148,163,196,0.14);transition:max-height .4s cubic-bezier(.22,1,.36,1);}
+.jmcnav-mobile.open{max-height:600px;}
+.jmcnav-mobile-inner{display:flex;flex-direction:column;padding:10px;}
+.jmcnav-mobile-inner a{padding:12px 14px;border-radius:10px;color:#c3cadd;font-weight:600;font-size:14px;text-decoration:none;transition:background .2s ease,color .2s ease;}
+.jmcnav-mobile-inner a:hover{background:rgba(255,255,255,.05);color:#fff;}
+.jmcnav-mobile-inner a.jmcnav-active{color:#f2a71b;background:rgba(242,167,27,0.08);}
+.jmcnav-mobile-inner a.jmcnav-app-mobile{margin-top:6px;background:linear-gradient(135deg,rgba(61,220,132,0.18),rgba(10,14,28,0.6));border:1px solid rgba(61,220,132,0.4);color:#fff;text-align:center;}
+@media (max-width:980px){
+  .jmcnav-links{display:none;}
+  .jmcnav-app{display:none;}
+  .jmcnav-burger{display:flex;}
+}
+.jmcnav-ripple{position:absolute;border-radius:50%;background:rgba(255,255,255,.45);transform:scale(0);animation:jmcnavRipple .6s cubic-bezier(.16,1,.3,1);pointer-events:none;}
+@keyframes jmcnavRipple{to{transform:scale(1);opacity:0;}}
+</style>
+<div class="jmcnav-wrap">
+  <header class="jmcnav">
+    <a href="index.html" class="jmcnav-brand">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 8-4.2V15h1.5V8L12 3z" fill="#f2a71b"/><path d="M6 12.2V16c0 1.8 2.7 3.5 6 3.5s6-1.7 6-3.5v-3.8l-6 3.1-6-3.1z" fill="#f2a71b" opacity="0.55"/></svg>
+      <span>JMC <em>INNOVATORS</em><small>Learning Platform</small></span>
+    </a>
+    <nav class="jmcnav-links">
+          <a href="index.html">Home</a>
+          <a href="about2.html">About</a>
+          <a href="exampapers.html">Exam Papers</a>
+          <a href="text_books.html">Text Books</a>
+          <a href="educational_tools.html" class="jmcnav-active">Educational Tools</a>
+          <a href="chatbot.html" class="jmcnav-ai">AI Center</a>
+          <a href="jmc_Classroom.html">JMC Classroom</a>
+          <a href="https://www.youtube.com/playlist?list=PLLCm9p-4g7Zs" target="_blank" rel="noopener">Watch Intro</a>
+          <a href="notebook.html">AI Notebook</a>
+          <a href="tell_us.html">Tell Us</a>
+    </nav>
+    <a class="jmcnav-app" href="https://drive.google.com/file/d/1qsNbHeVEHm_XndglWahtKljjoQOHwAHD/view?usp=drivesdk" target="_blank" rel="noopener" aria-label="Download Android App">
+      <svg viewBox="0 0 24 24" fill="none"><path d="M6 18.5c0 .8.7 1.5 1.5 1.5H9v2.3a1.7 1.7 0 0 0 3.4 0V20h1.2v2.3a1.7 1.7 0 0 0 3.4 0V20h1.5c.8 0 1.5-.7 1.5-1.5V9H6v9.5z" fill="#3DDC84"/><path d="M6.3 7.5h11.4c-.4-1.9-1.6-3.5-3.2-4.5l1-1.7a.5.5 0 1 0-.9-.5l-1 1.8a6.9 6.9 0 0 0-4.2 0l-1-1.8a.5.5 0 1 0-.9.5l1 1.7c-1.6 1-2.8 2.6-3.2 4.5z" fill="#3DDC84"/><circle cx="9" cy="10.8" r=".9" fill="#0b1024"/><circle cx="15" cy="10.8" r=".9" fill="#0b1024"/><path d="M2.5 9.5A1.5 1.5 0 0 1 4 11v4a1.5 1.5 0 0 1-3 0v-4a1.5 1.5 0 0 1 1.5-1.5zM21.5 9.5A1.5 1.5 0 0 1 23 11v4a1.5 1.5 0 0 1-3 0v-4a1.5 1.5 0 0 1 1.5-1.5z" fill="#3DDC84"/></svg>
+      <span>Get App</span>
+    </a>
+    <button class="jmcnav-burger" id="jmcnavBurger" aria-label="Menu"><span></span></button>
+  </header>
+  <div class="jmcnav-mobile" id="jmcnavMobile">
+    <div class="jmcnav-mobile-inner">
+      <a href="index.html">Home</a>
+          <a href="about2.html">About</a>
+          <a href="exampapers.html">Exam Papers</a>
+          <a href="text_books.html">Text Books</a>
+          <a href="educational_tools.html" class="jmcnav-active">Educational Tools</a>
+          <a href="chatbot.html">AI Center</a>
+          <a href="jmc_Classroom.html">JMC Classroom</a>
+          <a href="https://www.youtube.com/playlist?list=PLLCm9p-4g7Zs" target="_blank" rel="noopener">Watch Intro</a>
+          <a href="notebook.html">AI Notebook</a>
+          <a href="tell_us.html">Tell Us</a>
+      <a href="https://drive.google.com/file/d/1qsNbHeVEHm_XndglWahtKljjoQOHwAHD/view?usp=drivesdk" target="_blank" rel="noopener" class="jmcnav-app-mobile">📱 Get Android App</a>
+    </div>
+  </div>
+</div>
+<script>
+(function(){
+  var burger = document.getElementById('jmcnavBurger');
+  var mobile = document.getElementById('jmcnavMobile');
+  if(burger && mobile){
+    burger.addEventListener('click', function(){
+      burger.classList.toggle('open');
+      mobile.classList.toggle('open');
+    });
+  }
+  document.addEventListener('pointerdown', function(e){
+    var el = e.target.closest('.jmcnav-app, .jmcnav-app-mobile, .jmcnav-links a');
+    if(!el) return;
+    var rect = el.getBoundingClientRect();
+    var size = Math.max(rect.width, rect.height) * 1.8;
+    var span = document.createElement('span');
+    span.className = 'jmcnav-ripple';
+    span.style.width = span.style.height = size + 'px';
+    span.style.left = (e.clientX - rect.left - size/2) + 'px';
+    span.style.top = (e.clientY - rect.top - size/2) + 'px';
+    if(getComputedStyle(el).position === 'static') el.style.position = 'relative';
+    el.style.overflow = 'hidden';
+    el.appendChild(span);
+    span.addEventListener('animationend', function(){ span.remove(); });
+  });
+})();
+</script>
+
+
+<header> Advanced Interactive Periodic Table</header>
+
+<div id="table"></div>
+
+<div id="panel">
+  <h2 id="name"></h2>
+  <div id="info"></div>
+
+  <h3>Electron Structure</h3>
+  <canvas id="c" width="300" height="300"></canvas>
+</div>
+
+<script>
+const table = document.getElementById("table");
+const panel = document.getElementById("panel");
+const ctx = document.getElementById("c").getContext("2d");
+
+let elements = [];
+let electrons = [];
+
+/* LOAD ELEMENT DATA */
+fetch("https://raw.githubusercontent.com/Bowserinator/Periodic-Table-JSON/master/PeriodicTableJSON.json")
+.then(r => r.json())
+.then(d => {
+  elements = d.elements;
+
+  elements.forEach(el => {
+    const div = document.createElement("div");
+    div.className = "element";
+
+    if (el.category.includes("alkali")) div.classList.add("alkali");
+    else if (el.category.includes("alkaline")) div.classList.add("alkaline");
+    else if (el.category.includes("transition")) div.classList.add("transition");
+    else if (el.category.includes("post")) div.classList.add("posttransition");
+    else if (el.category.includes("metalloid")) div.classList.add("metalloid");
+    else if (el.category.includes("nonmetal")) div.classList.add("nonmetal");
+    else if (el.category.includes("noble")) div.classList.add("noble");
+
+    div.innerText = el.symbol;
+    div.style.gridColumn = el.xpos;
+    div.style.gridRow = el.ypos;
+
+    div.onclick = (e) => show(el, e);
+    div.ontouchstart = (e) => show(el, e);
+
+    table.appendChild(div);
+  });
+});
+
+/* SHOW ELEMENT */
+function show(el, e) {
+  panel.classList.add("active");
+
+  if (e && e.target) {
+    e.target.style.transform = "scale(1.6)";
+    setTimeout(() => e.target.style.transform = "", 250);
+  }
+
+  document.getElementById("name").innerText =
+    `${el.name} (${el.symbol})`;
+
+  document.getElementById("info").innerHTML = `
+    <b>Atomic Number:</b> ${el.number}<br>
+    <b>Atomic Mass:</b> ${el.atomic_mass.toFixed(3)}<br>
+    <b>Phase:</b> ${el.phase}<br>
+    <b>Category:</b> ${el.category}<br>
+    <b>Electron Config:</b> ${el.electron_configuration}
+  `;
+
+  buildElectrons(el.electron_configuration);
+}
+
+/* ELECTRON SHELL MODEL (IMPROVED) */
+function buildElectrons(cfg) {
+  electrons = [];
+  if (!cfg) return;
+
+  let shells = [];
+  let r = /(\d+)([spdf])(\d+)/g, m;
+
+  while ((m = r.exec(cfg))) {
+    shells.push(parseInt(m[3]));
+  }
+
+  let base = 30;
+
+  shells.forEach((count, i) => {
+    let radius = base + i * 25;
+
+    for (let j = 0; j < count; j++) {
+      electrons.push({
+        angle: (Math.PI * 2 * j) / count,
+        radius: radius,
+        speed: 0.015 + i * 0.002
+      });
+    }
+  });
+}
+
+/* ANIMATION LOOP */
+function animate() {
+  ctx.clearRect(0, 0, 300, 300);
+
+  const cx = 150, cy = 150;
+
+  // nucleus
+  ctx.fillStyle = "red";
+  ctx.beginPath();
+  ctx.arc(cx, cy, 6, 0, Math.PI * 2);
+  ctx.fill();
+
+  // orbits
+  ctx.strokeStyle = "rgba(0,255,255,0.2)";
+  electrons.forEach(e => {
+    ctx.beginPath();
+    ctx.arc(cx, cy, e.radius, 0, Math.PI * 2);
+    ctx.stroke();
+  });
+
+  // electrons
+  electrons.forEach(e => {
+    e.angle += e.speed;
+
+    let x = cx + Math.cos(e.angle) * e.radius;
+    let y = cy + Math.sin(e.angle) * e.radius;
+
+    ctx.fillStyle = "cyan";
+    ctx.beginPath();
+    ctx.arc(x, y, 3, 0, Math.PI * 2);
+    ctx.fill();
+  });
+
+  requestAnimationFrame(animate);
+}
+
+animate();
+</script>
+
+</body>
+</html>

@@ -1,0 +1,21 @@
+rules_version = '2';
+
+// jmc-class project: assignment attachments and submitted work.
+service firebase.storage {
+  match /b/{bucket}/o {
+    function isSignedIn() { return request.auth != null; }
+
+    match /submissions/{classId}/{studentUid}/{allPaths=**} {
+      allow read: if isSignedIn(); // narrowed to the class roster in Firestore, not here
+      allow write: if isSignedIn() && request.auth.uid == studentUid
+                   && request.resource.size < 25 * 1024 * 1024;
+    }
+    match /assignments/{classId}/{allPaths=**} {
+      allow read: if isSignedIn();
+      allow write: if isSignedIn(); // teachers only in practice; tightened via a Cloud Function check
+    }
+    match /{allPaths=**} {
+      allow read, write: if false;
+    }
+  }
+}

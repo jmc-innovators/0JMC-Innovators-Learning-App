@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Complete Your Profile | JMC Innovators</title>
+<meta name="description" content="Complete your JMC Innovators profile to get your personalised dashboard.">
+<meta name="robots" content="noindex, nofollow">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="shortcut icon" href="/favicon.ico">
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Sora:wght@500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="/css/app-shell.css">
+<style>
+  body.profile-body{min-height:100vh; display:flex; align-items:center; justify-content:center; padding:24px; position:relative; overflow-x:hidden;}
+  body.profile-body::before{content:"";position:fixed;inset:0;background:radial-gradient(circle at 20% 15%, rgba(99,102,241,.16), transparent 55%), radial-gradient(circle at 85% 80%, rgba(242,167,27,.10), transparent 50%); pointer-events:none; z-index:0;}
+  .profile-shell{position:relative; z-index:1; width:100%; max-width:640px;}
+  .profile-brand{display:flex; align-items:center; justify-content:center; gap:10px; margin-bottom:22px;}
+  .profile-brand svg{width:30px; height:30px;}
+  .profile-brand span{font-family:'Sora',sans-serif; font-weight:800; font-size:16px;}
+  .profile-brand b{color:var(--gold);}
+  .profile-steps{display:flex; align-items:center; justify-content:center; gap:8px; margin-bottom:22px;}
+  .profile-step-dot{width:8px; height:8px; border-radius:50%; background:var(--panel-2); border:1px solid var(--border); transition:.3s var(--ease);}
+  .profile-step-dot.active{background:linear-gradient(135deg,var(--blue-2),var(--purple)); width:24px; border-radius:6px; border-color:transparent;}
+  .profile-card{padding:34px 30px;}
+  .profile-title{font-size:22px; font-weight:800; text-align:center; margin-bottom:6px;}
+  .profile-sub{text-align:center; color:var(--text-2); font-size:13.4px; margin-bottom:26px;}
+  .profile-step{display:none;}
+  .profile-step.active{display:block; animation:fadeUp .4s var(--ease-out);}
+  .grid-2col{display:grid; grid-template-columns:1fr 1fr; gap:14px 16px;}
+  @media (max-width:560px){ .grid-2col{grid-template-columns:1fr;} }
+  .profile-nav-btns{display:flex; gap:10px; margin-top:8px;}
+  .profile-loading{display:flex; flex-direction:column; align-items:center; gap:14px; padding:60px 0; color:var(--text-2);}
+  .spinner{width:34px; height:34px; border-radius:50%; border:3px solid var(--border); border-top-color:var(--blue-2); animation:spin 0.8s linear infinite;}
+  @keyframes spin{to{transform:rotate(360deg);}}
+</style>
+</head>
+<body class="app-body profile-body">
+
+<div class="profile-shell">
+  <div class="profile-brand">
+    <svg viewBox="0 0 24 24" fill="none"><path d="M12 3L2 8l10 5 8-4.2V15h1.5V8L12 3z" fill="#f2a71b"/><path d="M6 12.2V16c0 1.8 2.7 3.5 6 3.5s6-1.7 6-3.5v-3.8l-6 3.1-6-3.1z" fill="#f2a71b" opacity="0.55"/></svg>
+    <span>JMC <b>INNOVATORS</b></span>
+  </div>
+
+  <div id="profileLoading" class="g-card g-card-pad profile-loading">
+    <div class="spinner"></div>
+    <div>Loading your account…</div>
+  </div>
+
+  <form id="profileForm" class="g-card profile-card" style="display:none;" novalidate>
+    <div class="profile-steps">
+      <div class="profile-step-dot active" data-dot="1"></div>
+      <div class="profile-step-dot" data-dot="2"></div>
+    </div>
+
+    <!-- STEP 1: ROLE -->
+    <div class="profile-step active" data-step="1">
+      <div class="profile-title" id="step1Title">Welcome! Who's using JMC Innovators?</div>
+      <div class="profile-sub">Pick the role that fits you best — this decides your dashboard.</div>
+      <div class="role-grid" id="roleGrid">
+        <div class="role-card" data-role="student"><div class="role-emoji">🎓</div><div class="role-name">Student</div><div class="role-desc">Courses, AI tutor, exam papers</div></div>
+        <div class="role-card" data-role="teacher"><div class="role-emoji">🧑‍🏫</div><div class="role-name">Teacher</div><div class="role-desc">Classes & assignments</div></div>
+        <div class="role-card" data-role="parent"><div class="role-emoji">👪</div><div class="role-name">Parent</div><div class="role-desc">Monitor & guide your child</div></div>
+        <div class="role-card" data-role="operator"><div class="role-emoji">🏫</div><div class="role-name">School Operator</div><div class="role-desc">Manage your school</div></div>
+      </div>
+      <div class="profile-nav-btns" style="margin-top:24px;">
+        <button type="button" class="btn btn-primary btn-block" id="toStep2Btn" disabled>Continue</button>
+      </div>
+    </div>
+
+    <!-- STEP 2: DETAILS -->
+    <div class="profile-step" data-step="2">
+      <div class="profile-title">Tell us a bit more</div>
+      <div class="profile-sub">This personalises your dashboard and, for students, lets a parent link their account.</div>
+
+      <div class="field">
+        <label for="fullName">Full name</label>
+        <input id="fullName" type="text" autocomplete="name" placeholder="e.g. Jathush Sivakumar" required maxlength="80">
+      </div>
+      <div class="grid-2col">
+        <div class="field">
+          <label for="school">School</label>
+          <input id="school" type="text" placeholder="e.g. Royal College" required maxlength="120">
+        </div>
+        <div class="field" id="gradeField">
+          <label for="grade">Grade</label>
+          <select id="grade" required>
+            <option value="" disabled selected>Select grade</option>
+            <option>Grade 6</option><option>Grade 7</option><option>Grade 8</option><option>Grade 9</option>
+            <option>Grade 10</option><option>Grade 11</option><option>Grade 12</option><option>Grade 13</option>
+          </select>
+        </div>
+      </div>
+      <div class="grid-2col">
+        <div class="field">
+          <label for="country">Country</label>
+          <select id="country" required></select>
+        </div>
+        <div class="field">
+          <label for="language">Preferred language</label>
+          <select id="language" required>
+            <option value="en">English</option>
+            <option value="si">සිංහල (Sinhala)</option>
+            <option value="ta">தமிழ் (Tamil)</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="profile-nav-btns">
+        <button type="button" class="btn btn-ghost" id="backToStep1Btn">Back</button>
+        <button type="submit" class="btn btn-primary btn-block" id="submitProfileBtn">Save & continue</button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<script type="module" src="/js/profile.page.js"></script>
+<script src="/js/register-sw.js"></script>
+</body>
+</html>
