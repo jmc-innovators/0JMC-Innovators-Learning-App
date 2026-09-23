@@ -64,34 +64,40 @@ class NavigationAndModelsTest {
     }
 
     @Test
-    fun `verifies user profile initialization and completion checks`() {
-        // When user logs in with Google, initial profile is populated with Google details
-        val initialProfile = UserProfile(
-            uid = "google_user_123",
-            fullName = "Student Name",
-            email = "student@example.com",
-            photoUrl = "https://lh3.googleusercontent.com/a/photo.jpg",
-            createdAtMillis = 1700000000000L
-        )
+    fun `verifies user profile fields and role support`() {
+        val supportedRoles = listOf("student", "teacher", "parent", "operator")
 
-        assertEquals("google_user_123", initialProfile.uid)
-        assertEquals("Student Name", initialProfile.fullName)
-        assertEquals("student@example.com", initialProfile.email)
-        assertEquals("student", initialProfile.role)
-        assertTrue(initialProfile.grade.isBlank())
-
-        // Incomplete profile (blank grade) requires ProfileSetup screen
-        val hasCompletedProfile = initialProfile.fullName.isNotBlank() && initialProfile.grade.isNotBlank()
-        assertFalse(hasCompletedProfile)
-
-        // After completed profile setup with grade
-        val completedProfile = initialProfile.copy(
+        val profile = UserProfile(
+            uid = "firebase_auth_uid_123",
+            fullName = "John Doe",
+            displayName = "John Doe",
+            email = "john@example.com",
+            role = "student",
+            school = "JMC International",
             grade = "Grade 11",
-            school = "JMC College International",
-            language = "en"
+            country = "Sri Lanka",
+            language = "en",
+            photoUrl = "https://lh3.googleusercontent.com/a/photo.jpg",
+            createdAtMillis = 1700000000000L,
+            updatedAtMillis = 1700000000000L
         )
-        assertTrue(completedProfile.fullName.isNotBlank() && completedProfile.grade.isNotBlank())
-        assertEquals("Grade 11", completedProfile.grade)
+
+        assertEquals("firebase_auth_uid_123", profile.uid)
+        assertEquals("John Doe", profile.fullName)
+        assertEquals("John Doe", profile.displayName)
+        assertEquals("john@example.com", profile.email)
+        assertTrue(supportedRoles.contains(profile.role))
+        assertEquals("Grade 11", profile.grade)
+        assertFalse(profile.isTeacherOrAbove)
+
+        val teacherProfile = profile.copy(role = "teacher", grade = "")
+        assertTrue(teacherProfile.isTeacherOrAbove)
+
+        val operatorProfile = profile.copy(role = "operator", grade = "")
+        assertTrue(operatorProfile.isTeacherOrAbove)
+
+        val parentProfile = profile.copy(role = "parent", grade = "")
+        assertFalse(parentProfile.isTeacherOrAbove)
     }
 
     @Test

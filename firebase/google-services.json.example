@@ -1,21 +1,32 @@
 {
-  "// NOTE": "This is a SHAPE REFERENCE ONLY, not a real config. Download the real file from Firebase console > Project settings > Your apps > google-services.json, for the jmc-home2 project, package lk.jmcinnovators.learning (or com.jmcinnovators.app if you keep the original package name). Place it at app/google-services.json. See ../docs/FIREBASE_SETUP.md.",
+  "// NOTE": "Primary Firebase project configuration (jmc-innovators-learning-platfo, student app backend). Auto-copied to app/google-services.json if missing.",
   "project_info": {
-    "project_number": "000000000000",
-    "project_id": "jmc-home2",
-    "storage_bucket": "jmc-home2.appspot.com"
+    "project_number": "725792945886",
+    "project_id": "jmc-innovators-learning-platfo",
+    "storage_bucket": "jmc-innovators-learning-platfo.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:000000000000:android:0000000000000000000000",
-        "android_client_info": { "package_name": "lk.jmcinnovators.learning" }
+        "mobilesdk_app_id": "1:725792945886:android:79ac1e79b23bd1397db44f",
+        "android_client_info": {
+          "package_name": "lk.jmcinnovators.learning"
+        }
       },
       "oauth_client": [
-        { "client_id": "000000000000-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx.apps.googleusercontent.com", "client_type": 3 }
+        {
+          "client_id": "725792945886-2h4qelkmp8jfenrop1ojrvcvue5t2em3.apps.googleusercontent.com",
+          "client_type": 3
+        }
       ],
-      "api_key": [ { "current_key": "YOUR_API_KEY_HERE" } ],
-      "services": { "appinvite_service": {} }
+      "api_key": [
+        {
+          "current_key": "AIzaSyDgVL_4D-1h0xtRynWBWNS4ErfEblc7WR4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {}
+      }
     }
   ],
   "configuration_version": "1"

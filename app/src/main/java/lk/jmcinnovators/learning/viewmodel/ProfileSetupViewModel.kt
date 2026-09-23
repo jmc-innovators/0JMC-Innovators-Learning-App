@@ -29,7 +29,16 @@ class ProfileSetupViewModel(private val userRepository: UserRepository) : ViewMo
                 userRepository.createOrUpdateProfile(profile)
                 _uiState.value = ProfileSetupUiState.Saved
             } catch (e: Exception) {
-                _uiState.value = ProfileSetupUiState.Error(e.message ?: "Could not save your profile.")
+                val isPermissionDenied = e is com.google.firebase.firestore.FirebaseFirestoreException &&
+                    e.code == com.google.firebase.firestore.FirebaseFirestoreException.Code.PERMISSION_DENIED ||
+                    e.message?.contains("PERMISSION_DENIED", ignoreCase = true) == true
+
+                val userMessage = if (isPermissionDenied) {
+                    "Your profile could not be saved. Please check your account permissions and try again."
+                } else {
+                    e.localizedMessage ?: "Could not save your profile. Please try again."
+                }
+                _uiState.value = ProfileSetupUiState.Error(userMessage)
             }
         }
     }

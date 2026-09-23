@@ -6,8 +6,8 @@ import com.google.firebase.functions.FirebaseFunctions
 import com.google.firebase.storage.FirebaseStorage
 
 /**
- * The default FirebaseApp is the jmc-home2 project (app/google-services.json). Every
- * repository except the classroom one talks to this instance, matching legacy-web/js/firebase-init.js.
+ * The default FirebaseApp is the jmc-innovators-learning-platfo project (app/google-services.json).
+ * Every repository except the classroom one talks to this instance.
  */
 object FirebaseRefs {
     val auth: FirebaseAuth get() = FirebaseAuth.getInstance()

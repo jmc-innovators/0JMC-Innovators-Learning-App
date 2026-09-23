@@ -9,6 +9,7 @@ import com.google.firebase.firestore.PropertyName
 data class UserProfile(
     val uid: String = "",
     val fullName: String = "",
+    val displayName: String = "",
     val email: String = "",
     val role: String = "student", // student | teacher | parent | operator
     val school: String = "",
@@ -17,7 +18,9 @@ data class UserProfile(
     val language: String = "en", // en | si | ta
     val photoUrl: String = "",
     @get:PropertyName("createdAt") @set:PropertyName("createdAt")
-    var createdAtMillis: Long = 0L
+    var createdAtMillis: Long = 0L,
+    @get:PropertyName("updatedAt") @set:PropertyName("updatedAt")
+    var updatedAtMillis: Long = 0L
 ) {
     val isTeacherOrAbove: Boolean get() = role == "teacher" || role == "operator"
 }

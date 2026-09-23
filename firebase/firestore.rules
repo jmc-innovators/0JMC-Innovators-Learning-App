@@ -3,15 +3,13 @@ rules_version = '2';
 // ============================================================
 // JMC INNOVATORS — Firestore Security Rules
 // ------------------------------------------------------------
-// Covers ONLY the "jmc-home2" project (the Home Page / Google
-// Login Firebase project). Does not apply to, reference, or
-// affect the separate Firebase project used by jmc_Classroom.html.
+// Covers the "jmc-innovators-learning-platfo" project (the Google
+// Login & Profile Firebase project). Does not apply to, reference, or
+// affect the separate Firebase project used by jmc_Classroom.
 //
-// This is the actual security boundary for the parental control
-// system: a child's own signed-in session can read
-// parentControls/{uid} but can never write it — only the linked,
-// *active* parent's account can. That is enforced here, on
-// Google's servers, not just hidden in client-side JavaScript.
+// This is the actual security boundary: users can only manage their own
+// profiles and notes. Roles are selected on profile creation and locked
+// against unauthorized privilege escalation.
 // ============================================================
 
 service cloud.firestore {
@@ -21,8 +19,7 @@ service cloud.firestore {
     function isSignedIn() { return request.auth != null; }
     function isSelf(uid) { return isSignedIn() && request.auth.uid == uid; }
 
-    // Single admin identity — the site owner's account. Update this email
-    // if the admin account ever changes.
+    // Admin identity
     function isAdmin() {
       return isSignedIn() && request.auth.token.email == 'jmc.innovators2027@gmail.com';
     }
@@ -55,13 +52,12 @@ service cloud.firestore {
       allow read: if isSelf(uid) || isAdmin() || isLinkedParentOf(uid);
       allow create: if isSelf(uid)
                     && request.resource.data.uid == uid
-                    // CHANGED from legacy-web: teacher/operator can no longer self-assign at
-                    // signup. Grant those roles via the console or a Cloud Function instead.
-                    && request.resource.data.role in ['student', 'parent'];
-      // Role is locked after creation — a student can't self-promote to
-      // dodge parental controls, and nobody can grant themselves admin.
+                    && request.resource.data.role in ['student', 'teacher', 'parent', 'operator'];
+      // Role and UID are locked after creation — cannot self-promote or alter identity
       allow update: if isAdmin()
-                    || (isSelf(uid) && request.resource.data.role == resource.data.role);
+                    || (isSelf(uid)
+                        && request.resource.data.uid == resource.data.uid
+                        && request.resource.data.role == resource.data.role);
       allow delete: if isAdmin();
     }
 
@@ -92,9 +88,6 @@ service cloud.firestore {
       allow create: if isRole('parent')
                     && request.resource.data.parentUid == request.auth.uid
                     && request.resource.data.claimedBy == null;
-      // Readable by any signed-in user so a child can validate a code
-      // they were handed by their parent. Codes are single-use, short
-      // (6-digit) and expire in 15 minutes.
       allow read: if isSignedIn();
       allow update: if isSignedIn()
                     && resource.data.claimedBy == null
@@ -113,11 +106,7 @@ service cloud.firestore {
                     && exists(/databases/$(database)/documents/linkCodes/$(request.resource.data.viaCode))
                     && get(/databases/$(database)/documents/linkCodes/$(request.resource.data.viaCode)).data.parentUid == request.resource.data.parentUid
                     && get(/databases/$(database)/documents/linkCodes/$(request.resource.data.viaCode)).data.claimedBy == request.auth.uid;
-      // Parent approves / rejects / edits status.
       allow update: if isAdmin() || (isSignedIn() && resource.data.parentUid == request.auth.uid);
-      // Either side can dissolve the link. (Site owner: remove the isSelf()
-      // clause below if you want only parents to be able to unlink — see
-      // SETUP_GUIDE.md for the tradeoffs.)
       allow delete: if isAdmin() || isSelf(childUid)
                     || (isSignedIn() && resource.data.parentUid == request.auth.uid);
     }
@@ -125,16 +114,10 @@ service cloud.firestore {
     // ---------------- the actual enforcement document ----------------
     match /parentControls/{childUid} {
       allow read: if isSelf(childUid) || isActiveParentOf(childUid) || isAdmin();
-      // THE key rule: a child can read their own restrictions to render the
-      // UI correctly, but can never write here — only their active,
-      // approved parent (or the admin) can.
       allow write: if isActiveParentOf(childUid) || isAdmin();
     }
 
     // ---------------- self-logged monitoring data ----------------
-    // The child's own client logs its own activity; the linked active
-    // parent (and only that parent) can read it. Nobody can edit history
-    // after the fact except the admin, to keep it trustworthy.
     match /loginHistory/{uid}/entries/{entryId} {
       allow create: if isSelf(uid);
       allow read: if isSelf(uid) || isActiveParentOf(uid) || isAdmin();
@@ -161,9 +144,7 @@ service cloud.firestore {
       allow update: if isAdmin();
     }
 
-
-    // ---------------- notes (new in the native app — legacy-web has no Firestore-backed
-    // note taker) ----------------
+    // ---------------- notes ----------------
     match /notes/{noteId} {
       allow read, update, delete: if isSignedIn() && resource.data.ownerUid == request.auth.uid;
       allow create: if isSignedIn() && request.resource.data.ownerUid == request.auth.uid;
@@ -180,11 +161,10 @@ service cloud.firestore {
     // ---------------- notifications ----------------
     match /notifications/{uid}/items/{notifId} {
       allow read, update, delete: if isSelf(uid) || isAdmin();
-      // Self, or the child's active parent, can create a notification.
       allow create: if isSelf(uid) || isActiveParentOf(uid) || isAdmin();
     }
 
-    // ---------------- reports & analytics (reserved for future use) ----------------
+    // ---------------- reports & analytics ----------------
     match /reports/{childUid}/items/{reportId} {
       allow read: if isSelf(childUid) || isActiveParentOf(childUid) || isAdmin();
       allow write: if isAdmin();
@@ -194,7 +174,7 @@ service cloud.firestore {
       allow write: if isSelf(uid) || isAdmin();
     }
 
-    // Default deny — anything not explicitly matched above is inaccessible.
+    // Default deny
     match /{document=**} {
       allow read, write: if false;
     }

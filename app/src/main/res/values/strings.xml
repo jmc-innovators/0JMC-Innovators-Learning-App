@@ -4,10 +4,8 @@
     <string name="app_subtitle">Learning Platform</string>
     <string name="app_tagline">Learn. Create. Innovate.</string>
 
-    <!-- OAuth "Web client (auto created by Google Service)" (client_type 3) from
-         app/google-services.json, jmc-home2 project. Required by Credential Manager /
-         Google Sign-In (see AuthRepository.kt and FIREBASE_SETUP.md). -->
-    <string name="default_web_client_id" translatable="false">129216148625-k3gkmcol114rntrmgettubri6jo9pphe.apps.googleusercontent.com</string>
+    <!-- default_web_client_id is generated dynamically by com.google.gms.google-services
+         from app/google-services.json (project jmc-innovators-learning-platfo). -->
 
     <string name="channel_general_id" translatable="false">jmc_general</string>
     <string name="channel_general_name">General updates</string>

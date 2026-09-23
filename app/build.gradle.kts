@@ -62,7 +62,10 @@ android {
         sourceCompatibility = JavaVersion.VERSION_17
         targetCompatibility = JavaVersion.VERSION_17
     }
-    kotlinOptions { jvmTarget = "17" }
+    kotlinOptions {
+        jvmTarget = "17"
+        freeCompilerArgs += listOf("-Xskip-metadata-version-check")
+    }
 
     buildFeatures {
         compose = true
@@ -113,18 +116,13 @@ dependencies {
     implementation("androidx.credentials:credentials-play-services-auth:1.3.0")
     implementation("com.google.android.libraries.identity.googleid:googleid:1.1.1")
 
-    // Firebase (versions are managed by the BoM)
-    implementation(platform("com.google.firebase:firebase-bom:33.7.0"))
-    implementation("com.google.firebase:firebase-analytics")
+    // Firebase (versions are managed by the BoM 34.19.0)
+    implementation(platform("com.google.firebase:firebase-bom:34.19.0"))
     implementation("com.google.firebase:firebase-auth")
-    implementation("com.google.firebase:firebase-auth-ktx")
     implementation("com.google.firebase:firebase-firestore")
-    implementation("com.google.firebase:firebase-firestore-ktx")
     implementation("com.google.firebase:firebase-storage")
-    implementation("com.google.firebase:firebase-storage-ktx")
     implementation("com.google.firebase:firebase-messaging")
     implementation("com.google.firebase:firebase-functions")
-    implementation("com.google.firebase:firebase-common-ktx")
 
     // Coroutines
     implementation("org.jetbrains.kotlinx:kotlinx-coroutines-android:1.9.0")
@@ -154,11 +152,13 @@ val ensureFirebaseConfigs by tasks.registering {
             } else {
                 gs.writeText("""
                 {
-                  "project_info": { "project_number": "129216148625", "project_id": "jmc-home2", "storage_bucket": "jmc-home2.firebasestorage.app" },
+                  "project_info": { "project_number": "725792945886", "project_id": "jmc-innovators-learning-platfo", "storage_bucket": "jmc-innovators-learning-platfo.firebasestorage.app" },
                   "client": [ {
-                    "client_info": { "mobilesdk_app_id": "1:129216148625:android:c3947477bfaef553", "android_client_info": { "package_name": "lk.jmcinnovators.learning" } },
-                    "oauth_client": [ { "client_id": "129216148625-k3gkmcol114rntrmgettubri6jo9pphe.apps.googleusercontent.com", "client_type": 3 } ],
-                    "api_key": [ { "current_key": "AIzaSyBqv-Ohj2QjgODRgnuOlIyXhgS82WJ_Ohs" } ],
+                    "client_info": { "mobilesdk_app_id": "1:725792945886:android:79ac1e79b23bd1397db44f", "android_client_info": { "package_name": "lk.jmcinnovators.learning" } },
+                    "oauth_client": [
+                      { "client_id": "725792945886-2h4qelkmp8jfenrop1ojrvcvue5t2em3.apps.googleusercontent.com", "client_type": 3 }
+                    ],
+                    "api_key": [ { "current_key": "AIzaSyDgVL_4D-1h0xtRynWBWNS4ErfEblc7WR4" } ],
                     "services": { "appinvite_service": {} }
                   } ],
                   "configuration_version": "1"

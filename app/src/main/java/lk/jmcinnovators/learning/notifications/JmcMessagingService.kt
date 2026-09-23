@@ -4,22 +4,21 @@ import android.app.PendingIntent
 import android.content.Intent
 import androidx.core.app.NotificationCompat
 import androidx.core.app.NotificationManagerCompat
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.messaging.FirebaseMessagingService
 import com.google.firebase.messaging.RemoteMessage
 import lk.jmcinnovators.learning.MainActivity
 import lk.jmcinnovators.learning.R
 
-/** FCM covers push delivery; legacy-web/js/notifications.js's notifications/{uid}/items
+/** FCM covers push delivery; notifications/{uid}/items
  *  collection remains the source of truth the in-app notification center reads from. */
 class JmcMessagingService : FirebaseMessagingService() {
 
     override fun onNewToken(token: String) {
-        val uid = Firebase.auth.currentUser?.uid
+        val uid = FirebaseAuth.getInstance().currentUser?.uid
         if (uid != null) {
-            Firebase.firestore.collection("users").document(uid)
+            FirebaseFirestore.getInstance().collection("users").document(uid)
                 .update("fcmToken", token)
                 .addOnFailureListener { /* best-effort; profile may not exist yet */ }
         }

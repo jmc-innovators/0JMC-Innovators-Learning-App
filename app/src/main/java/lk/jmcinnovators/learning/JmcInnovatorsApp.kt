@@ -5,11 +5,9 @@ import android.app.NotificationChannel
 import android.app.NotificationManager
 import android.os.Build
 import com.google.firebase.FirebaseApp
+import com.google.firebase.firestore.FirebaseFirestore
 import com.google.firebase.firestore.FirebaseFirestoreSettings
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.firestore.ktx.firestoreSettings
-import com.google.firebase.firestore.ktx.persistentCacheSettings
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.firestore.PersistentCacheSettings
 
 class JmcInnovatorsApp : Application() {
 
@@ -18,10 +16,11 @@ class JmcInnovatorsApp : Application() {
         try {
             FirebaseApp.initializeApp(this)
 
-            // Offline persistence: cached reads/writes survive a dropped connection (see req. 23).
-            Firebase.firestore.firestoreSettings = firestoreSettings {
-                setLocalCacheSettings(persistentCacheSettings {})
-            }
+            // Offline persistence: cached reads/writes survive a dropped connection
+            val settings = FirebaseFirestoreSettings.Builder()
+                .setLocalCacheSettings(PersistentCacheSettings.newBuilder().build())
+                .build()
+            FirebaseFirestore.getInstance().firestoreSettings = settings
         } catch (e: Exception) {
             android.util.Log.e("JmcInnovatorsApp", "Firebase initialization failed: ${e.message}", e)
         }

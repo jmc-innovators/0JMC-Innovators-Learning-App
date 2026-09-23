@@ -40,29 +40,21 @@ class AuthViewModel(
                     val uid = result.user.uid
                     Log.d(tag, "Google sign-in successful for user: $uid")
 
-                    var profile: UserProfile? = null
                     try {
-                        profile = userRepository.getProfile(uid)
-                        if (profile == null) {
-                            Log.d(tag, "No existing profile for $uid, creating initial document in users/$uid...")
-                            val newProfile = UserProfile(
-                                uid = uid,
-                                fullName = result.user.displayName.orEmpty(),
-                                email = result.user.email.orEmpty(),
-                                photoUrl = result.user.photoUrl?.toString().orEmpty(),
-                                createdAtMillis = System.currentTimeMillis()
-                            )
-                            userRepository.createOrUpdateProfile(newProfile)
-                            profile = newProfile
+                        val profile = userRepository.getProfile(uid)
+                        if (profile != null) {
+                            Log.d(tag, "Existing profile found in users/$uid with role: ${profile.role}")
+                            _uiState.value = LoginUiState.SignedIn(hasProfile = true)
                         } else {
-                            Log.d(tag, "Loaded existing profile for $uid: role=${profile.role}, grade=${profile.grade}")
+                            Log.d(tag, "No profile document exists for $uid in users/{uid}. Proceeding to Profile Setup.")
+                            _uiState.value = LoginUiState.SignedIn(hasProfile = false)
                         }
                     } catch (e: Exception) {
-                        Log.w(tag, "Error accessing users/$uid in Firestore: ${e.message}", e)
+                        Log.w(tag, "Error reading users/$uid from Firestore: ${e.message}", e)
+                        _uiState.value = LoginUiState.Error(
+                            "Unable to verify profile. Please check your network connection and try again."
+                        )
                     }
-
-                    val hasCompletedProfile = profile != null && profile.grade.isNotBlank()
-                    _uiState.value = LoginUiState.SignedIn(hasProfile = hasCompletedProfile)
                 }
                 is AuthResult.Error -> {
                     Log.w(tag, "Sign-in failed with error: ${result.message}")

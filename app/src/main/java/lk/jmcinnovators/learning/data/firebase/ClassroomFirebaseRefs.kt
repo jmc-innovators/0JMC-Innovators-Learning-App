@@ -3,17 +3,16 @@ package lk.jmcinnovators.learning.data.firebase
 import android.content.Context
 import com.google.firebase.FirebaseApp
 import com.google.firebase.FirebaseOptions
-import com.google.firebase.auth.ktx.auth
-import com.google.firebase.firestore.ktx.firestore
-import com.google.firebase.ktx.Firebase
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.firestore.FirebaseFirestore
 import lk.jmcinnovators.learning.R
 import org.json.JSONObject
 
 /**
  * jmc-class is a second, separate Firebase project (legacy-web/jmc_Classroom.html). Its
  * google-services file (res/raw/jmc_class_services.json) is parsed by hand and used to spin
- * up a *named* secondary FirebaseApp, so classroom data never mixes with the jmc-home2 default
- * app used everywhere else. See MIGRATION.md for why these two projects are still separate.
+ * up a *named* secondary FirebaseApp, so classroom data never mixes with the default
+ * Firebase app used everywhere else. See MIGRATION.md for why these two projects are still separate.
  */
 private const val SECONDARY_APP_NAME = "jmc-class"
 
@@ -56,6 +55,6 @@ object ClassroomFirebaseRefs {
         }
     }
 
-    fun auth(context: Context) = Firebase.auth(app(context))
-    fun firestore(context: Context) = Firebase.firestore(app(context))
+    fun auth(context: Context): FirebaseAuth = FirebaseAuth.getInstance(app(context))
+    fun firestore(context: Context): FirebaseFirestore = FirebaseFirestore.getInstance(app(context))
 }

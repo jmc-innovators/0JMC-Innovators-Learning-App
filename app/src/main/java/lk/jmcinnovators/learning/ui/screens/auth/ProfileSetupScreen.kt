@@ -171,6 +171,7 @@ fun ProfileSetupScreen(
                         UserProfile(
                             uid = uid,
                             fullName = fullName,
+                            displayName = fullName,
                             email = firebaseUser.email ?: "",
                             role = role,
                             school = school,
@@ -178,7 +179,8 @@ fun ProfileSetupScreen(
                             country = country,
                             language = language,
                             photoUrl = firebaseUser.photoUrl?.toString() ?: "",
-                            createdAtMillis = System.currentTimeMillis()
+                            createdAtMillis = System.currentTimeMillis(),
+                            updatedAtMillis = System.currentTimeMillis()
                         )
                     )
                 },
