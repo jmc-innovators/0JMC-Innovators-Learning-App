@@ -7,12 +7,41 @@ plugins {
     id("com.google.gms.google-services")
 }
 
-// Release signing comes from an untracked keystore.properties file (see RELEASE.md).
-// Nothing secret is ever stored in this repository.
+// Release signing configuration loaded securely from untracked keystore.properties,
+// Gradle properties, or environment variables. No secrets are stored in source control.
 val keystoreProps = Properties().apply {
     val f = rootProject.file("keystore.properties")
     if (f.exists()) f.inputStream().use { load(it) }
 }
+
+val releaseStoreFile: String? =
+    System.getenv("JMC_RELEASE_STORE_FILE")
+        ?: (project.findProperty("JMC_RELEASE_STORE_FILE") as? String)
+        ?: keystoreProps.getProperty("JMC_RELEASE_STORE_FILE")
+        ?: keystoreProps.getProperty("storeFile")
+
+val releaseStorePassword: String? =
+    System.getenv("JMC_RELEASE_STORE_PASSWORD")
+        ?: (project.findProperty("JMC_RELEASE_STORE_PASSWORD") as? String)
+        ?: keystoreProps.getProperty("JMC_RELEASE_STORE_PASSWORD")
+        ?: keystoreProps.getProperty("storePassword")
+
+val releaseKeyAlias: String? =
+    System.getenv("JMC_RELEASE_KEY_ALIAS")
+        ?: (project.findProperty("JMC_RELEASE_KEY_ALIAS") as? String)
+        ?: keystoreProps.getProperty("JMC_RELEASE_KEY_ALIAS")
+        ?: keystoreProps.getProperty("keyAlias")
+
+val releaseKeyPassword: String? =
+    System.getenv("JMC_RELEASE_KEY_PASSWORD")
+        ?: (project.findProperty("JMC_RELEASE_KEY_PASSWORD") as? String)
+        ?: keystoreProps.getProperty("JMC_RELEASE_KEY_PASSWORD")
+        ?: keystoreProps.getProperty("keyPassword")
+
+val hasReleaseSigning = !releaseStoreFile.isNullOrBlank() &&
+    !releaseStorePassword.isNullOrBlank() &&
+    !releaseKeyAlias.isNullOrBlank() &&
+    !releaseKeyPassword.isNullOrBlank()
 
 android {
     namespace = "lk.jmcinnovators.learning"
@@ -35,12 +64,13 @@ android {
             keyAlias = "androiddebugkey"
             keyPassword = "android"
         }
-        if (keystoreProps.isNotEmpty()) {
+        if (hasReleaseSigning) {
             create("release") {
-                storeFile = rootProject.file(keystoreProps.getProperty("storeFile"))
-                storePassword = keystoreProps.getProperty("storePassword")
-                keyAlias = keystoreProps.getProperty("keyAlias")
-                keyPassword = keystoreProps.getProperty("keyPassword")
+                val resolvedFile = rootProject.file(releaseStoreFile!!)
+                storeFile = if (resolvedFile.exists()) resolvedFile else file(releaseStoreFile)
+                storePassword = releaseStorePassword
+                keyAlias = releaseKeyAlias
+                keyPassword = releaseKeyPassword
             }
         }
     }
@@ -50,7 +80,9 @@ android {
             isMinifyEnabled = true
             isShrinkResources = true
             proguardFiles(getDefaultProguardFile("proguard-android-optimize.txt"), "proguard-rules.pro")
-            if (keystoreProps.isNotEmpty()) signingConfig = signingConfigs.getByName("release")
+            if (hasReleaseSigning) {
+                signingConfig = signingConfigs.getByName("release")
+            }
         }
         debug {
             isDebuggable = true
