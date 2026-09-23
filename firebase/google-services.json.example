@@ -1,5 +1,5 @@
 {
-  "// NOTE": "Primary Firebase project configuration (jmc-innovators-learning-platfo, student app backend). Auto-copied to app/google-services.json if missing.",
+  "// NOTE": "Obtain the actual file from Firebase Console -> Project settings -> General -> lk.jmcinnovators.learning -> Download google-services.json. Place at app/google-services.json.",
   "project_info": {
     "project_number": "725792945886",
     "project_id": "jmc-innovators-learning-platfo",
@@ -15,6 +15,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "725792945886-h0ejvihr5v1i6402q4p5jmhrv4dg145d.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "lk.jmcinnovators.learning",
+            "certificate_hash": "7dd69bbaac6995cdd4a9edd6d0ce3254dcc88b1f"
+          }
+        },
+        {
           "client_id": "725792945886-2h4qelkmp8jfenrop1ojrvcvue5t2em3.apps.googleusercontent.com",
           "client_type": 3
         }
@@ -25,7 +33,14 @@
         }
       ],
       "services": {
-        "appinvite_service": {}
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "725792945886-2h4qelkmp8jfenrop1ojrvcvue5t2em3.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
       }
     }
   ],
