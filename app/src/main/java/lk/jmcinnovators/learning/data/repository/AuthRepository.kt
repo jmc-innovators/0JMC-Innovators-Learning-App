@@ -48,10 +48,18 @@ class AuthRepository(private val context: Context) {
 
     suspend fun signInWithGoogle(activityContext: Context? = null): AuthResult {
         val targetContext = resolveActivity(activityContext ?: context) ?: activityContext ?: context
-        val webClientId = targetContext.getString(R.string.default_web_client_id)
+        val webClientId = try {
+            val resId = targetContext.resources.getIdentifier("default_web_client_id", "string", targetContext.packageName)
+            if (resId != 0) targetContext.getString(resId).trim() else ""
+        } catch (e: Exception) {
+            ""
+        }.ifBlank {
+            // Fallback to the Web Client ID from the main Firebase project if resource is missing
+            "725792945886-2h4qelkmp8jfenrop1ojrvcvue5t2em3.apps.googleusercontent.com"
+        }
 
         if (webClientId.isBlank()) {
-            Log.e(tag, "Google Web Client ID is missing in strings.xml")
+            Log.e(tag, "Google Web Client ID is missing in strings.xml and configuration.")
             return AuthResult.Error("Configuration error: Google Client ID is missing.")
         }
 
@@ -177,7 +185,20 @@ class AuthRepository(private val context: Context) {
             Log.w(tag, "No Google accounts available on device.")
             return AuthResult.Error("No Google account found on this device. Please add a Google account in Settings and try again.")
         }
-        Log.e(tag, "Credential Manager error: ${e.javaClass.simpleName} - ${e.message}", e)
+        val msg = e.message.orEmpty()
+        Log.e(tag, "Credential Manager error: ${e.javaClass.simpleName} - $msg", e)
+
+        if (msg.contains("28444") || msg.contains("Developer console is not set up correctly", ignoreCase = true)) {
+            Log.e(
+                tag,
+                "Google Sign-In configuration mismatch (Error 28444).\n" +
+                "Cause: The signing certificate (SHA-1) of this build is not registered under lk.jmcinnovators.learning in Firebase/Google Cloud Console, " +
+                "or Google provider is disabled in Firebase Authentication, or OAuth consent screen is not configured.\n" +
+                "Package: ${context.packageName}"
+            )
+            return AuthResult.Error("Google Sign-In configuration needs to be updated. Please ensure the app's signing certificate (SHA-1) is added to Firebase Console.")
+        }
+
         return AuthResult.Error(e.localizedMessage ?: "Sign-in failed. Please try again.")
     }
 
