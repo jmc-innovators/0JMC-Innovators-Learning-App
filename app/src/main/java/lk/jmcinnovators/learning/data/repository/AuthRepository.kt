@@ -192,7 +192,7 @@ class AuthRepository(private val context: Context) {
             Log.e(
                 tag,
                 "Google Sign-In configuration mismatch (Error 28444).\n" +
-                "Cause: The signing certificate (SHA-1) of this build is not registered under lk.jmcinnovators.learning in Firebase/Google Cloud Console, " +
+                "Cause: The signing certificate (SHA-1) of this build is not registered under ${context.packageName} in Firebase/Google Cloud Console, " +
                 "or Google provider is disabled in Firebase Authentication, or OAuth consent screen is not configured.\n" +
                 "Package: ${context.packageName}"
             )

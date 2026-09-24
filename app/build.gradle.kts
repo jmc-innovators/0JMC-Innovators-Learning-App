@@ -48,11 +48,11 @@ android {
     compileSdk = 35
 
     defaultConfig {
-        applicationId = "lk.jmcinnovators.learning"
+        applicationId = "com.jmcinnovators.learningapp"
         minSdk = 24
         targetSdk = 35
         versionCode = 1
-        versionName = "2.0.0"
+        versionName = "1.0.0"
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
         vectorDrawables { useSupportLibrary = true }
     }
@@ -186,7 +186,7 @@ val ensureFirebaseConfigs by tasks.registering {
                 {
                   "project_info": { "project_number": "725792945886", "project_id": "jmc-innovators-learning-platfo", "storage_bucket": "jmc-innovators-learning-platfo.firebasestorage.app" },
                   "client": [ {
-                    "client_info": { "mobilesdk_app_id": "1:725792945886:android:79ac1e79b23bd1397db44f", "android_client_info": { "package_name": "lk.jmcinnovators.learning" } },
+                    "client_info": { "mobilesdk_app_id": "1:725792945886:android:79ac1e79b23bd1397db44f", "android_client_info": { "package_name": "com.jmcinnovators.learningapp" } },
                     "oauth_client": [
                       { "client_id": "725792945886-2h4qelkmp8jfenrop1ojrvcvue5t2em3.apps.googleusercontent.com", "client_type": 3 }
                     ],
@@ -229,13 +229,23 @@ tasks.matching { it.name.startsWith("generate") && it.name.endsWith("Resources")
     dependsOn(ensureFirebaseConfigs)
 }
 
-val copyFinalApk by tasks.registering(Copy::class) {
-    val src = layout.buildDirectory.file("outputs/apk/debug/app-debug.apk")
-    from(src)
-    into(rootProject.file("release"))
-    rename { "JMC-Innovators-Learning-App.apk" }
+val copyFinalApk by tasks.registering {
+    dependsOn(tasks.named("assembleRelease"))
+    doLast {
+        val releaseDir = rootProject.file("release")
+        releaseDir.mkdirs()
+        val releaseApk = layout.buildDirectory.file("outputs/apk/release/app-release.apk").get().asFile
+        if (releaseApk.exists()) {
+            releaseApk.copyTo(File(releaseDir, "jmc innovators learning app v.1.apk"), overwrite = true)
+            releaseApk.copyTo(File(releaseDir, "JMC-Innovators-Learning-App-v1.apk"), overwrite = true)
+        }
+        val debugApk = layout.buildDirectory.file("outputs/apk/debug/app-debug.apk").get().asFile
+        if (debugApk.exists()) {
+            debugApk.copyTo(File(releaseDir, "JMC-Innovators-Learning-App-Debug.apk"), overwrite = true)
+        }
+    }
 }
 
-tasks.matching { it.name == "assembleDebug" }.configureEach {
+tasks.matching { it.name == "assembleRelease" }.configureEach {
     finalizedBy(copyFinalApk)
 }
